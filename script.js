@@ -783,59 +783,90 @@ function setupProjectModal() {
 
 function openProjectModal(project) {
   const modal = document.getElementById('project-modal');
-  const modalTitle = document.getElementById('modal-title');
-  const modalTech = document.getElementById('modal-tech');
-  const modalImage = document.getElementById('modal-image');
-  const modalDescription = document.getElementById('modal-description');
-  const modalFeatures = document.getElementById('modal-features');
-  const modalChallenge = document.getElementById('modal-challenge-text');
-  const modalDemo = document.getElementById('modal-demo');
-  const modalGithub = document.getElementById('modal-github');
   
-  // Populate modal content
-  modalTitle.textContent = project.title;
-  
-  modalTech.innerHTML = project.technologies.map(tech => 
-    `<span>${tech}</span>`
-  ).join('');
-  
-  // Create image carousel
-  modalImage.innerHTML = `
-    <div class="image-carousel">
-      <div class="carousel-container">
-        <button class="carousel-btn carousel-prev" onclick="prevImage(event)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="carousel-images" id="carousel-images">
-          ${project.gallery.map((image, index) => `
-            <img src="${image}" alt="${project.title} - Imagem ${index + 1}" 
-                 class="carousel-image ${index === 0 ? 'active' : ''}" 
-                 data-index="${index}" />
-          `).join('')}
+  // Create complete modal structure
+  modal.innerHTML = `
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-scroll-container">
+        <div class="modal-header">
+          <h2 class="modal-title">${project.title}</h2>
+          <div class="modal-tech">
+            ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
+          </div>
         </div>
-        <button class="carousel-btn carousel-next" onclick="nextImage(event)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-      <div class="carousel-indicators">
-        ${project.gallery.map((_, index) => `
-          <button class="carousel-indicator ${index === 0 ? 'active' : ''}" 
-                  onclick="goToImage(event, ${index})" data-index="${index}"></button>
-        `).join('')}
+        
+        <div class="modal-body">
+          <div class="modal-image-section">
+            <div class="image-carousel">
+              <div class="carousel-container">
+                <button class="carousel-btn carousel-prev" onclick="prevImage(event)">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-images">
+                  ${project.gallery.map((image, index) => `
+                    <img src="${image}" alt="${project.title} - Screenshot ${index + 1}" 
+                         class="carousel-image ${index === 0 ? 'active' : ''}" 
+                         data-index="${index}" />
+                  `).join('')}
+                </div>
+                <button class="carousel-btn carousel-next" onclick="nextImage(event)">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="carousel-indicators">
+                ${project.gallery.map((_, index) => `
+                  <button class="carousel-indicator ${index === 0 ? 'active' : ''}" 
+                          onclick="goToImage(event, ${index})" data-index="${index}"></button>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+          
+          <div class="modal-content-section">
+            <div class="modal-description">
+              ${project.fullDescription}
+            </div>
+            
+            <div class="modal-info-grid">
+              <div class="modal-section modal-features">
+                <h3>Principais Funcionalidades</h3>
+                <ul>
+                  ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+              </div>
+              
+              <div class="modal-section modal-challenge">
+                <h3>Desafios Técnicos</h3>
+                <p class="modal-challenge-text">${project.challenge}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-actions">
+          <a href="${project.demoUrl}" class="modal-link" target="_blank">
+            <i class="fas fa-external-link-alt"></i>
+            Ver Demo
+          </a>
+          <a href="${project.githubUrl}" class="modal-link" target="_blank">
+            <i class="fab fa-github"></i>
+            Código no GitHub
+          </a>
+        </div>
       </div>
     </div>
   `;
   
-  modalDescription.textContent = project.fullDescription;
+  // Setup event listeners
+  const modalOverlay = modal.querySelector('#modal-overlay');
+  const modalClose = modal.querySelector('#modal-close');
   
-  modalFeatures.innerHTML = project.features.map(feature => 
-    `<li>${feature}</li>`
-  ).join('');
-  
-  modalChallenge.textContent = project.challenge;
-  
-  modalDemo.href = project.demoUrl;
-  modalGithub.href = project.githubUrl;
+  modalOverlay.addEventListener('click', closeProjectModal);
+  modalClose.addEventListener('click', closeProjectModal);
   
   // Initialize carousel
   currentImageIndex = 0;
