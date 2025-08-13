@@ -343,6 +343,23 @@
 
   <!-- Project Detail Page -->
   <div id="project-detail-page" class="project-detail-page hidden">
+    <!-- Project Detail Header/Navigation -->
+    <nav class="project-detail-nav">
+      <div class="container">
+        <div class="nav-container">
+          <div class="nav-logo">JOÃO.DEV</div>
+          <div class="nav-menu">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Experience</a>
+            <a href="#" class="nav-link active">Projects</a>
+            <a href="#" class="nav-link">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Project Detail Hero Section -->
     <div class="project-detail-hero">
       <div class="container">
         <button class="back-btn" id="back-to-projects">
@@ -350,11 +367,10 @@
           Back to Projects
         </button>
         
-        <div class="project-badge" id="project-badge">Full Stack</div>
+        <div class="project-detail-badge" id="project-detail-badge">Full Stack</div>
+        <div class="project-detail-year" id="project-detail-year">2023</div>
         
-        <h1 class="project-detail-title" id="project-detail-title">
-          E-Commerce Platform
-        </h1>
+        <h1 class="project-detail-title" id="project-detail-title">E-Commerce Platform</h1>
         
         <p class="project-detail-description" id="project-detail-description">
           Uma plataforma completa de e-commerce desenvolvida com React, Node.js e MongoDB. O 
@@ -363,12 +379,12 @@
           vendedores e inclui recursos avançados como recomendações por IA e chat ao vivo.
         </p>
         
-        <div class="project-actions">
-          <a href="#" class="btn btn-primary" id="live-demo-btn">
+        <div class="project-detail-actions">
+          <a href="#" class="btn-detail btn-live" id="live-demo-btn">
             <i class="fas fa-external-link-alt"></i>
             <span>Live Demo</span>
           </a>
-          <a href="#" class="btn btn-secondary" id="view-code-btn">
+          <a href="#" class="btn-detail btn-code" id="view-code-btn">
             <i class="fab fa-github"></i>
             <span>View Code</span>
           </a>
@@ -378,25 +394,25 @@
 
     <div class="container">
       <!-- Technologies Used Section -->
-      <section class="technologies-used">
-        <h2>Technologies <span class="highlight">Used</span></h2>
-        <div class="tech-stack-grid" id="project-tech-stack">
+      <section class="project-technologies">
+        <h2 class="section-title-detail">Technologies <span class="highlight-detail">Used</span></h2>
+        <div class="tech-badges" id="project-tech-badges">
           <!-- Will be populated dynamically -->
         </div>
       </section>
 
-      <!-- Features and Challenges Grid -->
+      <!-- Key Features and Development Challenges -->
       <div class="features-challenges-grid">
-        <section class="key-features">
-          <h2>Key Features</h2>
-          <ul id="project-key-features">
+        <section class="key-features-section">
+          <h2 class="section-title-features">Key Features</h2>
+          <ul id="project-key-features" class="features-list">
             <!-- Will be populated dynamically -->
           </ul>
         </section>
 
-        <section class="development-challenges">
-          <h2>Development Challenges</h2>
-          <ul id="project-challenges">
+        <section class="challenges-section">
+          <h2 class="section-title-challenges">Development Challenges</h2>
+          <ul id="project-challenges" class="challenges-list">
             <!-- Will be populated dynamically -->
           </ul>
         </section>
@@ -404,12 +420,22 @@
 
       <!-- Project Gallery -->
       <section class="project-gallery">
-        <h2>Project <span class="highlight">Gallery</span></h2>
+        <h2 class="section-title-detail">Project <span class="highlight-detail">Gallery</span></h2>
         <div class="gallery-grid" id="project-gallery-grid">
           <!-- Will be populated dynamically -->
         </div>
       </section>
     </div>
+
+    <!-- Project Detail Footer -->
+    <footer class="project-detail-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">JOÃO.DEV</div>
+          <div class="footer-text">© 2024 João Araújo. Todos os direitos reservados.</div>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <!-- Contact Section -->
