@@ -322,69 +322,62 @@
         <h2 class="section-title">Projetos Destacados</h2>
         <div class="section-divider"></div>
       </div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
+      
+      <!-- Project Filters -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="React">React</button>
+        <button class="filter-btn" data-filter="Vue.js">Vue.js</button>
+        <button class="filter-btn" data-filter="Node.js">Node.js</button>
+        <button class="filter-btn" data-filter="Python">Python</button>
+        <button class="filter-btn" data-filter="TypeScript">TypeScript</button>
+        <button class="filter-btn" data-filter="Web3">Web3</button>
+        <button class="filter-btn" data-filter="Docker">Docker</button>
+      </div>
+      
+      <div class="projects-grid" id="projects-grid">
+        <!-- Projects will be dynamically inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Detail Modal -->
+  <div id="project-modal" class="project-modal">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="modal-header">
+        <h2 id="modal-title"></h2>
+        <div class="modal-tech" id="modal-tech"></div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image" id="modal-image"></div>
+        <div class="modal-info">
+          <div class="modal-description" id="modal-description"></div>
+          <div class="modal-features">
+            <h3>Principais Funcionalidades</h3>
+            <ul id="modal-features"></ul>
           </div>
-          <div class="project-content">
-            <h3>E-commerce Platform</h3>
-            <p>Plataforma de e-commerce completa com sistema de pagamentos, gestão de estoque e analytics em tempo real.</p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>PostgreSQL</span>
-            </div>
+          <div class="modal-challenge">
+            <h3>Desafios Técnicos</h3>
+            <p id="modal-challenge-text"></p>
           </div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>DeFi Dashboard</h3>
-            <p>Dashboard para gerenciamento de ativos DeFi com integração Web3 e análise de portfólio em tempo real.</p>
-            <div class="project-tech">
-              <span>Vue.js</span>
-              <span>Web3</span>
-              <span>Ethereum</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-image">
-            <div class="project-overlay">
-              <div class="project-links">
-                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3>FinTech API</h3>
-            <p>API robusta para sistema financeiro com microserviços, processamento de pagamentos e compliance.</p>
-            <div class="project-tech">
-              <span>Node.js</span>
-              <span>Docker</span>
-              <span>Redis</span>
-            </div>
+          <div class="modal-links">
+            <a href="#" class="modal-link" id="modal-demo" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              Ver Demo
+            </a>
+            <a href="#" class="modal-link" id="modal-github" target="_blank">
+              <i class="fab fa-github"></i>
+              Código no GitHub
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Contact Section -->
   <section id="contact" class="contact">

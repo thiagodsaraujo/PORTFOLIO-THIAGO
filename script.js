@@ -13,6 +13,136 @@ let typeIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
+// Projects data
+const projectsData = [
+  {
+    id: 1,
+    title: 'E-commerce Platform',
+    description: 'Plataforma de e-commerce completa com sistema de pagamentos, gestão de estoque e analytics em tempo real.',
+    fullDescription: 'Uma plataforma completa de e-commerce desenvolvida com as mais modernas tecnologias, oferecendo uma experiência de compra otimizada tanto para usuários quanto para administradores. O sistema inclui processamento de pagamentos seguro, gestão inteligente de inventário e dashboards analíticos em tempo real.',
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'Redis', 'Stripe', 'Docker'],
+    features: [
+      'Sistema de autenticação e autorização JWT',
+      'Processamento de pagamentos com Stripe',
+      'Gestão de inventário em tempo real',
+      'Dashboard administrativo completo',
+      'Sistema de reviews e avaliações',
+      'Notificações push e email',
+      'API RESTful documentada',
+      'Deploy automatizado com CI/CD'
+    ],
+    challenge: 'O principal desafio foi implementar um sistema de pagamentos robusto que pudesse lidar com múltiplas moedas e métodos de pagamento, garantindo PCI compliance e uma experiência fluida para o usuário.',
+    demoUrl: '#',
+    githubUrl: '#',
+    imageIcon: '🛒'
+  },
+  {
+    id: 2,
+    title: 'DeFi Dashboard',
+    description: 'Dashboard para gerenciamento de ativos DeFi com integração Web3 e análise de portfólio em tempo real.',
+    fullDescription: 'Uma aplicação Web3 avançada para monitoramento e gestão de portfólios DeFi. Conecta-se com múltiplas blockchains para fornecer uma visão unificada de todos os ativos digitais do usuário, com análises detalhadas de performance e yield farming.',
+    technologies: ['Vue.js', 'Web3', 'Ethereum', 'TypeScript', 'Metamask', 'Moralis'],
+    features: [
+      'Conexão com múltiplas wallets (MetaMask, WalletConnect)',
+      'Monitoramento de múltiplas blockchains',
+      'Analytics de portfólio em tempo real',
+      'Calculadora de yield farming',
+      'Histórico de transações detalhado',
+      'Alertas de preços personalizáveis',
+      'Interface responsiva e intuitiva',
+      'Integração com exchanges descentralizadas'
+    ],
+    challenge: 'Integrar dados de múltiplas blockchains e protocolos DeFi em uma interface unificada, mantendo a performance e lidando com a volatilidade dos dados em tempo real.',
+    demoUrl: '#',
+    githubUrl: '#',
+    imageIcon: '📊'
+  },
+  {
+    id: 3,
+    title: 'FinTech API',
+    description: 'API robusta para sistema financeiro com microserviços, processamento de pagamentos e compliance.',
+    fullDescription: 'Uma API enterprise-grade desenvolvida para instituições financeiras, oferecendo serviços completos de processamento de pagamentos, gestão de contas e conformidade regulatória. Arquitetura de microserviços escalável com alta disponibilidade.',
+    technologies: ['Node.js', 'Docker', 'Redis', 'PostgreSQL', 'Kubernetes', 'RabbitMQ'],
+    features: [
+      'Arquitetura de microserviços escalável',
+      'Processamento de pagamentos PIX e TED',
+      'Sistema de compliance automático',
+      'API Rate limiting e throttling',
+      'Monitoramento e logging avançado',
+      'Autenticação OAuth 2.0',
+      'Documentação OpenAPI completa',
+      'Testes automatizados e CI/CD'
+    ],
+    challenge: 'Desenvolver uma arquitetura que pudesse processar milhares de transações por segundo mantendo conformidade com regulamentações bancárias brasileiras e internacionais.',
+    demoUrl: '#',
+    githubUrl: '#',
+    imageIcon: '🏦'
+  },
+  {
+    id: 4,
+    title: 'Real-time Chat Application',
+    description: 'Aplicação de chat em tempo real com suporte a múltiplas salas, compartilhamento de arquivos e videochamadas.',
+    fullDescription: 'Uma plataforma completa de comunicação empresarial com chat em tempo real, videochamadas, compartilhamento de arquivos e integração com ferramentas de produtividade.',
+    technologies: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'WebRTC', 'AWS S3'],
+    features: [
+      'Chat em tempo real com Socket.io',
+      'Videochamadas com WebRTC',
+      'Compartilhamento de arquivos seguro',
+      'Salas públicas e privadas',
+      'Sistema de moderação',
+      'Notificações push',
+      'Interface responsiva',
+      'Criptografia end-to-end'
+    ],
+    challenge: 'Implementar um sistema de videochamadas escalável que pudesse suportar múltiplos usuários simultaneamente mantendo baixa latência e alta qualidade.',
+    demoUrl: '#',
+    githubUrl: '#',
+    imageIcon: '💬'
+  },
+  {
+    id: 5,
+    title: 'AI Content Generator',
+    description: 'Plataforma de geração de conteúdo usando IA, com templates personalizáveis e integração com redes sociais.',
+    fullDescription: 'Uma ferramenta avançada de marketing digital que utiliza inteligência artificial para gerar conteúdo otimizado para diferentes plataformas sociais, blogs e campanhas publicitárias.',
+    technologies: ['Python', 'OpenAI API', 'FastAPI', 'React', 'PostgreSQL', 'Celery'],
+    features: [
+      'Geração de conteúdo com GPT-4',
+      'Templates personalizáveis',
+      'Análise de sentiment',
+      'Agendamento de posts',
+      'Integração com redes sociais',
+      'Analytics de performance',
+      'Editor de texto avançado',
+      'Sistema de colaboração'
+    ],
+    challenge: 'Otimizar o uso da API do OpenAI para gerar conteúdo relevante e contextual, implementando um sistema de cache inteligente para reduzir custos.',
+    demoUrl: '#',
+    githubUrl: '#',
+    imageIcon: '🤖'
+  },
+  {
+    id: 6,
+    title: 'Blockchain Voting System',
+    description: 'Sistema de votação descentralizado usando blockchain para garantir transparência e segurança nas eleições.',
+    fullDescription: 'Um sistema de votação revolucionário baseado em blockchain que garante total transparência, imutabilidade e verificabilidade dos votos, adequado para eleições governamentais e corporativas.',
+    technologies: ['Solidity', 'Web3', 'React', 'Ethereum', 'IPFS', 'MetaMask'],
+    features: [
+      'Smart contracts auditáveis',
+      'Votação anônima e verificável',
+      'Interface intuitiva para eleitores',
+      'Dashboard para administradores',
+      'Contagem automática de votos',
+      'Armazenamento descentralizado (IPFS)',
+      'Integração com carteiras digitais',
+      'Auditoria em tempo real'
+    ],
+    challenge: 'Desenvolver smart contracts seguros que garantissem o anonimato dos votos enquanto permitiam verificabilidade pública, lidando com limitações de gas fees.',
+    demoUrl: '#',
+    githubUrl: '#',
+    imageIcon: '🗳️'
+  }
+];
+
 // DOM Elements
 const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
@@ -34,6 +164,8 @@ function initializeApp() {
   setupScrollEffects();
   setupContactForm();
   setupAnimations();
+  setupProjects();
+  setupProjectModal();
 }
 
 // Navigation functionality
@@ -457,3 +589,185 @@ window.addEventListener('resize', debounce(() => {
     setupParticles();
   }
 }, 250));
+
+// Projects functionality
+function setupProjects() {
+  renderProjects();
+  setupProjectFilters();
+}
+
+function renderProjects(filter = 'all') {
+  const projectsGrid = document.getElementById('projects-grid');
+  if (!projectsGrid) return;
+  
+  let filteredProjects = projectsData;
+  
+  if (filter !== 'all') {
+    filteredProjects = projectsData.filter(project => 
+      project.technologies.includes(filter)
+    );
+  }
+  
+  projectsGrid.innerHTML = '';
+  
+  filteredProjects.forEach(project => {
+    const projectCard = createProjectCard(project);
+    projectsGrid.appendChild(projectCard);
+  });
+  
+  // Add animation delay to cards
+  const cards = projectsGrid.querySelectorAll('.project-card');
+  cards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  });
+}
+
+function createProjectCard(project) {
+  const card = document.createElement('div');
+  card.className = 'project-card';
+  card.dataset.projectId = project.id;
+  
+  card.innerHTML = `
+    <div class="project-image">
+      <div class="project-image-icon">
+        <span style="font-size: 4rem;">${project.imageIcon}</span>
+      </div>
+      <div class="project-overlay">
+        <div class="project-links">
+          <a href="${project.demoUrl}" class="project-link" target="_blank" onclick="event.stopPropagation()">
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a href="${project.githubUrl}" class="project-link" target="_blank" onclick="event.stopPropagation()">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="project-content">
+      <h3>${project.title}</h3>
+      <p>${project.description}</p>
+      <div class="project-tech">
+        ${project.technologies.slice(0, 3).map(tech => `<span>${tech}</span>`).join('')}
+        ${project.technologies.length > 3 ? '<span class="tech-more">+' + (project.technologies.length - 3) + '</span>' : ''}
+      </div>
+    </div>
+  `;
+  
+  // Add click event to open modal
+  card.addEventListener('click', () => {
+    openProjectModal(project);
+  });
+  
+  return card;
+}
+
+function setupProjectFilters() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      button.classList.add('active');
+      
+      // Filter projects
+      const filter = button.dataset.filter;
+      renderProjects(filter);
+    });
+  });
+}
+
+function setupProjectModal() {
+  const modal = document.getElementById('project-modal');
+  const modalOverlay = document.getElementById('modal-overlay');
+  const modalClose = document.getElementById('modal-close');
+  
+  // Close modal events
+  modalOverlay.addEventListener('click', closeProjectModal);
+  modalClose.addEventListener('click', closeProjectModal);
+  
+  // Close modal on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeProjectModal();
+    }
+  });
+}
+
+function openProjectModal(project) {
+  const modal = document.getElementById('project-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalTech = document.getElementById('modal-tech');
+  const modalImage = document.getElementById('modal-image');
+  const modalDescription = document.getElementById('modal-description');
+  const modalFeatures = document.getElementById('modal-features');
+  const modalChallenge = document.getElementById('modal-challenge-text');
+  const modalDemo = document.getElementById('modal-demo');
+  const modalGithub = document.getElementById('modal-github');
+  
+  // Populate modal content
+  modalTitle.textContent = project.title;
+  
+  modalTech.innerHTML = project.technologies.map(tech => 
+    `<span>${tech}</span>`
+  ).join('');
+  
+  modalImage.innerHTML = `<span style="font-size: 6rem;">${project.imageIcon}</span>`;
+  
+  modalDescription.textContent = project.fullDescription;
+  
+  modalFeatures.innerHTML = project.features.map(feature => 
+    `<li>${feature}</li>`
+  ).join('');
+  
+  modalChallenge.textContent = project.challenge;
+  
+  modalDemo.href = project.demoUrl;
+  modalGithub.href = project.githubUrl;
+  
+  // Show modal
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+  const modal = document.getElementById('project-modal');
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Add additional styles for project image icon
+const projectImageStyles = `
+  .project-image-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  
+  .tech-more {
+    background: var(--accent-color) !important;
+    color: var(--bg-primary) !important;
+    border-color: var(--accent-color) !important;
+  }
+  
+  .project-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+const projectStyleSheet = document.createElement('style');
+projectStyleSheet.textContent = projectImageStyles;
+document.head.appendChild(projectStyleSheet);
