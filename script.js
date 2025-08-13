@@ -34,7 +34,13 @@ const projectsData = [
     challenge: 'O principal desafio foi implementar um sistema de pagamentos robusto que pudesse lidar com múltiplas moedas e métodos de pagamento, garantindo PCI compliance e uma experiência fluida para o usuário.',
     demoUrl: '#',
     githubUrl: '#',
-    imageIcon: '🛒'
+    mainImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800&h=600&fit=crop'
+    ]
   },
   {
     id: 2,
@@ -55,7 +61,13 @@ const projectsData = [
     challenge: 'Integrar dados de múltiplas blockchains e protocolos DeFi em uma interface unificada, mantendo a performance e lidando com a volatilidade dos dados em tempo real.',
     demoUrl: '#',
     githubUrl: '#',
-    imageIcon: '📊'
+    mainImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=800&h=600&fit=crop'
+    ]
   },
   {
     id: 3,
@@ -76,7 +88,13 @@ const projectsData = [
     challenge: 'Desenvolver uma arquitetura que pudesse processar milhares de transações por segundo mantendo conformidade com regulamentações bancárias brasileiras e internacionais.',
     demoUrl: '#',
     githubUrl: '#',
-    imageIcon: '🏦'
+    mainImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1551808525-51a94da548ce?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600&fit=crop'
+    ]
   },
   {
     id: 4,
@@ -97,7 +115,13 @@ const projectsData = [
     challenge: 'Implementar um sistema de videochamadas escalável que pudesse suportar múltiplos usuários simultaneamente mantendo baixa latência e alta qualidade.',
     demoUrl: '#',
     githubUrl: '#',
-    imageIcon: '💬'
+    mainImage: 'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&h=400&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop'
+    ]
   },
   {
     id: 5,
@@ -118,7 +142,13 @@ const projectsData = [
     challenge: 'Otimizar o uso da API do OpenAI para gerar conteúdo relevante e contextual, implementando um sistema de cache inteligente para reduzir custos.',
     demoUrl: '#',
     githubUrl: '#',
-    imageIcon: '🤖'
+    mainImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1655635949322-0e97e4d79179?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1676299081847-c0326b3ac8b5?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1675557009276-d5bf27e11c3f?w=800&h=600&fit=crop'
+    ]
   },
   {
     id: 6,
@@ -139,7 +169,13 @@ const projectsData = [
     challenge: 'Desenvolver smart contracts seguros que garantissem o anonimato dos votos enquanto permitiam verificabilidade pública, lidando com limitações de gas fees.',
     demoUrl: '#',
     githubUrl: '#',
-    imageIcon: '🗳️'
+    mainImage: 'https://images.unsplash.com/photo-1586267333474-6ca0ac833fb4?w=600&h=400&fit=crop',
+    gallery: [
+      'https://images.unsplash.com/photo-1586267333474-6ca0ac833fb4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1518186233392-c232efbf2373?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1634224088880-42eb1d7633b9?w=800&h=600&fit=crop'
+    ]
   }
 ];
 
@@ -561,6 +597,57 @@ window.addEventListener('load', () => {
   }, 1000);
 });
 
+// Carousel functionality
+let currentImageIndex = 0;
+
+function nextImage(event) {
+  event.stopPropagation();
+  const images = document.querySelectorAll('.carousel-image');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  
+  if (images.length === 0) return;
+  
+  images[currentImageIndex].classList.remove('active');
+  indicators[currentImageIndex].classList.remove('active');
+  
+  currentImageIndex = (currentImageIndex + 1) % images.length;
+  
+  images[currentImageIndex].classList.add('active');
+  indicators[currentImageIndex].classList.add('active');
+}
+
+function prevImage(event) {
+  event.stopPropagation();
+  const images = document.querySelectorAll('.carousel-image');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  
+  if (images.length === 0) return;
+  
+  images[currentImageIndex].classList.remove('active');
+  indicators[currentImageIndex].classList.remove('active');
+  
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+  
+  images[currentImageIndex].classList.add('active');
+  indicators[currentImageIndex].classList.add('active');
+}
+
+function goToImage(event, index) {
+  event.stopPropagation();
+  const images = document.querySelectorAll('.carousel-image');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  
+  if (images.length === 0) return;
+  
+  images[currentImageIndex].classList.remove('active');
+  indicators[currentImageIndex].classList.remove('active');
+  
+  currentImageIndex = index;
+  
+  images[currentImageIndex].classList.add('active');
+  indicators[currentImageIndex].classList.add('active');
+}
+
 // Utility functions
 function debounce(func, wait) {
   let timeout;
@@ -629,9 +716,7 @@ function createProjectCard(project) {
   
   card.innerHTML = `
     <div class="project-image">
-      <div class="project-image-icon">
-        <span style="font-size: 4rem;">${project.imageIcon}</span>
-      </div>
+      <img src="${project.mainImage}" alt="${project.title}" class="project-main-image" />
       <div class="project-overlay">
         <div class="project-links">
           <a href="${project.demoUrl}" class="project-link" target="_blank" onclick="event.stopPropagation()">
@@ -714,7 +799,32 @@ function openProjectModal(project) {
     `<span>${tech}</span>`
   ).join('');
   
-  modalImage.innerHTML = `<span style="font-size: 6rem;">${project.imageIcon}</span>`;
+  // Create image carousel
+  modalImage.innerHTML = `
+    <div class="image-carousel">
+      <div class="carousel-container">
+        <button class="carousel-btn carousel-prev" onclick="prevImage(event)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="carousel-images" id="carousel-images">
+          ${project.gallery.map((image, index) => `
+            <img src="${image}" alt="${project.title} - Imagem ${index + 1}" 
+                 class="carousel-image ${index === 0 ? 'active' : ''}" 
+                 data-index="${index}" />
+          `).join('')}
+        </div>
+        <button class="carousel-btn carousel-next" onclick="nextImage(event)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="carousel-indicators">
+        ${project.gallery.map((_, index) => `
+          <button class="carousel-indicator ${index === 0 ? 'active' : ''}" 
+                  onclick="goToImage(event, ${index})" data-index="${index}"></button>
+        `).join('')}
+      </div>
+    </div>
+  `;
   
   modalDescription.textContent = project.fullDescription;
   
@@ -726,6 +836,9 @@ function openProjectModal(project) {
   
   modalDemo.href = project.demoUrl;
   modalGithub.href = project.githubUrl;
+  
+  // Initialize carousel
+  currentImageIndex = 0;
   
   // Show modal
   modal.classList.add('active');
