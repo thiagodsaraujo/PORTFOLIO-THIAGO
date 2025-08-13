@@ -1,7 +1,7 @@
 
 // Global variables
 let currentSection = 0;
-const sections = ['home', 'about', 'tech-stack', 'projects', 'contact'];
+const sections = ['home', 'about', 'resume', 'tech-stack', 'projects', 'contact'];
 const typeTexts = [
   'Software Engineer',
   'Full Stack Developer', 
@@ -305,7 +305,7 @@ function setupAnimations() {
   
   // Observe elements for animation
   const animateElements = document.querySelectorAll(
-    '.tech-category, .project-card, .contact-info, .contact-form'
+    '.tech-category, .project-card, .contact-info, .contact-form, .timeline-item, .certification-item'
   );
   
   animateElements.forEach(element => {
