@@ -341,41 +341,74 @@
     </div>
   </section>
 
-  <!-- Project Detail Modal -->
-  <div id="project-modal" class="project-modal">
-    <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="modal-content">
-      <button class="modal-close" id="modal-close">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="modal-header">
-        <h2 id="modal-title"></h2>
-        <div class="modal-tech" id="modal-tech"></div>
-      </div>
-      <div class="modal-body">
-        <div class="modal-image" id="modal-image"></div>
-        <div class="modal-info">
-          <div class="modal-description" id="modal-description"></div>
-          <div class="modal-features">
-            <h3>Principais Funcionalidades</h3>
-            <ul id="modal-features"></ul>
-          </div>
-          <div class="modal-challenge">
-            <h3>Desafios Técnicos</h3>
-            <p id="modal-challenge-text"></p>
-          </div>
-          <div class="modal-links">
-            <a href="#" class="modal-link" id="modal-demo" target="_blank">
-              <i class="fas fa-external-link-alt"></i>
-              Ver Demo
-            </a>
-            <a href="#" class="modal-link" id="modal-github" target="_blank">
-              <i class="fab fa-github"></i>
-              Código no GitHub
-            </a>
-          </div>
+  <!-- Project Detail Page -->
+  <div id="project-detail-page" class="project-detail-page hidden">
+    <div class="project-detail-hero">
+      <div class="container">
+        <button class="back-btn" id="back-to-projects">
+          <i class="fas fa-arrow-left"></i>
+          Back to Projects
+        </button>
+        
+        <div class="project-badge" id="project-badge">Full Stack</div>
+        
+        <h1 class="project-detail-title" id="project-detail-title">
+          E-Commerce Platform
+        </h1>
+        
+        <p class="project-detail-description" id="project-detail-description">
+          Uma plataforma completa de e-commerce desenvolvida com React, Node.js e MongoDB. O 
+          sistema inclui um painel administrativo robusto, integração com gateways de pagamento, 
+          sistema de inventário em tempo real, e analytics detalhados. A plataforma suporta múltiplos 
+          vendedores e inclui recursos avançados como recomendações por IA e chat ao vivo.
+        </p>
+        
+        <div class="project-actions">
+          <a href="#" class="btn btn-primary" id="live-demo-btn">
+            <i class="fas fa-external-link-alt"></i>
+            <span>Live Demo</span>
+          </a>
+          <a href="#" class="btn btn-secondary" id="view-code-btn">
+            <i class="fab fa-github"></i>
+            <span>View Code</span>
+          </a>
         </div>
       </div>
+    </div>
+
+    <div class="container">
+      <!-- Technologies Used Section -->
+      <section class="technologies-used">
+        <h2>Technologies <span class="highlight">Used</span></h2>
+        <div class="tech-stack-grid" id="project-tech-stack">
+          <!-- Will be populated dynamically -->
+        </div>
+      </section>
+
+      <!-- Features and Challenges Grid -->
+      <div class="features-challenges-grid">
+        <section class="key-features">
+          <h2>Key Features</h2>
+          <ul id="project-key-features">
+            <!-- Will be populated dynamically -->
+          </ul>
+        </section>
+
+        <section class="development-challenges">
+          <h2>Development Challenges</h2>
+          <ul id="project-challenges">
+            <!-- Will be populated dynamically -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Project Gallery -->
+      <section class="project-gallery">
+        <h2>Project <span class="highlight">Gallery</span></h2>
+        <div class="gallery-grid" id="project-gallery-grid">
+          <!-- Will be populated dynamically -->
+        </div>
+      </section>
     </div>
   </div>
 

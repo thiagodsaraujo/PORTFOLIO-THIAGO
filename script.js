@@ -738,9 +738,9 @@ function createProjectCard(project) {
     </div>
   `;
   
-  // Add click event to open modal
+  // Add click event to open project detail page
   card.addEventListener('click', () => {
-    openProjectModal(project);
+    openProjectDetailPage(project);
   });
   
   return card;
@@ -881,6 +881,241 @@ function closeProjectModal() {
   modal.classList.remove('active');
   document.body.style.overflow = 'auto';
 }
+
+// Project Detail Page Functions
+function openProjectDetailPage(project) {
+  const detailPage = document.getElementById('project-detail-page');
+  const mainContent = document.querySelectorAll('section, nav, footer');
+  
+  // Hide main content
+  mainContent.forEach(element => {
+    element.style.display = 'none';
+  });
+  
+  // Populate project detail page
+  populateProjectDetailPage(project);
+  
+  // Show project detail page
+  detailPage.classList.remove('hidden');
+  
+  // Update URL without page reload
+  history.pushState({ projectId: project.id }, project.title, `#project-${project.id}`);
+  
+  // Setup back button
+  setupBackButton();
+}
+
+function closeProjectDetailPage() {
+  const detailPage = document.getElementById('project-detail-page');
+  const mainContent = document.querySelectorAll('section, nav, footer');
+  
+  // Hide project detail page
+  detailPage.classList.add('hidden');
+  
+  // Show main content
+  setTimeout(() => {
+    mainContent.forEach(element => {
+      element.style.display = '';
+    });
+  }, 300);
+  
+  // Update URL
+  history.pushState({}, 'João Dev - Portfolio', '/');
+}
+
+function populateProjectDetailPage(project) {
+  // Update badge
+  const badge = document.getElementById('project-badge');
+  badge.textContent = project.technologies[0] || 'Full Stack';
+  
+  // Update title
+  const title = document.getElementById('project-detail-title');
+  title.textContent = project.title;
+  
+  // Update description
+  const description = document.getElementById('project-detail-description');
+  description.textContent = project.fullDescription;
+  
+  // Update action buttons
+  const liveDemoBtn = document.getElementById('live-demo-btn');
+  const viewCodeBtn = document.getElementById('view-code-btn');
+  liveDemoBtn.href = project.demoUrl;
+  viewCodeBtn.href = project.githubUrl;
+  
+  // Populate technologies
+  populateTechStack(project.technologies);
+  
+  // Populate features
+  populateKeyFeatures(project.features);
+  
+  // Populate challenges
+  populateChallenges(project);
+  
+  // Populate gallery
+  populateGallery(project.gallery, project.title);
+}
+
+function populateTechStack(technologies) {
+  const techStackGrid = document.getElementById('project-tech-stack');
+  techStackGrid.innerHTML = '';
+  
+  technologies.forEach(tech => {
+    const techItem = document.createElement('div');
+    techItem.className = 'tech-stack-item';
+    techItem.innerHTML = `
+      <div class="tech-icon" style="background: var(--gradient-primary); width: 6px; height: 6px; border-radius: 50%;"></div>
+      <span>${tech}</span>
+    `;
+    techStackGrid.appendChild(techItem);
+  });
+}
+
+function populateKeyFeatures(features) {
+  const featuresList = document.getElementById('project-key-features');
+  featuresList.innerHTML = '';
+  
+  features.forEach(feature => {
+    const li = document.createElement('li');
+    li.textContent = feature;
+    featuresList.appendChild(li);
+  });
+}
+
+function populateChallenges(project) {
+  const challengesList = document.getElementById('project-challenges');
+  challengesList.innerHTML = '';
+  
+  // Create challenge items from the challenge text
+  const challengeItems = [
+    project.challenge,
+    'Otimização de performance para alta concorrência',
+    'Implementação de arquitetura escalável',
+    'Integração com APIs de terceiros',
+    'Garantir segurança e conformidade'
+  ];
+  
+  challengeItems.forEach(challenge => {
+    const li = document.createElement('li');
+    li.textContent = challenge;
+    challengesList.appendChild(li);
+  });
+}
+
+function populateGallery(gallery, projectTitle) {
+  const galleryGrid = document.getElementById('project-gallery-grid');
+  galleryGrid.innerHTML = '';
+  
+  gallery.forEach((image, index) => {
+    const galleryItem = document.createElement('div');
+    galleryItem.className = 'gallery-item';
+    galleryItem.innerHTML = `
+      <img src="${image}" alt="${projectTitle} - Screenshot ${index + 1}" loading="lazy" />
+      <div class="gallery-item-overlay">
+        <div class="gallery-item-title">${getImageTitle(index)}</div>
+      </div>
+    `;
+    
+    // Add click event to open image in fullscreen
+    galleryItem.addEventListener('click', () => {
+      openImageModal(image, `${projectTitle} - Screenshot ${index + 1}`);
+    });
+    
+    galleryGrid.appendChild(galleryItem);
+  });
+}
+
+function getImageTitle(index) {
+  const titles = [
+    'Homepage Principal',
+    'Dashboard Admin',
+    'Interface do Usuário',
+    'Painel de Analytics'
+  ];
+  return titles[index] || `Screenshot ${index + 1}`;
+}
+
+function openImageModal(imageSrc, imageTitle) {
+  const modal = document.createElement('div');
+  modal.className = 'image-modal';
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+  `;
+  
+  modal.innerHTML = `
+    <div style="max-width: 90%; max-height: 90%; text-align: center;">
+      <img src="${imageSrc}" alt="${imageTitle}" 
+           style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; box-shadow: var(--shadow-dark);" />
+      <p style="color: var(--text-primary); margin-top: 20px; font-size: 1.1rem;">${imageTitle}</p>
+    </div>
+    <button style="
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    " onmouseover="this.style.background='var(--secondary-color)'" onmouseout="this.style.background='rgba(0, 0, 0, 0.7)'">
+      <i class="fas fa-times"></i>
+    </button>
+  `;
+  
+  modal.addEventListener('click', () => {
+    document.body.removeChild(modal);
+  });
+  
+  document.body.appendChild(modal);
+}
+
+function setupBackButton() {
+  const backBtn = document.getElementById('back-to-projects');
+  backBtn.addEventListener('click', closeProjectDetailPage);
+}
+
+// Handle browser back button
+window.addEventListener('popstate', (event) => {
+  if (event.state && event.state.projectId) {
+    const project = projectsData.find(p => p.id === event.state.projectId);
+    if (project) {
+      openProjectDetailPage(project);
+    }
+  } else {
+    closeProjectDetailPage();
+  }
+});
+
+// Handle direct URL access to projects
+window.addEventListener('load', () => {
+  const hash = window.location.hash;
+  if (hash.startsWith('#project-')) {
+    const projectId = parseInt(hash.replace('#project-', ''));
+    const project = projectsData.find(p => p.id === projectId);
+    if (project) {
+      setTimeout(() => {
+        openProjectDetailPage(project);
+      }, 100);
+    }
+  }
+});
 
 // Add additional styles for project image icon
 const projectImageStyles = `
