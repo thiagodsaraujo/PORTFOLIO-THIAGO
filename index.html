@@ -1,45 +1,321 @@
-<!--
-  Hit RUN to see this project in action!
-  
-  This project will auto-refresh as you edit the HTML, CSS and JS. See README.md for more info (including how to disable auto-refresh and install packages).
--->
 
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Replit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>João Dev - Software Engineer & Tech Innovator</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <main>
-    <h1 class="title">Welcome to HTML on Replit!</h1>
-    <p class="description">Get started by editing
-      <code class="code">index.html</code>. The webview will auto-refresh as you edit! (See <code
-        class="code">README.md</code> if you want to
-      disable auto-refresh.)
-    </p>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="code-text">const</span> 
+        <span class="highlight">João</span>: 
+        <span class="string">string</span> = 
+        <span class="string-value">"👨‍💻 Software Engineer";</span>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">Sobre</a>
+        <a href="#tech-stack" class="nav-link">Tech Stack</a>
+        <a href="#projects" class="nav-link">Projetos</a>
+        <a href="#contact" class="nav-link">Contato</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 
-    <section class="grid">
-      <a href="https://replit.com/learn" class='card'>
-        <h2>Learn &rarr;</h2>
-        <p>Find tutorials on Replit to learn more.</p>
-      </a>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="typing-text">Eu sou João</span>
+        </h1>
+        <div class="hero-subtitle">
+          <span class="typed-text" id="typed-text"></span>
+          <span class="cursor">|</span>
+        </div>
+        <div class="hero-location">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Brasil 🇧🇷</h4>
+            <span>São Paulo, SP</span>
+          </div>
+        </div>
+        <div class="hero-cta">
+          <a href="#about" class="btn btn-primary">
+            <span>Conhecer mais</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <span>Entrar em contato</span>
+            <i class="fas fa-paper-plane"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+    </div>
+  </section>
 
-      <a href="https://docs.replit.com/category/deployments" class='card'>
-        <h2>Deploy &rarr;</h2>
-        <p>
-          After you are happy with this app, deploy it on Replit!
-        </p>
-      </a>
-    </section>
-  </main>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <blockquote class="quote">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p>Desenvolvo aplicações web seguras end-to-end.<br>
+            Especializado nos setores de e-commerce, financeiro, bancário e fintech.</p>
+          </blockquote>
+          <div class="about-description">
+            <p>Com mais de 5 anos de experiência, sou apaixonado por criar soluções tecnológicas inovadoras que fazem a diferença. Trabalho com as mais modernas tecnologias e frameworks, sempre buscando entregar código limpo, escalável e performático.</p>
+            <p>Minha jornada me levou a trabalhar com empresas internacionais, desenvolvendo sistemas complexos de pagamento, blockchain e aplicações web de alta performance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script type="module" src="script.js"></script>
+  <!-- Tech Stack Section -->
+  <section id="tech-stack" class="tech-stack">
+    <div class="tech-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Meu Tech Stack</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-category">
+          <div class="tech-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Frontend</h3>
+          <div class="tech-list">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Vue.js</span>
+            <span class="tech-tag">Angular</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">Redux</span>
+            <span class="tech-tag">Styled Components</span>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <div class="tech-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Backend & Databases</h3>
+          <div class="tech-list">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">GraphQL</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Microservices</span>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <div class="tech-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3>Cloud & DevOps</h3>
+          <div class="tech-list">
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">Google Cloud</span>
+            <span class="tech-tag">Vercel</span>
+            <span class="tech-tag">CI/CD</span>
+            <span class="tech-tag">Github Actions</span>
+            <span class="tech-tag">Kubernetes</span>
+            <span class="tech-tag">Serverless</span>
+            <span class="tech-tag">Firebase</span>
+          </div>
+        </div>
+        
+        <div class="tech-category">
+          <div class="tech-icon">
+            <i class="fas fa-cog"></i>
+          </div>
+          <h3>Outras Tecnologias</h3>
+          <div class="tech-list">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">Blockchain</span>
+            <span class="tech-tag">Web3</span>
+            <span class="tech-tag">Ethereum</span>
+            <span class="tech-tag">Smart Contracts</span>
+            <span class="tech-tag">Linux</span>
+            <span class="tech-tag">RabbitMQ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Projetos Destacados</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>E-commerce Platform</h3>
+            <p>Plataforma de e-commerce completa com sistema de pagamentos, gestão de estoque e analytics em tempo real.</p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>DeFi Dashboard</h3>
+            <p>Dashboard para gerenciamento de ativos DeFi com integração Web3 e análise de portfólio em tempo real.</p>
+            <div class="project-tech">
+              <span>Vue.js</span>
+              <span>Web3</span>
+              <span>Ethereum</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>FinTech API</h3>
+            <p>API robusta para sistema financeiro com microserviços, processamento de pagamentos e compliance.</p>
+            <div class="project-tech">
+              <span>Node.js</span>
+              <span>Docker</span>
+              <span>Redis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="contact-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Vamos Conversar</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Entre em contato</h3>
+          <p>Estou sempre aberto a discutir novos projetos, oportunidades criativas ou parcerias.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>joao@exemplo.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+55 (11) 99999-9999</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>São Paulo, Brasil</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Seu nome" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Seu email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" placeholder="Assunto" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <span>Enviar Mensagem</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>&copy; 2024 João Dev. Todos os direitos reservados.</p>
+        </div>
+        <div class="footer-right">
+          <p>Feito com <i class="fas fa-heart"></i> usando tecnologias modernas</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
