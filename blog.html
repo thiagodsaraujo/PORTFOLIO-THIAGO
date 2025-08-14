@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - João Dev</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="code-text">const</span> 
+        <span class="highlight">João</span>: 
+        <span class="string">string</span> = 
+        <span class="string-value">"👨‍💻 Software Engineer";</span>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="index.html#about" class="nav-link">Sobre</a>
+        <a href="index.html#projects" class="nav-link">Projetos</a>
+        <a href="index.html#contact" class="nav-link">Contato</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog Header -->
+  <section class="blog-header">
+    <div class="container">
+      <div class="blog-header-content">
+        <h1 class="blog-title">
+          <span class="code-text">const</span> 
+          <span class="highlight">blog</span>: 
+          <span class="string">Article[]</span> = 
+          <span class="string-value">[</span>
+        </h1>
+        <p class="blog-subtitle">Compartilhando conhecimento sobre desenvolvimento, tecnologia e inovação</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Content -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-grid">
+        <!-- Article 1 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=300&fit=crop" alt="Microserviços com Node.js">
+            <div class="blog-card-category">Backend</div>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span class="blog-date">
+                <i class="fas fa-calendar"></i>
+                15 de Janeiro, 2024
+              </span>
+              <span class="blog-reading-time">
+                <i class="fas fa-clock"></i>
+                8 min de leitura
+              </span>
+            </div>
+            <h3 class="blog-card-title">
+              <a href="artigo-microservicos.html">Construindo Microserviços Escaláveis com Node.js e Docker</a>
+            </h3>
+            <p class="blog-card-excerpt">
+              Aprenda como desenvolver uma arquitetura de microserviços robusta e escalável usando Node.js, Docker e Kubernetes. Incluindo boas práticas de comunicação entre serviços.
+            </p>
+            <div class="blog-card-tags">
+              <span class="blog-tag">Node.js</span>
+              <span class="blog-tag">Docker</span>
+              <span class="blog-tag">Kubernetes</span>
+              <span class="blog-tag">Microserviços</span>
+            </div>
+            <div class="blog-card-footer">
+              <div class="blog-author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="João" class="author-avatar">
+                <span class="author-name">João Dev</span>
+              </div>
+              <a href="artigo-microservicos.html" class="blog-read-more">
+                <span>Ler artigo</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=300&fit=crop" alt="React Performance">
+            <div class="blog-card-category">Frontend</div>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span class="blog-date">
+                <i class="fas fa-calendar"></i>
+                10 de Janeiro, 2024
+              </span>
+              <span class="blog-reading-time">
+                <i class="fas fa-clock"></i>
+                12 min de leitura
+              </span>
+            </div>
+            <h3 class="blog-card-title">
+              <a href="artigo-react-performance.html">Otimizando Performance em React: Técnicas Avançadas</a>
+            </h3>
+            <p class="blog-card-excerpt">
+              Descubra técnicas avançadas para otimizar a performance de aplicações React, incluindo lazy loading, memoização, code splitting e muito mais.
+            </p>
+            <div class="blog-card-tags">
+              <span class="blog-tag">React</span>
+              <span class="blog-tag">Performance</span>
+              <span class="blog-tag">JavaScript</span>
+              <span class="blog-tag">Otimização</span>
+            </div>
+            <div class="blog-card-footer">
+              <div class="blog-author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="João" class="author-avatar">
+                <span class="author-name">João Dev</span>
+              </div>
+              <a href="artigo-react-performance.html" class="blog-read-more">
+                <span>Ler artigo</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="Web3 Development">
+            <div class="blog-card-category">Blockchain</div>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span class="blog-date">
+                <i class="fas fa-calendar"></i>
+                5 de Janeiro, 2024
+              </span>
+              <span class="blog-reading-time">
+                <i class="fas fa-clock"></i>
+                15 min de leitura
+              </span>
+            </div>
+            <h3 class="blog-card-title">
+              <a href="#">Introdução ao Desenvolvimento Web3: Primeiros Passos</a>
+            </h3>
+            <p class="blog-card-excerpt">
+              Um guia completo para iniciantes no desenvolvimento Web3, cobrindo conceitos fundamentais, ferramentas essenciais e criação de smart contracts.
+            </p>
+            <div class="blog-card-tags">
+              <span class="blog-tag">Web3</span>
+              <span class="blog-tag">Blockchain</span>
+              <span class="blog-tag">Smart Contracts</span>
+              <span class="blog-tag">Ethereum</span>
+            </div>
+            <div class="blog-card-footer">
+              <div class="blog-author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="João" class="author-avatar">
+                <span class="author-name">João Dev</span>
+              </div>
+              <a href="#" class="blog-read-more">
+                <span>Ler artigo</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop" alt="DevOps CI/CD">
+            <div class="blog-card-category">DevOps</div>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span class="blog-date">
+                <i class="fas fa-calendar"></i>
+                28 de Dezembro, 2023
+              </span>
+              <span class="blog-reading-time">
+                <i class="fas fa-clock"></i>
+                10 min de leitura
+              </span>
+            </div>
+            <h3 class="blog-card-title">
+              <a href="#">CI/CD com GitHub Actions: Do Zero à Produção</a>
+            </h3>
+            <p class="blog-card-excerpt">
+              Configure pipelines completos de CI/CD usando GitHub Actions, incluindo testes automatizados, builds e deploy para diferentes ambientes.
+            </p>
+            <div class="blog-card-tags">
+              <span class="blog-tag">GitHub Actions</span>
+              <span class="blog-tag">CI/CD</span>
+              <span class="blog-tag">DevOps</span>
+              <span class="blog-tag">Deploy</span>
+            </div>
+            <div class="blog-card-footer">
+              <div class="blog-author">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="João" class="author-avatar">
+                <span class="author-name">João Dev</span>
+              </div>
+              <a href="#" class="blog-read-more">
+                <span>Ler artigo</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div class="newsletter-section">
+        <div class="newsletter-content">
+          <h3>Receba novos artigos por email</h3>
+          <p>Fique por dentro das últimas tendências em desenvolvimento e tecnologia</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu melhor email" required>
+            <button type="submit">
+              <i class="fas fa-paper-plane"></i>
+              <span>Inscrever-se</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>&copy; 2024 João Dev. Todos os direitos reservados.</p>
+        </div>
+        <div class="footer-right">
+          <p>Feito com <i class="fas fa-heart"></i> usando tecnologias modernas</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

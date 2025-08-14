@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otimizando Performance em React: Técnicas Avançadas - João Dev</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="code-text">const</span> 
+        <span class="highlight">João</span>: 
+        <span class="string">string</span> = 
+        <span class="string-value">"👨‍💻 Software Engineer";</span>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="index.html#about" class="nav-link">Sobre</a>
+        <a href="index.html#projects" class="nav-link">Projetos</a>
+        <a href="index.html#contact" class="nav-link">Contato</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="container">
+      <div class="article-breadcrumb">
+        <a href="blog.html">
+          <i class="fas fa-arrow-left"></i>
+          Voltar para o Blog
+        </a>
+      </div>
+      <div class="article-category">Frontend</div>
+      <h1 class="article-title">Otimizando Performance em React: Técnicas Avançadas</h1>
+      <p class="article-subtitle">
+        Descubra técnicas avançadas para otimizar a performance de aplicações React, incluindo lazy loading, memoização, code splitting e muito mais.
+      </p>
+      <div class="article-meta">
+        <div class="article-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" alt="João" class="author-avatar">
+          <div class="author-info">
+            <span class="author-name">João Dev</span>
+            <span class="author-title">Software Engineer</span>
+          </div>
+        </div>
+        <div class="article-details">
+          <span class="article-date">
+            <i class="fas fa-calendar"></i>
+            10 de Janeiro, 2024
+          </span>
+          <span class="article-reading-time">
+            <i class="fas fa-clock"></i>
+            12 min de leitura
+          </span>
+        </div>
+      </div>
+      <div class="article-tags">
+        <span class="article-tag">React</span>
+        <span class="article-tag">Performance</span>
+        <span class="article-tag">JavaScript</span>
+        <span class="article-tag">Otimização</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <article class="article-content">
+    <div class="container">
+      <div class="article-body">
+        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=600&fit=crop" alt="React Performance" class="article-featured-image">
+        
+        <div class="article-text">
+          <h2>A Importância da Performance em React</h2>
+          <p>
+            Performance é crucial para a experiência do usuário em aplicações React. Uma aplicação lenta pode resultar em 
+            alta taxa de abandono, redução de conversões e impacto negativo no SEO. Neste artigo, vamos explorar 
+            técnicas avançadas para otimizar suas aplicações React.
+          </p>
+
+          <h2>1. React.memo() - Evitando Re-renders Desnecessários</h2>
+          <p>
+            O React.memo é uma Higher-Order Component que memoriza o resultado do componente e só re-renderiza 
+            quando as props mudam:
+          </p>
+
+          <pre><code class="language-javascript">
+// Componente sem otimização
+const ExpensiveComponent = ({ data, count }) => {
+  const processedData = expensiveCalculation(data);
+  
+  return (
+    &lt;div&gt;
+      &lt;h3&gt;Count: {count}&lt;/h3&gt;
+      &lt;div&gt;{processedData}&lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+// Componente otimizado com React.memo
+const OptimizedComponent = React.memo(({ data, count }) => {
+  const processedData = expensiveCalculation(data);
+  
+  return (
+    &lt;div&gt;
+      &lt;h3&gt;Count: {count}&lt;/h3&gt;
+      &lt;div&gt;{processedData}&lt;/div&gt;
+    &lt;/div&gt;
+  );
+});
+
+// Para comparação personalizada
+const SmartComponent = React.memo(({ data, count }) => {
+  // componente...
+}, (prevProps, nextProps) => {
+  return prevProps.data.id === nextProps.data.id && 
+         prevProps.count === nextProps.count;
+});
+          </code></pre>
+
+          <h2>2. useMemo() e useCallback() - Memoização de Valores e Funções</h2>
+          <p>
+            Use useMemo para memorizar cálculos custosos e useCallback para memorizar funções:
+          </p>
+
+          <pre><code class="language-javascript">
+import { useMemo, useCallback, useState } from 'react';
+
+const DataProcessor = ({ items, filter }) => {
+  const [sortOrder, setSortOrder] = useState('asc');
+
+  // Memoriza cálculo custoso
+  const processedItems = useMemo(() => {
+    console.log('Processando items...');
+    return items
+      .filter(item => item.category === filter)
+      .sort((a, b) => sortOrder === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name))
+      .map(item => ({
+        ...item,
+        processedName: item.name.toUpperCase()
+      }));
+  }, [items, filter, sortOrder]);
+
+  // Memoriza função para evitar re-renders nos filhos
+  const handleSort = useCallback((order) => {
+    setSortOrder(order);
+  }, []);
+
+  return (
+    &lt;div&gt;
+      &lt;SortButton onSort={handleSort} /&gt;
+      &lt;ItemList items={processedItems} /&gt;
+    &lt;/div&gt;
+  );
+};
+          </code></pre>
+
+          <h2>3. Code Splitting com React.lazy() e Suspense</h2>
+          <p>
+            Divida seu código em chunks menores para reduzir o tempo de carregamento inicial:
+          </p>
+
+          <pre><code class="language-javascript">
+import { Suspense, lazy } from 'react';
+
+// Componentes carregados sob demanda
+const Dashboard = lazy(() => import('./components/Dashboard'));
+const Settings = lazy(() => import('./components/Settings'));
+const Reports = lazy(() => import('./components/Reports'));
+
+// Loading component customizado
+const LoadingSpinner = () => (
+  &lt;div className="loading-container"&gt;
+    &lt;div className="spinner"&gt;&lt;/div&gt;
+    &lt;p&gt;Carregando...&lt;/p&gt;
+  &lt;/div&gt;
+);
+
+const App = () => {
+  const [currentView, setCurrentView] = useState('dashboard');
+
+  const renderView = () => {
+    switch (currentView) {
+      case 'dashboard':
+        return &lt;Dashboard /&gt;;
+      case 'settings':
+        return &lt;Settings /&gt;;
+      case 'reports':
+        return &lt;Reports /&gt;;
+      default:
+        return &lt;Dashboard /&gt;;
+    }
+  };
+
+  return (
+    &lt;div className="app"&gt;
+      &lt;Navigation onViewChange={setCurrentView} /&gt;
+      &lt;Suspense fallback={&lt;LoadingSpinner /&gt;}&gt;
+        {renderView()}
+      &lt;/Suspense&gt;
+    &lt;/div&gt;
+  );
+};
+          </code></pre>
+
+          <h2>4. Virtualização para Listas Grandes</h2>
+          <p>
+            Para listas com milhares de itens, use virtualização com bibliotecas como react-window:
+          </p>
+
+          <pre><code class="language-javascript">
+import { FixedSizeList as List } from 'react-window';
+
+const VirtualizedList = ({ items }) => {
+  const Row = ({ index, style }) => (
+    &lt;div style={style} className="list-item"&gt;
+      &lt;h4&gt;{items[index].name}&lt;/h4&gt;
+      &lt;p&gt;{items[index].description}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+
+  return (
+    &lt;List
+      height={600}
+      itemCount={items.length}
+      itemSize={100}
+      itemData={items}
+    &gt;
+      {Row}
+    &lt;/List&gt;
+  );
+};
+
+// Para tamanhos variáveis
+import { VariableSizeList as VariableList } from 'react-window';
+
+const VariableSizedList = ({ items }) => {
+  const getItemSize = (index) => {
+    // Retorna altura baseada no conteúdo
+    return items[index].content.length > 100 ? 150 : 80;
+  };
+
+  const Row = ({ index, style }) => (
+    &lt;div style={style} className="variable-item"&gt;
+      &lt;h4&gt;{items[index].title}&lt;/h4&gt;
+      &lt;p&gt;{items[index].content}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+
+  return (
+    &lt;VariableList
+      height={600}
+      itemCount={items.length}
+      itemSize={getItemSize}
+    &gt;
+      {Row}
+    &lt;/VariableList&gt;
+  );
+};
+          </code></pre>
+
+          <h2>5. Otimização de Estado com useReducer</h2>
+          <p>
+            Para estados complexos, useReducer pode ser mais performático que múltiplos useState:
+          </p>
+
+          <pre><code class="language-javascript">
+import { useReducer, useCallback } from 'react';
+
+const initialState = {
+  items: [],
+  loading: false,
+  error: null,
+  filter: '',
+  sortBy: 'name'
+};
+
+const dataReducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_START':
+      return { ...state, loading: true, error: null };
+    case 'FETCH_SUCCESS':
+      return { ...state, loading: false, items: action.payload };
+    case 'FETCH_ERROR':
+      return { ...state, loading: false, error: action.payload };
+    case 'SET_FILTER':
+      return { ...state, filter: action.payload };
+    case 'SET_SORT':
+      return { ...state, sortBy: action.payload };
+    case 'UPDATE_ITEM':
+      return {
+        ...state,
+        items: state.items.map(item => 
+          item.id === action.payload.id ? action.payload : item
+        )
+      };
+    default:
+      return state;
+  }
+};
+
+const DataManager = () => {
+  const [state, dispatch] = useReducer(dataReducer, initialState);
+
+  const fetchData = useCallback(async () => {
+    dispatch({ type: 'FETCH_START' });
+    try {
+      const data = await api.fetchItems();
+      dispatch({ type: 'FETCH_SUCCESS', payload: data });
+    } catch (error) {
+      dispatch({ type: 'FETCH_ERROR', payload: error.message });
+    }
+  }, []);
+
+  const updateFilter = useCallback((filter) => {
+    dispatch({ type: 'SET_FILTER', payload: filter });
+  }, []);
+
+  return (
+    &lt;div&gt;
+      &lt;FilterInput onFilterChange={updateFilter} /&gt;
+      &lt;ItemList items={state.items} loading={state.loading} /&gt;
+    &lt;/div&gt;
+  );
+};
+          </code></pre>
+
+          <h2>6. Debounce para Inputs e API Calls</h2>
+          <p>
+            Implemente debounce para evitar chamadas excessivas de API:
+          </p>
+
+          <pre><code class="language-javascript">
+import { useState, useEffect, useMemo } from 'react';
+
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
+
+const SearchComponent = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
+
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      setLoading(true);
+      searchAPI(debouncedSearchTerm)
+        .then(results => {
+          setResults(results);
+          setLoading(false);
+        });
+    } else {
+      setResults([]);
+    }
+  }, [debouncedSearchTerm]);
+
+  return (
+    &lt;div&gt;
+      &lt;input
+        type="text"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        placeholder="Digite para pesquisar..."
+      /&gt;
+      {loading && &lt;div&gt;Pesquisando...&lt;/div&gt;}
+      &lt;ResultList results={results} /&gt;
+    &lt;/div&gt;
+  );
+};
+          </code></pre>
+
+          <h2>7. Profiling e Medição de Performance</h2>
+          <p>
+            Use o React DevTools Profiler para identificar gargalos de performance:
+          </p>
+
+          <pre><code class="language-javascript">
+import { Profiler } from 'react';
+
+const onRenderCallback = (id, phase, actualDuration) => {
+  // Log performance metrics
+  console.log('Component:', id);
+  console.log('Phase:', phase);
+  console.log('Duration:', actualDuration);
+  
+  // Enviar métricas para analytics
+  if (actualDuration > 16) { // > 1 frame (16ms)
+    analytics.track('slow_render', {
+      component: id,
+      duration: actualDuration,
+      phase
+    });
+  }
+};
+
+const App = () => {
+  return (
+    &lt;Profiler id="App" onRender={onRenderCallback}&gt;
+      &lt;Header /&gt;
+      &lt;MainContent /&gt;
+      &lt;Footer /&gt;
+    &lt;/Profiler&gt;
+  );
+};
+          </code></pre>
+
+          <h2>8. Bundle Analysis e Tree Shaking</h2>
+          <p>
+            Analise seu bundle para identificar dependências desnecessárias:
+          </p>
+
+          <pre><code class="language-javascript">
+// Configuração webpack.config.js para análise
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+  // ... outras configurações
+  plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      generateStatsFile: true
+    })
+  ],
+  optimization: {
+    usedExports: true,
+    sideEffects: false
+  }
+};
+
+// Import específico para tree shaking
+import { debounce } from 'lodash/debounce'; // ✅ Bom
+import _ from 'lodash'; // ❌ Importa toda a biblioteca
+
+// Dynamic imports para code splitting
+const handleLazyLoad = async () => {
+  const { heavyFunction } = await import('./heavyUtils');
+  return heavyFunction();
+};
+          </code></pre>
+
+          <h2>Ferramentas de Monitoramento</h2>
+          <p>
+            Implemente monitoramento contínuo da performance em produção:
+          </p>
+
+          <ul>
+            <li><strong>Web Vitals:</strong> Core Web Vitals para métricas do Google</li>
+            <li><strong>React DevTools:</strong> Profiler para desenvolvimento</li>
+            <li><strong>Lighthouse:</strong> Auditorias automatizadas</li>
+            <li><strong>Sentry Performance:</strong> Monitoramento em produção</li>
+            <li><strong>Bundle Analyzer:</strong> Análise de tamanho do bundle</li>
+          </ul>
+
+          <h2>Conclusão</h2>
+          <p>
+            A otimização de performance em React é um processo contínuo que requer medição, análise e implementação 
+            cuidadosa das técnicas adequadas. As estratégias apresentadas devem ser aplicadas baseadas nas necessidades 
+            específicas da sua aplicação e sempre com foco na experiência do usuário.
+          </p>
+
+          <p>
+            Lembre-se: otimização prematura pode ser prejudicial. Sempre meça primeiro, otimize depois, 
+            e mantenha um equilíbrio entre performance e manutenibilidade do código.
+          </p>
+        </div>
+      </div>
+
+      <!-- Share and Navigation -->
+      <div class="article-footer">
+        <div class="article-share">
+          <h4>Compartilhe este artigo:</h4>
+          <div class="share-buttons">
+            <a href="#" class="share-btn twitter" title="Compartilhar no Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="share-btn linkedin" title="Compartilhar no LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="share-btn facebook" title="Compartilhar no Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="article-navigation">
+          <a href="artigo-microservicos.html" class="nav-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Artigo Anterior</span>
+          </a>
+          <a href="blog.html" class="nav-btn next">
+            <span>Voltar ao Blog</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>&copy; 2024 João Dev. Todos os direitos reservados.</p>
+        </div>
+        <div class="footer-right">
+          <p>Feito com <i class="fas fa-heart"></i> usando tecnologias modernas</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construindo Microserviços Escaláveis com Node.js e Docker - João Dev</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="code-text">const</span> 
+        <span class="highlight">João</span>: 
+        <span class="string">string</span> = 
+        <span class="string-value">"👨‍💻 Software Engineer";</span>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="index.html#about" class="nav-link">Sobre</a>
+        <a href="index.html#projects" class="nav-link">Projetos</a>
+        <a href="index.html#contact" class="nav-link">Contato</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="container">
+      <div class="article-breadcrumb">
+        <a href="blog.html">
+          <i class="fas fa-arrow-left"></i>
+          Voltar para o Blog
+        </a>
+      </div>
+      <div class="article-category">Backend</div>
+      <h1 class="article-title">Construindo Microserviços Escaláveis com Node.js e Docker</h1>
+      <p class="article-subtitle">
+        Aprenda como desenvolver uma arquitetura de microserviços robusta e escalável usando Node.js, Docker e Kubernetes. Incluindo boas práticas de comunicação entre serviços.
+      </p>
+      <div class="article-meta">
+        <div class="article-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" alt="João" class="author-avatar">
+          <div class="author-info">
+            <span class="author-name">João Dev</span>
+            <span class="author-title">Software Engineer</span>
+          </div>
+        </div>
+        <div class="article-details">
+          <span class="article-date">
+            <i class="fas fa-calendar"></i>
+            15 de Janeiro, 2024
+          </span>
+          <span class="article-reading-time">
+            <i class="fas fa-clock"></i>
+            8 min de leitura
+          </span>
+        </div>
+      </div>
+      <div class="article-tags">
+        <span class="article-tag">Node.js</span>
+        <span class="article-tag">Docker</span>
+        <span class="article-tag">Kubernetes</span>
+        <span class="article-tag">Microserviços</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <article class="article-content">
+    <div class="container">
+      <div class="article-body">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=600&fit=crop" alt="Microserviços com Node.js" class="article-featured-image">
+        
+        <div class="article-text">
+          <h2>Introdução aos Microserviços</h2>
+          <p>
+            Os microserviços representam uma abordagem arquitetural que estrutura uma aplicação como uma coleção de serviços fracamente acoplados. 
+            Essa arquitetura oferece benefícios significativos em termos de escalabilidade, manutenibilidade e flexibilidade tecnológica.
+          </p>
+
+          <p>
+            Neste artigo, vamos explorar como construir uma arquitetura de microserviços robusta usando Node.js e Docker, 
+            cobrindo desde os conceitos fundamentais até a implementação prática.
+          </p>
+
+          <h2>Por que Escolher Node.js para Microserviços?</h2>
+          <p>
+            Node.js se destaca como uma escolha excelente para microserviços por várias razões:
+          </p>
+
+          <ul>
+            <li><strong>Performance:</strong> Event-driven e non-blocking I/O proporcionam alta performance</li>
+            <li><strong>Escalabilidade:</strong> Ideal para aplicações I/O intensivas</li>
+            <li><strong>Ecossistema:</strong> NPM oferece um vasto ecossistema de packages</li>
+            <li><strong>Produtividade:</strong> JavaScript tanto no frontend quanto no backend</li>
+          </ul>
+
+          <h2>Estrutura Básica de um Microserviço</h2>
+          <p>Vamos começar criando um microserviço simples para gerenciamento de usuários:</p>
+
+          <pre><code class="language-javascript">
+// user-service/app.js
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Middlewares de segurança
+app.use(helmet());
+app.use(cors());
+app.use(express.json({ limit: '10mb' }));
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
+
+// Routes
+app.get('/users', async (req, res) => {
+  // Lógica para buscar usuários
+  res.json({ message: 'Lista de usuários' });
+});
+
+app.post('/users', async (req, res) => {
+  // Lógica para criar usuário
+  res.json({ message: 'Usuário criado com sucesso' });
+});
+
+app.listen(PORT, () => {
+  console.log(`User Service rodando na porta ${PORT}`);
+});
+          </code></pre>
+
+          <h2>Containerização com Docker</h2>
+          <p>
+            Docker é fundamental para garantir consistência entre diferentes ambientes. 
+            Aqui está um Dockerfile otimizado para aplicações Node.js:
+          </p>
+
+          <pre><code class="language-dockerfile">
+# user-service/Dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Instalar dependências primeiro (cache layer)
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Copiar código da aplicação
+COPY . .
+
+# Criar usuário não-root
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nodejs -u 1001
+USER nodejs
+
+EXPOSE 3001
+
+CMD ["node", "app.js"]
+          </code></pre>
+
+          <h2>Comunicação Entre Serviços</h2>
+          <p>
+            A comunicação entre microserviços pode ser feita de várias formas. Vamos explorar as principais abordagens:
+          </p>
+
+          <h3>1. HTTP/REST APIs</h3>
+          <p>Comunicação síncrona simples e amplamente suportada:</p>
+
+          <pre><code class="language-javascript">
+// order-service/services/userService.js
+const axios = require('axios');
+
+class UserService {
+  constructor() {
+    this.baseURL = process.env.USER_SERVICE_URL || 'http://localhost:3001';
+  }
+
+  async getUserById(userId) {
+    try {
+      const response = await axios.get(`${this.baseURL}/users/${userId}`);
+      return response.data;
+    } catch (error) {
+      throw new Error(`Erro ao buscar usuário: ${error.message}`);
+    }
+  }
+}
+
+module.exports = new UserService();
+          </code></pre>
+
+          <h3>2. Message Queues (RabbitMQ)</h3>
+          <p>Para comunicação assíncrona e desacoplamento:</p>
+
+          <pre><code class="language-javascript">
+// utils/messageQueue.js
+const amqp = require('amqplib');
+
+class MessageQueue {
+  async connect() {
+    this.connection = await amqp.connect(process.env.RABBITMQ_URL);
+    this.channel = await this.connection.createChannel();
+  }
+
+  async publishEvent(queue, event) {
+    await this.channel.assertQueue(queue, { durable: true });
+    await this.channel.sendToQueue(queue, Buffer.from(JSON.stringify(event)));
+  }
+
+  async subscribeToEvents(queue, callback) {
+    await this.channel.assertQueue(queue, { durable: true });
+    await this.channel.consume(queue, callback, { noAck: false });
+  }
+}
+
+module.exports = new MessageQueue();
+          </code></pre>
+
+          <h2>Docker Compose para Desenvolvimento</h2>
+          <p>
+            Para facilitar o desenvolvimento local com múltiplos serviços, utilizamos Docker Compose:
+          </p>
+
+          <pre><code class="language-yaml">
+# docker-compose.yml
+version: '3.8'
+
+services:
+  user-service:
+    build: ./user-service
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=postgres
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+    depends_on:
+      - postgres
+      - rabbitmq
+
+  order-service:
+    build: ./order-service
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=development
+      - USER_SERVICE_URL=http://user-service:3001
+      - DB_HOST=postgres
+    depends_on:
+      - postgres
+      - user-service
+
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: microservices
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+volumes:
+  postgres_data:
+          </code></pre>
+
+          <h2>Monitoramento e Observabilidade</h2>
+          <p>
+            Para uma arquitetura de microserviços em produção, é essencial implementar monitoramento adequado:
+          </p>
+
+          <pre><code class="language-javascript">
+// middleware/monitoring.js
+const prometheus = require('prom-client');
+
+// Métricas customizadas
+const httpRequestsTotal = new prometheus.Counter({
+  name: 'http_requests_total',
+  help: 'Total number of HTTP requests',
+  labelNames: ['method', 'route', 'status_code']
+});
+
+const httpRequestDuration = new prometheus.Histogram({
+  name: 'http_request_duration_seconds',
+  help: 'Duration of HTTP requests in seconds',
+  labelNames: ['method', 'route']
+});
+
+module.exports = {
+  requestMetrics: (req, res, next) => {
+    const start = Date.now();
+    
+    res.on('finish', () => {
+      const duration = (Date.now() - start) / 1000;
+      
+      httpRequestsTotal.labels(req.method, req.route?.path || req.url, res.statusCode).inc();
+      httpRequestDuration.labels(req.method, req.route?.path || req.url).observe(duration);
+    });
+    
+    next();
+  },
+  register: prometheus.register
+};
+          </code></pre>
+
+          <h2>Boas Práticas para Produção</h2>
+          <p>Algumas recomendações importantes para ambientes de produção:</p>
+
+          <ul>
+            <li><strong>Health Checks:</strong> Implemente endpoints de saúde para monitoramento</li>
+            <li><strong>Circuit Breakers:</strong> Use bibliotecas como Hystrix para evitar falhas em cascata</li>
+            <li><strong>Logging Estruturado:</strong> Utilize formatação JSON para logs centralizados</li>
+            <li><strong>Versionamento de APIs:</strong> Mantenha backward compatibility</li>
+            <li><strong>Testes:</strong> Implemente testes unitários, de integração e contratos</li>
+          </ul>
+
+          <h2>Conclusão</h2>
+          <p>
+            A arquitetura de microserviços com Node.js e Docker oferece uma base sólida para aplicações escaláveis e mantíveis. 
+            O sucesso depende da implementação cuidadosa de padrões de comunicação, monitoramento e práticas de desenvolvimento.
+          </p>
+
+          <p>
+            No próximo artigo, exploraremos como implementar padrões avançados como API Gateway, 
+            Service Discovery e estratégias de deploy com zero downtime.
+          </p>
+        </div>
+      </div>
+
+      <!-- Share and Navigation -->
+      <div class="article-footer">
+        <div class="article-share">
+          <h4>Compartilhe este artigo:</h4>
+          <div class="share-buttons">
+            <a href="#" class="share-btn twitter" title="Compartilhar no Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="share-btn linkedin" title="Compartilhar no LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="share-btn facebook" title="Compartilhar no Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="article-navigation">
+          <a href="blog.html" class="nav-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Voltar ao Blog</span>
+          </a>
+          <a href="artigo-react-performance.html" class="nav-btn next">
+            <span>Próximo Artigo</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>&copy; 2024 João Dev. Todos os direitos reservados.</p>
+        </div>
+        <div class="footer-right">
+          <p>Feito com <i class="fas fa-heart"></i> usando tecnologias modernas</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
