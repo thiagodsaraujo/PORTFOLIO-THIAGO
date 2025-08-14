@@ -21,9 +21,9 @@ svg {
 }
 
 :root {
-  --primary-color: #6a0dad; /* Dark Purple */
-  --secondary-color: #40e0d0; /* Turquoise */
-  --accent-color: #8a2be2; /* Purple Accent */
+  --primary-color: #ff0040; /* Matrix Red */
+  --secondary-color: #ffd700; /* Gold */
+  --accent-color: #cc0033; /* Red Accent */
   --bg-primary: #0a0a0a;
   --bg-secondary: #111111;
   --bg-tertiary: #1a1a1a;
@@ -31,9 +31,9 @@ svg {
   --text-secondary: #b0b0b0;
   --text-muted: #666666;
   --border-color: #333333;
-  --gradient-primary: linear-gradient(135deg, #6a0dad, #40e0d0);
+  --gradient-primary: linear-gradient(135deg, #ff0040, #ffd700);
   --gradient-secondary: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-  --shadow-glow: 0 0 20px rgba(106, 13, 173, 0.3);
+  --shadow-glow: 0 0 20px rgba(255, 0, 64, 0.3);
   --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
