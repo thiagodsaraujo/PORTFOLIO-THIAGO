@@ -214,7 +214,7 @@ body {
 }
 
 /* Garantir que divs genéricas não sobreponham elementos interativos */
-div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*="modal"]):not([class*="dropdown"]) {
+div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*="modal"]):not([class*="dropdown"]):not(.hero-arrow):not(.animated-arrow) {
   z-index: auto;
 }
 
@@ -1450,6 +1450,7 @@ section {
   font-size: 0.95rem;
   position: relative;
   overflow: hidden;
+  z-index: 10;
 }
 
 .btn-live {
