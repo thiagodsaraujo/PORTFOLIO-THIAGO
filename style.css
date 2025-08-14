@@ -2822,60 +2822,60 @@ section {
     grid-template-columns: 1fr;
     gap: 25px;
   }
-  
+
   .blog-card-content {
     padding: 25px 20px;
   }
-  
+
   .newsletter-section {
     padding: 30px 20px;
   }
-  
+
   .newsletter-form {
     flex-direction: column;
   }
-  
+
   .article-header {
     padding: 100px 0 50px;
   }
-  
+
   .article-meta {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .article-details {
     gap: 20px;
   }
-  
+
   .article-text {
     font-size: 1rem;
   }
-  
+
   .article-text h2 {
     font-size: 1.8rem;
     margin: 40px 0 20px 0;
   }
-  
+
   .article-text pre {
     padding: 20px 15px;
     margin: 20px -15px;
     border-radius: 0;
   }
-  
+
   .share-buttons {
     gap: 10px;
   }
-  
+
   .article-navigation {
     flex-direction: column;
   }
-  
+
   .nav-btn {
     width: 100%;
     justify-content: center;
   }
-  
+
   .nav-btn.next {
     margin-left: 0;
   }
@@ -3410,7 +3410,7 @@ section {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
-  
+
   .contact-form-container {
     padding: 35px 25px;
   }
@@ -3418,59 +3418,31 @@ section {
 
 @media (max-width: 768px) {
   .contact-cards {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .contact-form-container {
-    padding: 30px 20px;
-    border-radius: 20px;
+    padding: 35px 25px;
   }
-  
-  .contact-form-header h3 {
-    font-size: 1.7rem;
+
+  .contact-card {
+    padding: 16px 12px;
   }
-  
-  .contact-form-header p {
+
+  .contact-card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  .contact-card h3 {
     font-size: 1rem;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-  
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    padding: 14px 18px;
-    font-size: 0.95rem;
-  }
-  
-  .btn-contact-submit {
-    padding: 16px 35px;
-    font-size: 1rem;
-  }
-
-  .social-links {
-    gap: 15px;
-  }
-
-  .social-link {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-  }
-
-  .social-link span {
-    display: none;
-  }
-
-  .social-link {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 0;
-    justify-content: center;
+  .contact-card p {
+    font-size: 0.85rem;
   }
 }
 
@@ -3478,12 +3450,12 @@ section {
   .contact {
     padding: 80px 0;
   }
-  
+
   .contact-form-container {
     padding: 25px 15px;
     border-radius: 15px;
   }
-  
+
   .contact-form-header h3 {
     font-size: 1.5rem;
   }
@@ -3497,21 +3469,21 @@ section {
     height: 60px;
     font-size: 1.5rem;
   }
-  
+
   .contact-card h3 {
     font-size: 1.2rem;
   }
-  
+
   .form-group input,
   .form-group textarea,
   .form-group select {
     padding: 12px 16px;
   }
-  
+
   .social-links {
     gap: 12px;
   }
-  
+
   .social-link {
     width: 45px;
     height: 45px;
@@ -3523,7 +3495,7 @@ section {
   .container {
     padding: 0 30px;
   }
-  
+
   .nav-container {
     padding: 0 30px;
   }
@@ -3533,29 +3505,29 @@ section {
   .container {
     padding: 0 25px;
   }
-  
+
   .nav-container {
     padding: 0 25px;
   }
-  
+
   .hero-title {
     font-size: clamp(2.5rem, 7vw, 4rem);
   }
-  
+
   .hero-subtitle {
     font-size: clamp(1.2rem, 3.5vw, 2rem);
   }
-  
+
   .resume-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .features-challenges-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .tech-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
@@ -3566,30 +3538,30 @@ section {
   html {
     font-size: 14px;
   }
-  
+
   body {
     overflow-x: hidden;
   }
-  
+
   .container {
     padding: 0 20px;
     max-width: 100%;
   }
-  
+
   /* Navigation Mobile */
   .nav-container {
     padding: 0 20px;
     height: 60px;
   }
-  
+
   .navbar {
     height: 60px;
   }
-  
+
   .nav-logo {
     font-size: 12px;
   }
-  
+
   .nav-menu {
     position: fixed;
     top: 60px;
@@ -3620,7 +3592,7 @@ section {
     width: 100%;
     text-align: center;
   }
-  
+
   .nav-link:hover {
     background: rgba(158, 88, 203, 0.1);
   }
@@ -3653,100 +3625,100 @@ section {
     display: flex;
     z-index: 10000;
   }
-  
+
   .hamburger.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
   }
-  
+
   .hamburger.active span:nth-child(2) {
     opacity: 0;
   }
-  
+
   .hamburger.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
   }
-  
+
   /* Hero Section Mobile */
   .hero {
     height: 100vh;
     min-height: 600px;
     padding: 60px 0 0;
   }
-  
+
   .hero-content {
     padding: 0 20px;
   }
-  
+
   .hero-title {
     font-size: clamp(2rem, 8vw, 3.5rem);
     margin-bottom: 15px;
   }
-  
+
   .hero-subtitle {
     font-size: clamp(1rem, 4vw, 1.5rem);
     margin-bottom: 25px;
   }
-  
+
   .hero-location {
     margin-bottom: 30px;
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .hero-cta {
     flex-direction: column;
     gap: 15px;
     align-items: center;
   }
-  
+
   .btn {
     width: 100%;
     max-width: 300px;
     padding: 12px 25px;
     font-size: 0.95rem;
   }
-  
+
   /* Sections Mobile */
   section {
     padding: 60px 0;
   }
-  
+
   .section-header {
     margin-bottom: 50px;
   }
-  
+
   .section-title {
     font-size: clamp(2rem, 6vw, 2.8rem);
     margin-bottom: 15px;
   }
-  
+
   .section-subtitle {
     font-size: 1rem;
     margin-bottom: 20px;
   }
-  
+
   /* About Section Mobile */
   .quote {
     padding: 25px 20px;
     margin-bottom: 30px;
   }
-  
+
   .quote p {
     font-size: 1.1rem;
     line-height: 1.6;
   }
-  
+
   .about-description p {
     font-size: 1rem;
     text-align: left;
   }
-  
+
   /* Resume Section Mobile */
   .resume-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .resume-column-title {
     font-size: 1.5rem;
     margin-bottom: 30px;
@@ -3754,85 +3726,85 @@ section {
     text-align: center;
     gap: 10px;
   }
-  
+
   .timeline-item {
     padding-left: 45px;
   }
-  
+
   .timeline-marker {
     width: 25px;
     height: 25px;
     font-size: 0.8rem;
   }
-  
+
   .timeline-content {
     padding: 20px;
   }
-  
+
   .timeline-content h4 {
     font-size: 1.1rem;
   }
-  
+
   .timeline-achievements li {
     font-size: 0.9rem;
     line-height: 1.5;
   }
-  
+
   .certification-item {
     flex-direction: column;
     gap: 15px;
     text-align: center;
   }
-  
+
   /* Tech Stack Mobile */
   .tech-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .tech-category {
     padding: 30px 20px;
   }
-  
+
   .tech-icon {
     width: 60px;
     height: 60px;
     font-size: 1.5rem;
   }
-  
+
   .tech-category h3 {
     font-size: 1.3rem;
     margin-bottom: 20px;
   }
-  
+
   /* Projects Mobile */
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
-  
+
   .project-card {
     margin: 0 auto;
     max-width: 400px;
   }
-  
+
   .project-content {
     padding: 20px;
   }
-  
+
   .project-content h3 {
     font-size: 1.2rem;
   }
-  
+
   .project-content p {
     font-size: 0.9rem;
   }
-  
+
   .projects-cta {
     padding: 30px 20px;
     margin-top: 40px;
   }
-  
+
   .projects-cta p {
     font-size: 1rem;
   }
@@ -3842,115 +3814,115 @@ section {
   html {
     font-size: 13px;
   }
-  
+
   .container {
     padding: 0 15px;
   }
-  
+
   .nav-container {
     padding: 0 15px;
     height: 55px;
   }
-  
+
   .navbar {
     height: 55px;
   }
-  
+
   .nav-logo {
     font-size: 11px;
   }
-  
+
   .nav-menu {
     top: 55px;
     height: calc(100vh - 55px);
     padding: 30px 15px;
   }
-  
+
   .hero {
     min-height: 500px;
     padding: 55px 0 0;
   }
-  
+
   .hero-content {
     padding: 0 15px;
   }
-  
+
   .hero-title {
     font-size: clamp(1.8rem, 9vw, 2.8rem);
   }
-  
+
   .hero-subtitle {
     font-size: clamp(0.9rem, 4vw, 1.2rem);
   }
-  
+
   .btn {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
-  
+
   section {
     padding: 50px 0;
   }
-  
+
   .section-title {
     font-size: clamp(1.8rem, 7vw, 2.3rem);
   }
-  
+
   .quote {
     padding: 20px 15px;
   }
-  
+
   .quote p {
     font-size: 1rem;
   }
-  
+
   .timeline-item {
     padding-left: 35px;
   }
-  
+
   .timeline-marker {
     width: 20px;
     height: 20px;
     font-size: 0.7rem;
     left: -2px;
   }
-  
+
   .timeline::before {
     left: 8px;
   }
-  
+
   .timeline-content {
     padding: 15px;
   }
-  
+
   .timeline-content::before {
     left: -8px;
   }
-  
+
   .tech-category {
     padding: 25px 15px;
   }
-  
+
   .tech-icon {
     width: 50px;
     height: 50px;
     font-size: 1.2rem;
   }
-  
+
   .project-content {
     padding: 15px;
   }
-  
+
   .project-image {
     height: 160px;
   }
-  
+
   .carousel-btn {
     width: 30px;
     height: 30px;
     font-size: 0.8rem;
   }
-  
+
   .indicator {
     width: 6px;
     height: 6px;
