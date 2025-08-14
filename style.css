@@ -351,10 +351,7 @@ section {
 
 /* About Section */
 .about {
-  background: 
-    linear-gradient(135deg, rgba(17, 17, 17, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%),
-    url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1080&fit=crop&crop=center') center/cover;
-  background-attachment: fixed;
+  background: linear-gradient(135deg, rgba(17, 17, 17, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%);
   position: relative;
 }
 
@@ -411,10 +408,7 @@ section {
 
 /* Resume Section */
 .resume {
-  background: 
-    linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(17, 17, 17, 0.95) 100%),
-    url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop&crop=center') center/cover;
-  background-attachment: fixed;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(17, 17, 17, 0.95) 100%);
   position: relative;
 }
 
@@ -625,10 +619,7 @@ section {
 .tech-stack {
   position: relative;
   overflow: hidden;
-  background: 
-    linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(26, 26, 26, 0.95) 100%),
-    url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop&crop=center') center/cover;
-  background-attachment: fixed;
+  background: linear-gradient(135deg, rgba(17, 17, 17, 0.9) 0%, rgba(26, 26, 26, 0.95) 100%);
 }
 
 .tech-bg {
@@ -725,10 +716,7 @@ section {
 
 /* Projects Section */
 .projects {
-  background: 
-    linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(17, 17, 17, 0.9) 100%),
-    url('https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1920&h=1080&fit=crop&crop=center') center/cover;
-  background-attachment: fixed;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(17, 17, 17, 0.9) 100%);
   position: relative;
 }
 
@@ -2119,10 +2107,7 @@ section {
 
 /* Contact Section */
 .contact {
-  background: 
-    linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(17, 17, 17, 0.95) 50%, rgba(10, 10, 10, 0.9) 100%),
-    url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&h=1080&fit=crop&crop=center') center/cover;
-  background-attachment: fixed;
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(17, 17, 17, 0.95) 50%, rgba(10, 10, 10, 0.9) 100%);
   position: relative;
   overflow: hidden;
 }
