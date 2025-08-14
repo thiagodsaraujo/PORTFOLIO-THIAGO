@@ -476,14 +476,8 @@ function setupLanguageSelector() {
         langOptions.forEach(opt => opt.classList.remove('active'));
         option.classList.add('active');
 
-        // Update current language display and flag
-        const flagIcon = langBtn.querySelector('.flag-icon');
-        const optionFlagIcon = option.querySelector('.flag-icon');
+        // Update current language display
         const optionLangText = option.querySelector('.lang-text');
-
-        if (flagIcon && optionFlagIcon) {
-          flagIcon.textContent = optionFlagIcon.textContent;
-        }
         currentLangSpan.textContent = optionLangText.textContent;
 
         // Apply translation
@@ -501,14 +495,8 @@ function setupLanguageSelector() {
   if (initialOption) {
     initialOption.classList.add('active');
 
-    // Set initial flag and text
-    const flagIcon = langBtn.querySelector('.flag-icon');
-    const optionFlagIcon = initialOption.querySelector('.flag-icon');
+    // Set initial text
     const optionLangText = initialOption.querySelector('.lang-text');
-
-    if (flagIcon && optionFlagIcon) {
-      flagIcon.textContent = optionFlagIcon.textContent;
-    }
     if (currentLangSpan && optionLangText) {
       currentLangSpan.textContent = optionLangText.textContent;
     }
