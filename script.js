@@ -180,10 +180,12 @@ function initializeApp() {
 // Navigation functionality
 function setupNavigation() {
   // Mobile menu toggle
-  hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-  });
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+  }
 
   // Smooth scrolling for navigation links
   navLinks.forEach(link => {
@@ -200,8 +202,10 @@ function setupNavigation() {
       }
 
       // Close mobile menu
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
+      if (navMenu && hamburger) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
 
       // Update active link
       updateActiveNavLink(targetId);
@@ -331,10 +335,12 @@ function setupScrollEffects() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     // Navbar background change
-    if (scrollTop > 100) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+    if (navbar) {
+      if (scrollTop > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     }
 
     // Update active section
