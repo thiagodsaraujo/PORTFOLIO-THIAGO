@@ -837,7 +837,7 @@ section {
   width: 35px;
   height: 35px;
   background: rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(124, 58, 237, 0.3);
+  border: 1px solid rgba(158, 88, 203, 0.3);
   color: var(--primary-color);
   cursor: pointer;
   display: flex;
@@ -878,7 +878,7 @@ section {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid rgba(124, 58, 237, 0.3);
+  border: 1px solid rgba(158, 88, 203, 0.3);
 }
 
 .indicator.active {
@@ -1341,6 +1341,7 @@ section {
   position: relative;
   transition: all 0.3s ease;
   line-height: 1.6;
+  padding-left: 50px;
 }
 
 .features-list li:hover,
