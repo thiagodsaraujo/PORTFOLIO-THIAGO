@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="project-title">Detalhes do Projeto - João Dev</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar project-nav" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="code-text">THIAGO.</span>
+        <span class="highlight">ARAUJO</span>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+        <a href="index.html#projects" class="nav-link active">Projects</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Project Detail Header -->
+  <section class="project-detail-header">
+    <div class="container">
+      <button class="back-btn" onclick="window.history.back()">
+        <i class="fas fa-arrow-left"></i>
+        Back to Projects
+      </button>
+      
+      <div class="project-detail-meta">
+        <div class="project-badge" id="project-badge">AI/ML</div>
+        <div class="project-year" id="project-year">2023</div>
+      </div>
+      
+      <h1 class="project-detail-title" id="project-detail-title-main">AI Analytics Dashboard</h1>
+      
+      <p class="project-detail-description" id="project-detail-description-main">
+        Dashboard avançado de analytics que utiliza algoritmos de machine learning para análise 
+        preditiva de dados empresariais. Desenvolvido com Python, Vue.js e TensorFlow, o sistema 
+        processa grandes volumes de dados em tempo real e fornece insights acionáveis através de 
+        visualizações interativas e relatórios automatizados.
+      </p>
+      
+      <div class="project-detail-actions">
+        <a href="#" class="btn-detail btn-live" id="live-demo-btn">
+          <i class="fas fa-external-link-alt"></i>
+          <span>Live Demo</span>
+        </a>
+        <a href="#" class="btn-detail btn-code" id="view-code-btn">
+          <i class="fab fa-github"></i>
+          <span>View Code</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Image -->
+  <section class="project-hero-image">
+    <div class="container">
+      <div class="project-image-container">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800" 
+             alt="AI Analytics Dashboard" 
+             id="project-main-image" 
+             class="project-main-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Used -->
+  <section class="project-technologies">
+    <div class="container">
+      <h2 class="section-title-detail">Technologies <span class="highlight-detail">Used</span></h2>
+      <div class="tech-badges" id="project-tech-badges">
+        <div class="tech-badge">Python</div>
+        <div class="tech-badge">Vue.js</div>
+        <div class="tech-badge">TensorFlow</div>
+        <div class="tech-badge">PostgreSQL</div>
+        <div class="tech-badge">Docker</div>
+        <div class="tech-badge">AWS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features and Challenges -->
+  <section class="features-challenges">
+    <div class="container">
+      <div class="features-challenges-grid">
+        <div class="key-features-section">
+          <h2 class="section-title-features">Key Features</h2>
+          <ul id="project-key-features" class="features-list">
+            <li>Análise preditiva com algoritmos de machine learning</li>
+            <li>Visualizações interativas em tempo real</li>
+            <li>Processamento de big data com Apache Spark</li>
+            <li>Relatórios automatizados e agendados</li>
+            <li>API REST para integração com outros sistemas</li>
+            <li>Sistema de alertas inteligentes</li>
+            <li>Dashboard customizável por usuário</li>
+            <li>Exportação de dados em múltiplos formatos</li>
+          </ul>
+        </div>
+
+        <div class="challenges-section">
+          <h2 class="section-title-challenges">Development Challenges</h2>
+          <ul id="project-challenges" class="challenges-list">
+            <li>Otimização de algoritmos de ML para processamento em tempo real</li>
+            <li>Desenvolvimento de pipeline de dados escalável</li>
+            <li>Implementação de sistema de cache inteligente</li>
+            <li>Criação de visualizações responsivas para grandes datasets</li>
+            <li>Integração com múltiplas fontes de dados heterogêneas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Gallery -->
+  <section class="project-gallery">
+    <div class="container">
+      <h2 class="section-title-detail">Project <span class="highlight-detail">Gallery</span></h2>
+      <div class="gallery-grid" id="project-gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" 
+               alt="Dashboard principal" 
+               loading="lazy" />
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Dashboard Principal</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" 
+               alt="Analytics em tempo real" 
+               loading="lazy" />
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Analytics em Tempo Real</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop" 
+               alt="Configurações do sistema" 
+               loading="lazy" />
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Configurações do Sistema</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="footer-logo">THIAGO.<span class="highlight">ARAUJO</span></div>
+          <p>&copy; 2024 Thiago Araujo. Todos os direitos reservados.</p>
+        </div>
+        <div class="footer-right">
+          <p>Feito com <i class="fas fa-heart"></i> usando tecnologias modernas</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="project-detail.js"></script>
+</body>
+</html>

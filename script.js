@@ -3,7 +3,7 @@ let currentSection = 0;
 const sections = ['home', 'about', 'resume', 'tech-stack', 'projects', 'contact'];
 const typeTexts = [
   'Software Engineer',
-  'Full Stack Developer', 
+  'Full Stack Developer',
   'Tech Innovator',
   'Problem Solver',
   'Code Architect'
@@ -484,7 +484,7 @@ function renderProjects(filter = 'all') {
   let filteredProjects = projectsData;
 
   if (filter !== 'all') {
-    filteredProjects = projectsData.filter(project => 
+    filteredProjects = projectsData.filter(project =>
       project.technologies.includes(filter)
     );
   }
@@ -501,6 +501,11 @@ function renderProjects(filter = 'all') {
   cards.forEach((card, index) => {
     card.style.animationDelay = `${index * 0.1}s`;
   });
+}
+
+// Helper function to create a URL-friendly slug from a project title
+function getProjectSlug(title) {
+  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
 }
 
 function createProjectCard(project) {
@@ -529,6 +534,12 @@ function createProjectCard(project) {
         ${project.technologies.slice(0, 3).map(tech => `<span>${tech}</span>`).join('')}
         ${project.technologies.length > 3 ? '<span class="tech-more">+' + (project.technologies.length - 3) + '</span>' : ''}
       </div>
+      <a href="project-detail.html?project=${getProjectSlug(project.title)}">
+          <button class="btn btn-secondary">
+            <span>View Details</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </a>
     </div>
   `;
 
@@ -759,7 +770,7 @@ function openImageModal(imageSrc, imageTitle) {
 
   modal.innerHTML = `
     <div style="max-width: 90%; max-height: 90%; text-align: center;">
-      <img src="${imageSrc}" alt="${imageTitle}" 
+      <img src="${imageSrc}" alt="${imageTitle}"
            style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; box-shadow: var(--shadow-dark);" />
       <p style="color: var(--text-primary); margin-top: 20px; font-size: 1.1rem;">${imageTitle}</p>
     </div>
