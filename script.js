@@ -479,8 +479,28 @@ function setupAnimations() {
 
 // Projects functionality
 function setupProjects() {
-  // Projects are now static HTML, no need for complex setup
-  console.log('Projects section initialized');
+  // Add click handlers to project cards
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  projectCards.forEach((card, index) => {
+    card.addEventListener('click', (e) => {
+      // Prevent opening modal if clicking on links
+      if (e.target.closest('.project-link')) {
+        return;
+      }
+      
+      // Get project data based on index
+      const project = projectsData[index];
+      if (project) {
+        openProjectModal(project);
+      }
+    });
+    
+    // Add cursor pointer
+    card.style.cursor = 'pointer';
+  });
+  
+  console.log('Projects section initialized with modal functionality');
 }
 
 // Project Detail Page Functions
@@ -714,6 +734,119 @@ function openImageModal(imageSrc, imageTitle) {
   });
 
   document.body.appendChild(modal);
+}
+
+// Project Modal Functions
+function openProjectModal(project) {
+  const modal = createProjectModal(project);
+  document.body.appendChild(modal);
+  
+  // Animate modal in
+  setTimeout(() => {
+    modal.classList.add('modal-show');
+  }, 10);
+  
+  // Disable body scroll
+  document.body.style.overflow = 'hidden';
+}
+
+function createProjectModal(project) {
+  const modal = document.createElement('div');
+  modal.className = 'project-modal';
+  modal.innerHTML = `
+    <div class="modal-overlay"></div>
+    <div class="modal-container">
+      <button class="modal-close" aria-label="Fechar modal">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="modal-header">
+        <div class="modal-badge">${project.badge}</div>
+        <div class="modal-year">${project.year}</div>
+        <h2 class="modal-title">${project.title}</h2>
+        <p class="modal-description">${project.fullDescription}</p>
+      </div>
+      
+      <div class="modal-image">
+        <img src="${project.mainImage}" alt="${project.title}" loading="lazy" />
+      </div>
+      
+      <div class="modal-content">
+        <div class="modal-section">
+          <h3 class="modal-section-title">
+            <i class="fas fa-code"></i>
+            Tecnologias Utilizadas
+          </h3>
+          <div class="modal-tech-list">
+            ${project.technologies.map(tech => `<span class="modal-tech-tag">${tech}</span>`).join('')}
+          </div>
+        </div>
+        
+        <div class="modal-section">
+          <h3 class="modal-section-title">
+            <i class="fas fa-star"></i>
+            Principais Funcionalidades
+          </h3>
+          <ul class="modal-features-list">
+            ${project.features.slice(0, 5).map(feature => `<li>${feature}</li>`).join('')}
+          </ul>
+        </div>
+        
+        <div class="modal-section">
+          <h3 class="modal-section-title">
+            <i class="fas fa-lightbulb"></i>
+            Desafios de Desenvolvimento
+          </h3>
+          <ul class="modal-challenges-list">
+            ${project.challenges.slice(0, 3).map(challenge => `<li>${challenge}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <div class="modal-actions">
+          <a href="${project.demoUrl}" class="modal-btn modal-btn-primary" target="_blank" rel="noopener">
+            <i class="fas fa-external-link-alt"></i>
+            <span>Ver Demo</span>
+          </a>
+          <a href="${project.githubUrl}" class="modal-btn modal-btn-secondary" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i>
+            <span>Ver Código</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Add event listeners
+  const closeBtn = modal.querySelector('.modal-close');
+  const overlay = modal.querySelector('.modal-overlay');
+  
+  closeBtn.addEventListener('click', () => closeProjectModal(modal));
+  overlay.addEventListener('click', () => closeProjectModal(modal));
+  
+  // Close on Escape key
+  const handleEscape = (e) => {
+    if (e.key === 'Escape') {
+      closeProjectModal(modal);
+      document.removeEventListener('keydown', handleEscape);
+    }
+  };
+  document.addEventListener('keydown', handleEscape);
+  
+  return modal;
+}
+
+function closeProjectModal(modal) {
+  modal.classList.add('modal-hide');
+  
+  setTimeout(() => {
+    if (modal.parentNode) {
+      modal.parentNode.removeChild(modal);
+    }
+    // Re-enable body scroll
+    document.body.style.overflow = '';
+  }, 300);
 }
 
 // Utility functions
