@@ -746,7 +746,7 @@ function createParticle() {
     border-radius: 50%;
     pointer-events: none;
     animation: float ${duration}s infinite linear;
-    z-index: 1;
+    z-index: 0;
   `;
 
   particlesContainer.appendChild(particle);
