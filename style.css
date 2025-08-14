@@ -409,16 +409,16 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
 /* Seta animada apontando para baixo */
 .hero-arrow {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
 }
 
 .animated-arrow {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border: 2px solid var(--primary-color);
   border-top: none;
   border-left: none;
@@ -430,10 +430,10 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
 .animated-arrow::before {
   content: '';
   position: absolute;
-  top: -8px;
-  left: -8px;
-  width: 24px;
-  height: 24px;
+  top: -6px;
+  left: -6px;
+  width: 20px;
+  height: 20px;
   border: 2px solid var(--secondary-color);
   border-top: none;
   border-left: none;
@@ -447,12 +447,53 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
     opacity: 1;
   }
   40% { 
-    transform: rotate(45deg) translateY(-8px);
+    transform: rotate(45deg) translateY(-6px);
     opacity: 0.8;
   }
   60% { 
-    transform: rotate(45deg) translateY(-4px);
+    transform: rotate(45deg) translateY(-3px);
     opacity: 0.9;
+  }
+}
+
+/* Ajustes específicos para mobile */
+@media (max-width: 768px) {
+  .hero-arrow {
+    bottom: 15px;
+    z-index: 0;
+  }
+  
+  .animated-arrow {
+    width: 16px;
+    height: 16px;
+    border-width: 1.5px;
+  }
+  
+  .animated-arrow::before {
+    width: 16px;
+    height: 16px;
+    border-width: 1.5px;
+    top: -5px;
+    left: -5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-arrow {
+    bottom: 10px;
+    opacity: 0.7;
+  }
+  
+  .animated-arrow {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .animated-arrow::before {
+    width: 14px;
+    height: 14px;
+    top: -4px;
+    left: -4px;
   }
 }
 
