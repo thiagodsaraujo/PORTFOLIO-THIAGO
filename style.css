@@ -397,13 +397,15 @@ section {
 .about-description {
   display: grid;
   gap: 20px;
-  text-align: left;
+  text-align: justify;
 }
 
 .about-description p {
   font-size: 1.1rem;
   color: var(--text-secondary);
   line-height: 1.8;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Resume Section */
