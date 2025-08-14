@@ -1073,36 +1073,63 @@ function setupProjectFilters() {
 }
 
 function filterProjects(filterValue, projectCards) {
-  projectCards.forEach((card, index) => {
+  // First, hide all cards that don't match
+  const cardsToHide = [];
+  const cardsToShow = [];
+  
+  projectCards.forEach((card) => {
     const cardTags = card.getAttribute('data-tags');
     
     if (filterValue === 'all') {
-      // Show all projects
-      showProject(card, index);
+      cardsToShow.push(card);
     } else {
-      // Check if project has the filter tag
       if (cardTags && cardTags.includes(filterValue)) {
-        showProject(card, index);
+        cardsToShow.push(card);
       } else {
-        hideProject(card);
+        cardsToHide.push(card);
       }
     }
   });
+  
+  // Hide cards with animation
+  cardsToHide.forEach((card, index) => {
+    setTimeout(() => {
+      hideProject(card);
+    }, index * 50);
+  });
+  
+  // Show cards with staggered animation after hiding is complete
+  setTimeout(() => {
+    cardsToShow.forEach((card, index) => {
+      setTimeout(() => {
+        showProject(card, index);
+      }, index * 100);
+    });
+  }, cardsToHide.length * 50 + 200);
 }
 
 function showProject(card, index) {
-  card.classList.remove('hidden');
-  card.classList.add('show');
+  card.classList.remove('filtering-out', 'hidden');
+  card.classList.add('filtering-in');
+  card.style.visibility = 'visible';
+  card.style.pointerEvents = 'auto';
   
-  // Add staggered animation delay
+  // Remove animation class after animation completes
   setTimeout(() => {
-    card.style.animationDelay = `${index * 0.1}s`;
-  }, 50);
+    card.classList.remove('filtering-in');
+  }, 600);
 }
 
 function hideProject(card) {
-  card.classList.remove('show');
-  card.classList.add('hidden');
+  card.classList.remove('filtering-in');
+  card.classList.add('filtering-out');
+  
+  // Hide completely after animation
+  setTimeout(() => {
+    card.classList.add('hidden');
+    card.style.visibility = 'hidden';
+    card.style.pointerEvents = 'none';
+  }, 500);
 }
 
 // Project Carousel functionality
