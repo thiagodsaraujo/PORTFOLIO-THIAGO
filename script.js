@@ -246,8 +246,8 @@ const translations = {
     
     // Hero section
     heroSubtitle: ['Software Engineer', 'Full Stack Developer', 'Tech Innovator', 'Problem Solver', 'Code Architect'],
-    location: 'Brazil 🇧🇷',
-    locationCity: 'São Paulo, SP',
+    location: 'United Kingdom 🇬🇧',
+    locationCity: 'London, UK',
     curriculum: 'Resume',
     getInTouch: 'Get in Touch',
     
@@ -318,8 +318,8 @@ const translations = {
     
     // Hero section
     heroSubtitle: ['Ingeniero de Software', 'Desarrollador Full Stack', 'Innovador Tech', 'Solucionador de Problemas', 'Arquitecto de Código'],
-    location: 'Brasil 🇧🇷',
-    locationCity: 'São Paulo, SP',
+    location: 'México 🇲🇽',
+    locationCity: 'Ciudad de México, MX',
     curriculum: 'Currículum',
     getInTouch: 'Contactar',
     
