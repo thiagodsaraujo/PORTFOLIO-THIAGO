@@ -6,9 +6,9 @@
 }
 
 :root {
-  --primary-color: #8b5cf6;
-  --secondary-color: #f97316;
-  --accent-color: #fbbf24;
+  --primary-color: #8b5cf6; /* Purple */
+  --secondary-color: #f97316; /* Orange */
+  --accent-color: #fbbf24; /* Yellow */
   --bg-primary: #0a0a0a;
   --bg-secondary: #111111;
   --bg-tertiary: #1a1a1a;
@@ -16,9 +16,9 @@
   --text-secondary: #b0b0b0;
   --text-muted: #666666;
   --border-color: #333333;
-  --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  --gradient-primary: linear-gradient(135deg, #9333ea, #e11d48); /* Purple to Red-Orange */
   --gradient-secondary: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-  --shadow-glow: 0 0 20px rgba(139, 92, 246, 0.3);
+  --shadow-glow: 0 0 20px rgba(147, 51, 233, 0.3); /* Purple glow */
   --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -569,9 +569,9 @@ section {
   display: flex;
   gap: 20px;
   background: var(--bg-tertiary);
-  padding: 20px;
-  border-radius: 10px;
   border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 20px;
   transition: all 0.3s ease;
 }
 
@@ -837,8 +837,7 @@ section {
   width: 35px;
   height: 35px;
   background: rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(0, 245, 255, 0.3);
-  border-radius: 50%;
+  border: 1px solid rgba(124, 58, 237, 0.3);
   color: var(--primary-color);
   cursor: pointer;
   display: flex;
@@ -853,7 +852,7 @@ section {
   background: var(--primary-color);
   color: var(--bg-primary);
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
 }
 
 .carousel-indicators {
@@ -879,7 +878,7 @@ section {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 245, 255, 0.3);
+  border: 1px solid rgba(124, 58, 237, 0.3);
 }
 
 .indicator.active {
@@ -2072,11 +2071,11 @@ section {
   .footer {
     padding: 30px 0;
   }
-  
+
   .footer-content {
     gap: 10px;
   }
-  
+
   .footer-left,
   .footer-right {
     font-size: 0.85rem;
