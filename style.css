@@ -21,9 +21,9 @@ svg {
 }
 
 :root {
-  --primary-color: #9e58cb; /* Purple */
-  --secondary-color: #f76b1c; /* Orange */
-  --accent-color: #d946ef; /* Purple Accent */
+  --primary-color: #6a0dad; /* Dark Purple */
+  --secondary-color: #40e0d0; /* Turquoise */
+  --accent-color: #8a2be2; /* Purple Accent */
   --bg-primary: #0a0a0a;
   --bg-secondary: #111111;
   --bg-tertiary: #1a1a1a;
@@ -31,9 +31,9 @@ svg {
   --text-secondary: #b0b0b0;
   --text-muted: #666666;
   --border-color: #333333;
-  --gradient-primary: linear-gradient(135deg, #9e58cb, #f76b1c);
+  --gradient-primary: linear-gradient(135deg, #6a0dad, #40e0d0);
   --gradient-secondary: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-  --shadow-glow: 0 0 20px rgba(158, 88, 203, 0.3);
+  --shadow-glow: 0 0 20px rgba(106, 13, 173, 0.3);
   --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -3808,6 +3808,11 @@ section {
   .timeline-achievements li {
     font-size: 0.9rem;
     line-height: 1.5;
+  }
+
+  .certifications {
+    flex-direction: column;
+    gap: 20px;
   }
 
   .certification-item {
