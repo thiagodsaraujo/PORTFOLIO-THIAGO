@@ -6,19 +6,19 @@
 }
 
 :root {
-  --primary-color: #9333ea;
-  --secondary-color: #f97316;
-  --accent-color: #7c3aed;
-  --bg-primary: #0f0f23;
-  --bg-secondary: #1a1a2e;
-  --bg-tertiary: #16213e;
+  --primary-color: #00f5ff;
+  --secondary-color: #ff6b35;
+  --accent-color: #ffd23f;
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
   --text-primary: #ffffff;
-  --text-secondary: #c1c1c1;
+  --text-secondary: #b0b0b0;
   --text-muted: #666666;
-  --border-color: #333456;
+  --border-color: #333333;
   --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   --gradient-secondary: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-  --shadow-glow: 0 0 20px rgba(147, 51, 234, 0.3);
+  --shadow-glow: 0 0 20px rgba(0, 245, 255, 0.3);
   --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -157,8 +157,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+  background: radial-gradient(ellipse at center, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
               linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
@@ -252,7 +251,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(147, 51, 234, 0.6);
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
 }
 
 .btn-secondary {
@@ -590,8 +589,8 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.12) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%);
 }
 
 .tech-grid {
@@ -949,9 +948,8 @@ section {
 
 .project-tech span:hover {
   background: var(--primary-color);
-  color: white;
+  color: var(--bg-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
 }
 
 .projects-cta {
@@ -2038,7 +2036,7 @@ section {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary-color);
+  background: var(--accent-color);
 }
 
 /* Modal Container Scrollbar */
@@ -2069,9 +2067,9 @@ section {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 40% 60%, rgba(124, 58, 237, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 20% 20%, rgba(0, 245, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(255, 210, 63, 0.08) 0%, transparent 50%);
   animation: bgFloat 20s ease-in-out infinite;
 }
 
@@ -2323,13 +2321,13 @@ section {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(147, 51, 234, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 245, 255, 0.3);
   margin-top: 15px;
 }
 
 .btn-contact-submit:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(147, 51, 234, 0.6);
+  box-shadow: 0 12px 30px rgba(0, 245, 255, 0.5);
 }
 
 .btn-contact-submit:active {
