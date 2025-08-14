@@ -484,8 +484,10 @@ function setupProjects() {
   
   projectCards.forEach((card, index) => {
     card.addEventListener('click', (e) => {
-      // Prevent opening modal if clicking on links
-      if (e.target.closest('.project-link')) {
+      // Prevent opening modal if clicking on links or carousel controls
+      if (e.target.closest('.project-link') || 
+          e.target.closest('.carousel-btn') || 
+          e.target.closest('.indicator')) {
         return;
       }
       
@@ -500,7 +502,152 @@ function setupProjects() {
     card.style.cursor = 'pointer';
   });
   
+  // Setup carousels
+  setupProjectCarousels();
+  
   console.log('Projects section initialized with modal functionality');
+}
+
+// Project Carousel functionality
+function setupProjectCarousels() {
+  const carousels = document.querySelectorAll('.project-carousel');
+  
+  carousels.forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const images = carousel.querySelectorAll('.carousel-image');
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+    const indicators = carousel.querySelectorAll('.indicator');
+    let currentIndex = 0;
+    let intervalId = null;
+    
+    // Auto-slide functionality
+    function startAutoSlide() {
+      intervalId = setInterval(() => {
+        nextSlide();
+      }, 4000);
+    }
+    
+    function stopAutoSlide() {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    }
+    
+    function showSlide(index) {
+      // Remove active classes
+      images.forEach(img => {
+        img.classList.remove('active', 'prev');
+      });
+      indicators.forEach(indicator => {
+        indicator.classList.remove('active');
+      });
+      
+      // Add active class to current slide
+      images[index].classList.add('active');
+      indicators[index].classList.add('active');
+      
+      // Add prev class to previous slide for animation
+      const prevIndex = currentIndex;
+      if (prevIndex !== index) {
+        images[prevIndex].classList.add('prev');
+      }
+      
+      currentIndex = index;
+    }
+    
+    function nextSlide() {
+      const nextIndex = (currentIndex + 1) % images.length;
+      showSlide(nextIndex);
+    }
+    
+    function prevSlide() {
+      const prevIndex = (currentIndex - 1 + images.length) % images.length;
+      showSlide(prevIndex);
+    }
+    
+    // Event listeners
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextSlide();
+        stopAutoSlide();
+        setTimeout(startAutoSlide, 6000); // Restart auto-slide after user interaction
+      });
+    }
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevSlide();
+        stopAutoSlide();
+        setTimeout(startAutoSlide, 6000);
+      });
+    }
+    
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showSlide(index);
+        stopAutoSlide();
+        setTimeout(startAutoSlide, 6000);
+      });
+    });
+    
+    // Pause auto-slide on hover
+    carousel.addEventListener('mouseenter', stopAutoSlide);
+    carousel.addEventListener('mouseleave', startAutoSlide);
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      stopAutoSlide();
+    });
+    
+    carousel.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      
+      if (Math.abs(diff) > 50) { // Minimum swipe distance
+        if (diff > 0) {
+          nextSlide(); // Swipe left - next slide
+        } else {
+          prevSlide(); // Swipe right - previous slide
+        }
+      }
+      
+      setTimeout(startAutoSlide, 6000);
+    });
+    
+    // Keyboard navigation
+    carousel.addEventListener('keydown', (e) => {
+      switch(e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          prevSlide();
+          stopAutoSlide();
+          setTimeout(startAutoSlide, 6000);
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          nextSlide();
+          stopAutoSlide();
+          setTimeout(startAutoSlide, 6000);
+          break;
+      }
+    });
+    
+    // Make carousel focusable for keyboard navigation
+    carousel.setAttribute('tabindex', '0');
+    
+    // Start auto-slide
+    startAutoSlide();
+  });
 }
 
 // Project Detail Page Functions
