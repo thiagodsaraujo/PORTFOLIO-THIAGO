@@ -171,36 +171,36 @@ const translations = {
     techStack: 'Tech Stack',
     projects: 'Projetos',
     contact: 'Contato',
-    
+
     // Hero section
     heroSubtitle: ['Software Engineer', 'Full Stack Developer', 'Inovador em Tech', 'Solucionador de Problemas', 'Arquiteto de Código'],
     location: 'Brasil 🇧🇷',
     locationCity: 'São Paulo, SP',
     curriculum: 'Currículo',
     getInTouch: 'Entrar em contato',
-    
+
     // About section
     aboutTitle: 'Sobre Mim',
     aboutQuote: 'Desenvolvo aplicações web seguras end-to-end.<br>Especializado nos setores de e-commerce, financeiro, bancário e fintech.',
-    
+
     // Resume section
     resumeTitle: 'Meu Resumé',
     experienceTitle: 'Experiências',
     educationTitle: 'Educação',
     certificationsTitle: 'Certificações',
-    
+
     // Tech Stack
     techStackTitle: 'Meu Tech Stack',
     frontend: 'Frontend',
     backendDatabases: 'Backend & Databases',
     cloudDevops: 'Cloud & DevOps',
     otherTech: 'Outras Tecnologias',
-    
+
     // Projects
     projectsTitle: 'Meus Projetos',
     projectsSubtitle: 'Alguns dos projetos que desenvolvi com tecnologias modernas',
     projectsCta: 'Interessado em ver mais projetos ou discutir uma colaboração?',
-    
+
     // Contact
     contactTitle: 'Vamos Conversar',
     contactSubtitle: 'Transforme sua ideia em realidade. Entre em contato e vamos construir algo incrível juntos.',
@@ -210,7 +210,7 @@ const translations = {
     meeting: 'Reunião',
     sendMessage: 'Envie sua mensagem',
     sendMessageDesc: 'Preencha o formulário abaixo e entrarei em contato em até 24 horas.',
-    
+
     // Form labels
     fullName: 'Nome completo',
     fullNamePlaceholder: 'Como você se chama?',
@@ -226,15 +226,15 @@ const translations = {
     newsletter: 'Quero receber novidades sobre tecnologia e projetos',
     sendBtn: 'Enviar Mensagem',
     sending: 'Enviando...',
-    
+
     // Social
     connectWith: 'Conecte-se comigo',
-    
+
     // Footer
     footerLeft: '© 2024 João Dev. Todos os direitos reservados.',
     footerRight: 'Feito com ❤️ usando tecnologias modernas'
   },
-  
+
   en: {
     // Navigation
     home: 'Home',
@@ -243,36 +243,36 @@ const translations = {
     techStack: 'Tech Stack',
     projects: 'Projects',
     contact: 'Contact',
-    
+
     // Hero section
     heroSubtitle: ['Software Engineer', 'Full Stack Developer', 'Tech Innovator', 'Problem Solver', 'Code Architect'],
     location: 'United Kingdom 🇬🇧',
     locationCity: 'London, UK',
     curriculum: 'Resume',
     getInTouch: 'Get in Touch',
-    
+
     // About section
     aboutTitle: 'About Me',
     aboutQuote: 'I develop secure end-to-end web applications.<br>Specialized in e-commerce, financial, banking and fintech sectors.',
-    
+
     // Resume section
     resumeTitle: 'My Resume',
     experienceTitle: 'Experience',
     educationTitle: 'Education',
     certificationsTitle: 'Certifications',
-    
+
     // Tech Stack
     techStackTitle: 'My Tech Stack',
     frontend: 'Frontend',
     backendDatabases: 'Backend & Databases',
     cloudDevops: 'Cloud & DevOps',
     otherTech: 'Other Technologies',
-    
+
     // Projects
     projectsTitle: 'My Projects',
     projectsSubtitle: 'Some of the projects I\'ve developed with modern technologies',
     projectsCta: 'Interested in seeing more projects or discussing a collaboration?',
-    
+
     // Contact
     contactTitle: 'Let\'s Talk',
     contactSubtitle: 'Turn your idea into reality. Get in touch and let\'s build something incredible together.',
@@ -282,7 +282,7 @@ const translations = {
     meeting: 'Meeting',
     sendMessage: 'Send your message',
     sendMessageDesc: 'Fill out the form below and I\'ll get back to you within 24 hours.',
-    
+
     // Form labels
     fullName: 'Full name',
     fullNamePlaceholder: 'What\'s your name?',
@@ -298,15 +298,15 @@ const translations = {
     newsletter: 'I want to receive tech and project updates',
     sendBtn: 'Send Message',
     sending: 'Sending...',
-    
+
     // Social
     connectWith: 'Connect with me',
-    
+
     // Footer
     footerLeft: '© 2024 João Dev. All rights reserved.',
     footerRight: 'Made with ❤️ using modern technologies'
   },
-  
+
   es: {
     // Navigation
     home: 'Inicio',
@@ -315,36 +315,36 @@ const translations = {
     techStack: 'Tech Stack',
     projects: 'Proyectos',
     contact: 'Contacto',
-    
+
     // Hero section
     heroSubtitle: ['Ingeniero de Software', 'Desarrollador Full Stack', 'Innovador Tech', 'Solucionador de Problemas', 'Arquitecto de Código'],
     location: 'México 🇲🇽',
     locationCity: 'Ciudad de México, MX',
     curriculum: 'Currículum',
     getInTouch: 'Contactar',
-    
+
     // About section
     aboutTitle: 'Acerca de Mí',
     aboutQuote: 'Desarrollo aplicaciones web seguras end-to-end.<br>Especializado en los sectores de e-commerce, financiero, bancario y fintech.',
-    
+
     // Resume section
     resumeTitle: 'Mi Currículum',
     experienceTitle: 'Experiencia',
     educationTitle: 'Educación',
     certificationsTitle: 'Certificaciones',
-    
+
     // Tech Stack
     techStackTitle: 'Mi Tech Stack',
     frontend: 'Frontend',
     backendDatabases: 'Backend y Bases de Datos',
     cloudDevops: 'Cloud y DevOps',
     otherTech: 'Otras Tecnologías',
-    
+
     // Projects
     projectsTitle: 'Mis Proyectos',
     projectsSubtitle: 'Algunos de los proyectos que he desarrollado con tecnologías modernas',
     projectsCta: '¿Interesado en ver más proyectos o discutir una colaboración?',
-    
+
     // Contact
     contactTitle: 'Hablemos',
     contactSubtitle: 'Convierte tu idea en realidad. Ponte en contacto y construyamos algo increíble juntos.',
@@ -354,7 +354,7 @@ const translations = {
     meeting: 'Reunión',
     sendMessage: 'Envía tu mensaje',
     sendMessageDesc: 'Completa el formulario a continuación y te responderé en 24 horas.',
-    
+
     // Form labels
     fullName: 'Nombre completo',
     fullNamePlaceholder: '¿Cómo te llamas?',
@@ -370,10 +370,10 @@ const translations = {
     newsletter: 'Quiero recibir novedades sobre tecnología y proyectos',
     sendBtn: 'Enviar Mensaje',
     sending: 'Enviando...',
-    
+
     // Social
     connectWith: 'Conéctate conmigo',
-    
+
     // Footer
     footerLeft: '© 2024 João Dev. Todos los derechos reservados.',
     footerRight: 'Hecho con ❤️ usando tecnologías modernas'
@@ -412,18 +412,26 @@ function setupNavigation() {
   // Smooth scrolling for navigation links
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
+      const href = link.getAttribute('href');
 
-      if (targetElement) {
-        targetElement.scrollIntoView({
+      // Skip if it's an external link or another page
+      if (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.endsWith('.html')) {
+        return;
+      }
+
+      e.preventDefault();
+
+      const targetId = href.substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
       }
 
-      // Close mobile menu
+      // Close mobile menu if open
       if (navMenu && hamburger) {
         navMenu.classList.remove('active');
         hamburger.classList.remove('active');
@@ -462,26 +470,26 @@ function setupLanguageSelector() {
     option.addEventListener('click', (e) => {
       e.stopPropagation();
       const selectedLang = option.getAttribute('data-lang');
-      
+
       if (selectedLang !== currentLanguage) {
         // Update active state
         langOptions.forEach(opt => opt.classList.remove('active'));
         option.classList.add('active');
-        
+
         // Update current language display and flag
         const flagIcon = langBtn.querySelector('.flag-icon');
         const optionFlagIcon = option.querySelector('.flag-icon');
         const optionLangText = option.querySelector('.lang-text');
-        
+
         if (flagIcon && optionFlagIcon) {
           flagIcon.textContent = optionFlagIcon.textContent;
         }
         currentLangSpan.textContent = optionLangText.textContent;
-        
+
         // Apply translation
         changeLanguage(selectedLang);
       }
-      
+
       // Close dropdown
       langDropdown.classList.remove('show');
       langBtn.classList.remove('active');
@@ -492,12 +500,12 @@ function setupLanguageSelector() {
   const initialOption = document.querySelector(`[data-lang="${currentLanguage}"]`);
   if (initialOption) {
     initialOption.classList.add('active');
-    
+
     // Set initial flag and text
     const flagIcon = langBtn.querySelector('.flag-icon');
     const optionFlagIcon = initialOption.querySelector('.flag-icon');
     const optionLangText = initialOption.querySelector('.lang-text');
-    
+
     if (flagIcon && optionFlagIcon) {
       flagIcon.textContent = optionFlagIcon.textContent;
     }
@@ -511,7 +519,7 @@ function setupLanguageSelector() {
 function changeLanguage(lang) {
   currentLanguage = lang;
   const t = translations[lang];
-  
+
   // Update navigation
   updateElementText('[href="#home"]', t.home);
   updateElementText('[href="#about"]', t.about);
@@ -519,82 +527,82 @@ function changeLanguage(lang) {
   updateElementText('[href="#tech-stack"]', t.techStack);
   updateElementText('[href="#projects"]', t.projects);
   updateElementText('[href="#contact"]', t.contact);
-  
+
   // Update hero section
   const curriculumBtn = document.querySelector('.btn-primary span');
   if (curriculumBtn) curriculumBtn.textContent = t.curriculum;
-  
+
   const contactBtn = document.querySelector('.btn-secondary span');
   if (contactBtn) contactBtn.textContent = t.getInTouch;
-  
+
   const locationTitle = document.querySelector('.hero-location h4');
   if (locationTitle) locationTitle.textContent = t.location;
-  
+
   const locationCity = document.querySelector('.hero-location span');
   if (locationCity) locationCity.textContent = t.locationCity;
-  
+
   // Update section titles
   updateElementText('.about .section-title', t.aboutTitle);
   updateElementText('.resume .section-title', t.resumeTitle);
   updateElementText('.tech-stack .section-title', t.techStackTitle);
   updateElementText('.projects .section-title', `${t.projectsTitle.split(' ')[0]} <span class="highlight">${t.projectsTitle.split(' ')[1]}</span>`);
   updateElementText('.contact .section-title', `${t.contactTitle.split(' ')[0]} <span class="highlight">${t.contactTitle.split(' ')[1]}</span>`);
-  
+
   // Update about quote
   const aboutQuote = document.querySelector('.quote p');
   if (aboutQuote) aboutQuote.innerHTML = t.aboutQuote;
-  
+
   // Update resume column titles
   const experienceTitle = document.querySelector('.resume-column:first-child .resume-column-title');
   if (experienceTitle) {
     experienceTitle.innerHTML = `<i class="fas fa-briefcase"></i>${t.experienceTitle}`;
   }
-  
+
   const educationTitle = document.querySelector('.resume-column:last-child .resume-column-title:first-of-type');
   if (educationTitle) {
     educationTitle.innerHTML = `<i class="fas fa-graduation-cap"></i>${t.educationTitle}`;
   }
-  
+
   const certificationsTitle = document.querySelector('.resume-column:last-child .resume-column-title:last-of-type');
   if (certificationsTitle) {
     certificationsTitle.innerHTML = `<i class="fas fa-certificate"></i>${t.certificationsTitle}`;
   }
-  
+
   // Update tech stack categories
   const techCategories = document.querySelectorAll('.tech-category h3');
   if (techCategories[0]) techCategories[0].textContent = t.frontend;
   if (techCategories[1]) techCategories[1].textContent = t.backendDatabases;
   if (techCategories[2]) techCategories[2].textContent = t.cloudDevops;
   if (techCategories[3]) techCategories[3].textContent = t.otherTech;
-  
+
   // Update projects section
   const projectsSubtitle = document.querySelector('.projects .section-subtitle');
   if (projectsSubtitle) projectsSubtitle.textContent = t.projectsSubtitle;
-  
+
   const projectsCtaText = document.querySelector('.projects-cta p');
   if (projectsCtaText) projectsCtaText.textContent = t.projectsCta;
-  
+
   const projectsCtaBtn = document.querySelector('.projects-cta .btn span');
   if (projectsCtaBtn) projectsCtaBtn.textContent = t.getInTouch;
-  
+
   // Update contact section
   const contactSubtitle = document.querySelector('.contact .section-subtitle');
   if (contactSubtitle) contactSubtitle.textContent = t.contactSubtitle;
-  
+
   // Update contact cards
   const contactCards = document.querySelectorAll('.contact-card h3');
   if (contactCards[0]) contactCards[0].textContent = t.email;
   if (contactCards[1]) contactCards[1].textContent = t.phone;
   if (contactCards[2]) contactCards[2].textContent = t.location;
   if (contactCards[3]) contactCards[3].textContent = t.meeting;
-  
+
   // Update form
   const formHeader = document.querySelector('.contact-form-header h3');
   if (formHeader) formHeader.textContent = t.sendMessage;
-  
+
   const formDesc = document.querySelector('.contact-form-header p');
   if (formDesc) formDesc.textContent = t.sendMessageDesc;
-  
+
   // Update form labels and placeholders
   updateFormField('name', t.fullName, t.fullNamePlaceholder);
   updateFormField('email', t.emailLabel, t.emailPlaceholder);
@@ -602,31 +610,31 @@ function changeLanguage(lang) {
   updateFormField('budget', t.budget, '');
   updateFormField('subject', t.subject, t.subjectPlaceholder);
   updateFormField('message', t.message, t.messagePlaceholder);
-  
+
   const newsletterLabel = document.querySelector('label[for="newsletter"]');
   if (newsletterLabel) newsletterLabel.textContent = t.newsletter;
-  
+
   const submitBtnText = document.querySelector('.btn-contact-submit .btn-content span');
   if (submitBtnText) submitBtnText.textContent = t.sendBtn;
-  
+
   const loadingText = document.querySelector('.btn-contact-submit .btn-loading span');
   if (loadingText) loadingText.textContent = t.sending;
-  
+
   // Update social section
   const socialTitle = document.querySelector('.contact-social h4');
   if (socialTitle) socialTitle.textContent = t.connectWith;
-  
+
   // Update footer
   const footerLeft = document.querySelector('.footer-left p');
   if (footerLeft) footerLeft.textContent = t.footerLeft;
-  
+
   const footerRight = document.querySelector('.footer-right p');
   if (footerRight) footerRight.innerHTML = t.footerRight;
-  
+
   // Update typing animation texts
   typeTexts.length = 0;
   typeTexts.push(...t.heroSubtitle);
-  
+
   // Save language preference
   localStorage.setItem('preferredLanguage', lang);
 }
@@ -641,7 +649,7 @@ function updateElementText(selector, text) {
 function updateFormField(fieldName, labelText, placeholderText) {
   const label = document.querySelector(`label[for="${fieldName}"]`);
   const input = document.querySelector(`#${fieldName}`);
-  
+
   if (label) label.textContent = labelText;
   if (input && placeholderText) input.placeholder = placeholderText;
 }
@@ -651,17 +659,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('preferredLanguage');
   if (savedLang && savedLang !== currentLanguage) {
     currentLanguage = savedLang;
-    
+
     // Update language display
     const langBtn = document.getElementById('lang-btn');
     const currentLangSpan = document.getElementById('current-lang');
     const savedOption = document.querySelector(`[data-lang="${savedLang}"]`);
-    
+
     if (langBtn && savedOption) {
       const flagIcon = langBtn.querySelector('.flag-icon');
       const optionFlagIcon = savedOption.querySelector('.flag-icon');
       const optionLangText = savedOption.querySelector('.lang-text');
-      
+
       if (flagIcon && optionFlagIcon) {
         flagIcon.textContent = optionFlagIcon.textContent;
       }
@@ -669,7 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentLangSpan.textContent = optionLangText.textContent;
       }
     }
-    
+
     changeLanguage(savedLang);
   }
 });
@@ -888,15 +896,15 @@ function setupContactForm() {
 function validateField(e) {
   const field = e.target;
   const value = field.value.trim();
-  
+
   // Remove existing error
   clearFieldError(e);
-  
+
   if (!value) {
     showFieldError(field, 'Este campo é obrigatório');
     return false;
   }
-  
+
   // Email validation
   if (field.type === 'email' && value) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -905,14 +913,14 @@ function validateField(e) {
       return false;
     }
   }
-  
+
   return true;
 }
 
 function showFieldError(field, message) {
   field.style.borderColor = 'var(--secondary-color)';
   field.style.boxShadow = '0 0 0 4px rgba(255, 107, 53, 0.1)';
-  
+
   // Create or update error message
   let errorMsg = field.parentNode.querySelector('.field-error');
   if (!errorMsg) {
@@ -933,7 +941,7 @@ function clearFieldError(e) {
   const field = e.target;
   field.style.borderColor = '';
   field.style.boxShadow = '';
-  
+
   const errorMsg = field.parentNode.querySelector('.field-error');
   if (errorMsg) {
     errorMsg.remove();
@@ -1025,7 +1033,7 @@ function setupAnimations() {
 function setupProjects() {
   // Add click handlers to project cards
   const projectCards = document.querySelectorAll('.project-card');
-  
+
   projectCards.forEach((card, index) => {
     card.addEventListener('click', (e) => {
       // Prevent opening modal if clicking on links or carousel controls
@@ -1034,28 +1042,28 @@ function setupProjects() {
           e.target.closest('.indicator')) {
         return;
       }
-      
+
       // Get project data based on index
       const project = projectsData[index];
       if (project) {
         openProjectModal(project);
       }
     });
-    
+
     // Add cursor pointer
     card.style.cursor = 'pointer';
   });
-  
+
   // Setup carousels
   setupProjectCarousels();
-  
+
   console.log('Projects section initialized with modal functionality');
 }
 
 // Project Carousel functionality
 function setupProjectCarousels() {
   const carousels = document.querySelectorAll('.project-carousel');
-  
+
   carousels.forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const images = carousel.querySelectorAll('.carousel-image');
@@ -1064,21 +1072,21 @@ function setupProjectCarousels() {
     const indicators = carousel.querySelectorAll('.indicator');
     let currentIndex = 0;
     let intervalId = null;
-    
+
     // Auto-slide functionality
     function startAutoSlide() {
       intervalId = setInterval(() => {
         nextSlide();
       }, 4000);
     }
-    
+
     function stopAutoSlide() {
       if (intervalId) {
         clearInterval(intervalId);
         intervalId = null;
       }
     }
-    
+
     function showSlide(index) {
       // Remove active classes
       images.forEach(img => {
@@ -1087,30 +1095,30 @@ function setupProjectCarousels() {
       indicators.forEach(indicator => {
         indicator.classList.remove('active');
       });
-      
+
       // Add active class to current slide
       images[index].classList.add('active');
       indicators[index].classList.add('active');
-      
+
       // Add prev class to previous slide for animation
       const prevIndex = currentIndex;
       if (prevIndex !== index) {
         images[prevIndex].classList.add('prev');
       }
-      
+
       currentIndex = index;
     }
-    
+
     function nextSlide() {
       const nextIndex = (currentIndex + 1) % images.length;
       showSlide(nextIndex);
     }
-    
+
     function prevSlide() {
       const prevIndex = (currentIndex - 1 + images.length) % images.length;
       showSlide(prevIndex);
     }
-    
+
     // Event listeners
     if (nextBtn) {
       nextBtn.addEventListener('click', (e) => {
@@ -1120,7 +1128,7 @@ function setupProjectCarousels() {
         setTimeout(startAutoSlide, 6000); // Restart auto-slide after user interaction
       });
     }
-    
+
     if (prevBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -1129,7 +1137,7 @@ function setupProjectCarousels() {
         setTimeout(startAutoSlide, 6000);
       });
     }
-    
+
     // Indicator clicks
     indicators.forEach((indicator, index) => {
       indicator.addEventListener('click', (e) => {
@@ -1139,24 +1147,24 @@ function setupProjectCarousels() {
         setTimeout(startAutoSlide, 6000);
       });
     });
-    
+
     // Pause auto-slide on hover
     carousel.addEventListener('mouseenter', stopAutoSlide);
     carousel.addEventListener('mouseleave', startAutoSlide);
-    
+
     // Touch/swipe support for mobile
     let startX = 0;
     let endX = 0;
-    
+
     carousel.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       stopAutoSlide();
     });
-    
+
     carousel.addEventListener('touchend', (e) => {
       endX = e.changedTouches[0].clientX;
       const diff = startX - endX;
-      
+
       if (Math.abs(diff) > 50) { // Minimum swipe distance
         if (diff > 0) {
           nextSlide(); // Swipe left - next slide
@@ -1164,10 +1172,10 @@ function setupProjectCarousels() {
           prevSlide(); // Swipe right - previous slide
         }
       }
-      
+
       setTimeout(startAutoSlide, 6000);
     });
-    
+
     // Keyboard navigation
     carousel.addEventListener('keydown', (e) => {
       switch(e.key) {
@@ -1185,10 +1193,10 @@ function setupProjectCarousels() {
           break;
       }
     });
-    
+
     // Make carousel focusable for keyboard navigation
     carousel.setAttribute('tabindex', '0');
-    
+
     // Start auto-slide
     startAutoSlide();
   });
@@ -1431,12 +1439,12 @@ function openImageModal(imageSrc, imageTitle) {
 function openProjectModal(project) {
   const modal = createProjectModal(project);
   document.body.appendChild(modal);
-  
+
   // Animate modal in
   setTimeout(() => {
     modal.classList.add('modal-show');
   }, 10);
-  
+
   // Disable body scroll
   document.body.style.overflow = 'hidden';
 }
@@ -1450,14 +1458,14 @@ function createProjectModal(project) {
       <button class="modal-close" aria-label="Fechar modal">
         <i class="fas fa-times"></i>
       </button>
-      
+
       <div class="modal-header">
         <div class="modal-badge">${project.badge}</div>
         <div class="modal-year">${project.year}</div>
         <h2 class="modal-title">${project.title}</h2>
         <p class="modal-description">${project.fullDescription}</p>
       </div>
-      
+
       <div class="modal-image">
         <div class="modal-carousel">
           <div class="modal-carousel-track">
@@ -1483,7 +1491,7 @@ function createProjectModal(project) {
           </div>
         </div>
       </div>
-      
+
       <div class="modal-content">
         <div class="modal-section">
           <h3 class="modal-section-title">
@@ -1494,7 +1502,7 @@ function createProjectModal(project) {
             ${project.technologies.map(tech => `<span class="modal-tech-tag">${tech}</span>`).join('')}
           </div>
         </div>
-        
+
         <div class="modal-section">
           <h3 class="modal-section-title">
             <i class="fas fa-star"></i>
@@ -1504,7 +1512,7 @@ function createProjectModal(project) {
             ${project.features.slice(0, 5).map(feature => `<li>${feature}</li>`).join('')}
           </ul>
         </div>
-        
+
         <div class="modal-section">
           <h3 class="modal-section-title">
             <i class="fas fa-lightbulb"></i>
@@ -1515,7 +1523,7 @@ function createProjectModal(project) {
           </ul>
         </div>
       </div>
-      
+
       <div class="modal-footer">
         <div class="modal-actions">
           <a href="${project.demoUrl}" class="modal-btn modal-btn-primary" target="_blank" rel="noopener">
@@ -1530,14 +1538,14 @@ function createProjectModal(project) {
       </div>
     </div>
   `;
-  
+
   // Add event listeners
   const closeBtn = modal.querySelector('.modal-close');
   const overlay = modal.querySelector('.modal-overlay');
-  
+
   closeBtn.addEventListener('click', () => closeProjectModal(modal));
   overlay.addEventListener('click', () => closeProjectModal(modal));
-  
+
   // Close on Escape key
   const handleEscape = (e) => {
     if (e.key === 'Escape') {
@@ -1546,16 +1554,16 @@ function createProjectModal(project) {
     }
   };
   document.addEventListener('keydown', handleEscape);
-  
+
   // Setup modal carousel
   setupModalCarousel(modal);
-  
+
   return modal;
 }
 
 function closeProjectModal(modal) {
   modal.classList.add('modal-hide');
-  
+
   setTimeout(() => {
     if (modal.parentNode) {
       modal.parentNode.removeChild(modal);
@@ -1569,28 +1577,28 @@ function closeProjectModal(modal) {
 function setupModalCarousel(modal) {
   const carousel = modal.querySelector('.modal-carousel');
   if (!carousel) return;
-  
+
   const images = carousel.querySelectorAll('.modal-carousel-image');
   const prevBtn = carousel.querySelector('.modal-carousel-prev');
   const nextBtn = carousel.querySelector('.modal-carousel-next');
   const indicators = carousel.querySelectorAll('.modal-indicator');
   let currentIndex = 0;
   let intervalId = null;
-  
+
   // Auto-slide functionality
   function startAutoSlide() {
     intervalId = setInterval(() => {
       nextSlide();
     }, 5000);
   }
-  
+
   function stopAutoSlide() {
     if (intervalId) {
       clearInterval(intervalId);
       intervalId = null;
     }
   }
-  
+
   function showSlide(index) {
     // Remove active classes
     images.forEach(img => {
@@ -1599,30 +1607,30 @@ function setupModalCarousel(modal) {
     indicators.forEach(indicator => {
       indicator.classList.remove('active');
     });
-    
+
     // Add active class to current slide
     images[index].classList.add('active');
     indicators[index].classList.add('active');
-    
+
     // Add prev class to previous slide for animation
     const prevIndex = currentIndex;
     if (prevIndex !== index) {
       images[prevIndex].classList.add('prev');
     }
-    
+
     currentIndex = index;
   }
-  
+
   function nextSlide() {
     const nextIndex = (currentIndex + 1) % images.length;
     showSlide(nextIndex);
   }
-  
+
   function prevSlide() {
     const prevIndex = (currentIndex - 1 + images.length) % images.length;
     showSlide(prevIndex);
   }
-  
+
   // Event listeners
   if (nextBtn) {
     nextBtn.addEventListener('click', (e) => {
@@ -1632,7 +1640,7 @@ function setupModalCarousel(modal) {
       setTimeout(startAutoSlide, 8000);
     });
   }
-  
+
   if (prevBtn) {
     prevBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -1641,7 +1649,7 @@ function setupModalCarousel(modal) {
       setTimeout(startAutoSlide, 8000);
     });
   }
-  
+
   // Indicator clicks
   indicators.forEach((indicator, index) => {
     indicator.addEventListener('click', (e) => {
@@ -1651,24 +1659,24 @@ function setupModalCarousel(modal) {
       setTimeout(startAutoSlide, 8000);
     });
   });
-  
+
   // Pause auto-slide on hover
   carousel.addEventListener('mouseenter', stopAutoSlide);
   carousel.addEventListener('mouseleave', startAutoSlide);
-  
+
   // Touch/swipe support for mobile
   let startX = 0;
   let endX = 0;
-  
+
   carousel.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
     stopAutoSlide();
   });
-  
+
   carousel.addEventListener('touchend', (e) => {
     endX = e.changedTouches[0].clientX;
     const diff = startX - endX;
-    
+
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
         nextSlide();
@@ -1676,10 +1684,10 @@ function setupModalCarousel(modal) {
         prevSlide();
       }
     }
-    
+
     setTimeout(startAutoSlide, 8000);
   });
-  
+
   // Keyboard navigation
   const handleKeydown = (e) => {
     switch(e.key) {
@@ -1697,15 +1705,15 @@ function setupModalCarousel(modal) {
         break;
     }
   };
-  
+
   document.addEventListener('keydown', handleKeydown);
-  
+
   // Remove keydown listener when modal is closed
   modal.addEventListener('remove', () => {
     document.removeEventListener('keydown', handleKeydown);
     stopAutoSlide();
   });
-  
+
   // Start auto-slide
   startAutoSlide();
 }
