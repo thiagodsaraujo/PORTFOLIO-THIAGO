@@ -478,15 +478,20 @@ function setupAnimations() {
 }
 
 // Projects functionality
+let visibleProjectsCount = 6; // Show 6 projects initially
+let currentFilter = 'all';
+
 function setupProjects() {
   renderProjects();
   setupProjectFilters();
+  setupLoadMoreButton();
 }
 
-function renderProjects(filter = 'all') {
+function renderProjects(filter = 'all', showAll = false) {
   const projectsGrid = document.getElementById('projects-grid');
   if (!projectsGrid) return;
 
+  currentFilter = filter;
   let filteredProjects = projectsData;
 
   if (filter !== 'all') {
@@ -495,18 +500,65 @@ function renderProjects(filter = 'all') {
     );
   }
 
+  // Determine how many projects to show
+  const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, visibleProjectsCount);
+  
   projectsGrid.innerHTML = '';
 
-  filteredProjects.forEach(project => {
+  projectsToShow.forEach((project, index) => {
     const projectCard = createProjectCard(project);
+    projectCard.style.animationDelay = `${index * 0.1}s`;
     projectsGrid.appendChild(projectCard);
   });
 
-  // Add animation delay to cards
-  const cards = projectsGrid.querySelectorAll('.project-card');
-  cards.forEach((card, index) => {
-    card.style.animationDelay = `${index * 0.1}s`;
-  });
+  // Update load more button visibility
+  updateLoadMoreButton(filteredProjects.length > visibleProjectsCount && !showAll);
+  
+  // Update project count display
+  updateProjectCount(projectsToShow.length, filteredProjects.length);
+}
+
+function setupLoadMoreButton() {
+  const loadMoreBtn = document.getElementById('load-more-btn');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+      renderProjects(currentFilter, true);
+      loadMoreBtn.style.display = 'none';
+    });
+  }
+}
+
+function updateLoadMoreButton(show) {
+  const loadMoreBtn = document.getElementById('load-more-btn');
+  const loadMoreSection = document.querySelector('.load-more-section');
+  if (loadMoreSection) {
+    loadMoreSection.style.display = show ? 'block' : 'none';
+  }
+}
+
+function updateProjectCount(showing, total) {
+  // Add project count indicator if it doesn't exist
+  let countIndicator = document.querySelector('.project-count');
+  if (!countIndicator) {
+    countIndicator = document.createElement('div');
+    countIndicator.className = 'project-count';
+    countIndicator.style.cssText = `
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      font-weight: 500;
+    `;
+    
+    const projectsContainer = document.querySelector('.projects-container');
+    if (projectsContainer) {
+      projectsContainer.insertBefore(countIndicator, projectsContainer.firstChild);
+    }
+  }
+  
+  countIndicator.textContent = showing === total 
+    ? `Mostrando todos os ${total} projetos` 
+    : `Mostrando ${showing} de ${total} projetos`;
 }
 
 // Helper function to create a URL-friendly slug from a project title
@@ -524,28 +576,47 @@ function createProjectCard(project) {
       <img src="${project.mainImage}" alt="${project.title}" class="project-main-image" />
       <div class="project-overlay">
         <div class="project-links">
-          <a href="${project.demoUrl}" class="project-link" target="_blank" onclick="event.stopPropagation()">
+          <a href="${project.demoUrl}" class="project-link" target="_blank" onclick="event.stopPropagation()" title="Ver Demo">
             <i class="fas fa-external-link-alt"></i>
           </a>
-          <a href="${project.githubUrl}" class="project-link" target="_blank" onclick="event.stopPropagation()">
+          <a href="${project.githubUrl}" class="project-link" target="_blank" onclick="event.stopPropagation()" title="Ver Código">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="project-link" onclick="event.stopPropagation(); openProjectDetailPage(${JSON.stringify(project).replace(/"/g, '&quot;')})" title="Ver Detalhes">
+            <i class="fas fa-info"></i>
+          </a>
+        </div>
+      </div>
+      <div class="project-badge">${project.badge}</div>
+    </div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="project-year">${project.year}</span>
+        <span class="project-status">
+          <i class="fas fa-circle"></i>
+          Concluído
+        </span>
+      </div>
+      <h3>${project.title}</h3>
+      <p>${project.description}</p>
+      <div class="project-tech">
+        ${project.technologies.slice(0, 4).map(tech => `<span>${tech}</span>`).join('')}
+        ${project.technologies.length > 4 ? '<span class="tech-more">+' + (project.technologies.length - 4) + '</span>' : ''}
+      </div>
+      <div class="project-actions">
+        <button class="btn-project btn-primary" onclick="openProjectDetailPage(${JSON.stringify(project).replace(/"/g, '&quot;')})">
+          <span>Ver Detalhes</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        <div class="project-quick-actions">
+          <a href="${project.demoUrl}" target="_blank" class="quick-action" title="Demo">
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a href="${project.githubUrl}" target="_blank" class="quick-action" title="Código">
             <i class="fab fa-github"></i>
           </a>
         </div>
       </div>
-    </div>
-    <div class="project-content">
-      <h3>${project.title}</h3>
-      <p>${project.description}</p>
-      <div class="project-tech">
-        ${project.technologies.slice(0, 3).map(tech => `<span>${tech}</span>`).join('')}
-        ${project.technologies.length > 3 ? '<span class="tech-more">+' + (project.technologies.length - 3) + '</span>' : ''}
-      </div>
-      <a href="project-detail.html?project=${getProjectSlug(project.title)}">
-          <button class="btn btn-secondary">
-            <span>View Details</span>
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </a>
     </div>
   `;
 

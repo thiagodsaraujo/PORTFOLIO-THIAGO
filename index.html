@@ -317,26 +317,83 @@
 
   <!-- Projects Section -->
   <section id="projects" class="projects">
+    <div class="projects-bg"></div>
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Projetos Destacados</h2>
+        <div class="section-badge">💼 Portfolio</div>
+        <h2 class="section-title">Projetos <span class="highlight">Destacados</span></h2>
+        <p class="section-subtitle">Conheça alguns dos projetos mais impactantes que desenvolvi usando tecnologias modernas</p>
         <div class="section-divider"></div>
+      </div>
+      
+      <!-- Project Stats -->
+      <div class="projects-stats">
+        <div class="stat-item">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Projetos Concluídos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Anos de Experiência</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Satisfação do Cliente</div>
+        </div>
       </div>
       
       <!-- Project Filters -->
       <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="React">React</button>
-        <button class="filter-btn" data-filter="Vue.js">Vue.js</button>
-        <button class="filter-btn" data-filter="Node.js">Node.js</button>
-        <button class="filter-btn" data-filter="Python">Python</button>
-        <button class="filter-btn" data-filter="TypeScript">TypeScript</button>
-        <button class="filter-btn" data-filter="Web3">Web3</button>
-        <button class="filter-btn" data-filter="Docker">Docker</button>
+        <div class="filter-label">Filtrar por tecnologia:</div>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">
+            <i class="fas fa-globe"></i>
+            <span>Todos</span>
+          </button>
+          <button class="filter-btn" data-filter="React">
+            <i class="fab fa-react"></i>
+            <span>React</span>
+          </button>
+          <button class="filter-btn" data-filter="Vue.js">
+            <i class="fab fa-vuejs"></i>
+            <span>Vue.js</span>
+          </button>
+          <button class="filter-btn" data-filter="Node.js">
+            <i class="fab fa-node-js"></i>
+            <span>Node.js</span>
+          </button>
+          <button class="filter-btn" data-filter="Python">
+            <i class="fab fa-python"></i>
+            <span>Python</span>
+          </button>
+          <button class="filter-btn" data-filter="TypeScript">
+            <i class="fas fa-code"></i>
+            <span>TypeScript</span>
+          </button>
+          <button class="filter-btn" data-filter="Web3">
+            <i class="fas fa-coins"></i>
+            <span>Web3</span>
+          </button>
+          <button class="filter-btn" data-filter="Docker">
+            <i class="fab fa-docker"></i>
+            <span>Docker</span>
+          </button>
+        </div>
       </div>
       
-      <div class="projects-grid" id="projects-grid">
-        <!-- Projects will be dynamically inserted here -->
+      <!-- Projects Grid -->
+      <div class="projects-container">
+        <div class="projects-grid" id="projects-grid">
+          <!-- Projects will be dynamically inserted here -->
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="load-more-section">
+          <button class="btn btn-outline load-more-btn" id="load-more-btn">
+            <span>Ver Mais Projetos</span>
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
       </div>
     </div>
   </section>
