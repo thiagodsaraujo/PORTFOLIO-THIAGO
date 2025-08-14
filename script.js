@@ -468,8 +468,15 @@ function setupLanguageSelector() {
         langOptions.forEach(opt => opt.classList.remove('active'));
         option.classList.add('active');
         
-        // Update current language display
-        currentLangSpan.textContent = selectedLang.toUpperCase();
+        // Update current language display and flag
+        const flagIcon = langBtn.querySelector('.flag-icon');
+        const optionFlagIcon = option.querySelector('.flag-icon');
+        const optionLangText = option.querySelector('.lang-text');
+        
+        if (flagIcon && optionFlagIcon) {
+          flagIcon.textContent = optionFlagIcon.textContent;
+        }
+        currentLangSpan.textContent = optionLangText.textContent;
         
         // Apply translation
         changeLanguage(selectedLang);
@@ -485,6 +492,18 @@ function setupLanguageSelector() {
   const initialOption = document.querySelector(`[data-lang="${currentLanguage}"]`);
   if (initialOption) {
     initialOption.classList.add('active');
+    
+    // Set initial flag and text
+    const flagIcon = langBtn.querySelector('.flag-icon');
+    const optionFlagIcon = initialOption.querySelector('.flag-icon');
+    const optionLangText = initialOption.querySelector('.lang-text');
+    
+    if (flagIcon && optionFlagIcon) {
+      flagIcon.textContent = optionFlagIcon.textContent;
+    }
+    if (currentLangSpan && optionLangText) {
+      currentLangSpan.textContent = optionLangText.textContent;
+    }
   }
 }
 
@@ -632,10 +651,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('preferredLanguage');
   if (savedLang && savedLang !== currentLanguage) {
     currentLanguage = savedLang;
+    
+    // Update language display
+    const langBtn = document.getElementById('lang-btn');
     const currentLangSpan = document.getElementById('current-lang');
-    if (currentLangSpan) {
-      currentLangSpan.textContent = savedLang.toUpperCase();
+    const savedOption = document.querySelector(`[data-lang="${savedLang}"]`);
+    
+    if (langBtn && savedOption) {
+      const flagIcon = langBtn.querySelector('.flag-icon');
+      const optionFlagIcon = savedOption.querySelector('.flag-icon');
+      const optionLangText = savedOption.querySelector('.lang-text');
+      
+      if (flagIcon && optionFlagIcon) {
+        flagIcon.textContent = optionFlagIcon.textContent;
+      }
+      if (currentLangSpan && optionLangText) {
+        currentLangSpan.textContent = optionLangText.textContent;
+      }
     }
+    
     changeLanguage(savedLang);
   }
 });
