@@ -184,8 +184,8 @@ body {
   width: 100%;
   height: 100%;
   background: 
-    linear-gradient(135deg, rgba(10, 10, 10, 0.6) 0%, rgba(17, 17, 17, 0.8) 100%),
-    url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&h=1080&fit=crop&crop=center') center/cover;
+    linear-gradient(135deg, rgba(10, 10, 10, 0.7) 0%, rgba(17, 17, 17, 0.85) 100%),
+    url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop&crop=center') center/cover;
   background-attachment: fixed;
 }
 
@@ -196,8 +196,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(158, 88, 203, 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, rgba(247, 107, 28, 0.1) 0%, transparent 50%);
+  background: 
+    radial-gradient(ellipse at center, rgba(255, 0, 64, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(255, 0, 64, 0.06) 0%, transparent 50%);
 }
 
 .hero-particles {
