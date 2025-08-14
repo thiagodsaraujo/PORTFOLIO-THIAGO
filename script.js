@@ -1045,7 +1045,64 @@ function setupProjects() {
   // Setup carousels
   setupProjectCarousels();
 
+  // Setup project filters
+  setupProjectFilters();
+
   console.log('Projects section initialized with modal functionality');
+}
+
+// Project Filter functionality
+function setupProjectFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      
+      // Add active class to clicked button
+      btn.classList.add('active');
+      
+      const filterValue = btn.getAttribute('data-filter');
+      
+      // Filter projects
+      filterProjects(filterValue, projectCards);
+    });
+  });
+}
+
+function filterProjects(filterValue, projectCards) {
+  projectCards.forEach((card, index) => {
+    const cardTags = card.getAttribute('data-tags');
+    
+    if (filterValue === 'all') {
+      // Show all projects
+      showProject(card, index);
+    } else {
+      // Check if project has the filter tag
+      if (cardTags && cardTags.includes(filterValue)) {
+        showProject(card, index);
+      } else {
+        hideProject(card);
+      }
+    }
+  });
+}
+
+function showProject(card, index) {
+  card.classList.remove('hidden');
+  card.classList.add('show');
+  
+  // Add staggered animation delay
+  setTimeout(() => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  }, 50);
+}
+
+function hideProject(card) {
+  card.classList.remove('show');
+  card.classList.add('hidden');
 }
 
 // Project Carousel functionality

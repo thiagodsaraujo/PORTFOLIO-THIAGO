@@ -746,6 +746,48 @@ section {
   position: relative;
 }
 
+/* Project Filter Buttons */
+.project-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: var(--gradient-primary);
+  border-color: var(--primary-color);
+  color: var(--bg-primary);
+  box-shadow: 0 4px 15px rgba(158, 88, 203, 0.3);
+}
+
+.filter-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(158, 88, 203, 0.4);
+}
+
 .projects::before {
   content: '';
   position: absolute;
@@ -777,11 +819,23 @@ section {
   background: var(--bg-tertiary);
   border-radius: 15px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   border: 1px solid var(--border-color);
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: translateY(0) scale(1);
   animation: fadeInUp 0.6s ease forwards;
+}
+
+.project-card.hidden {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  pointer-events: none;
+}
+
+.project-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
 }
 
 .project-card:hover {
@@ -1068,6 +1122,16 @@ section {
 
   .project-image {
     height: 180px;
+  }
+
+  .project-filters {
+    gap: 8px;
+    margin-top: 25px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
   }
 }
 

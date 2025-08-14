@@ -341,12 +341,23 @@
         <h2 class="section-title">Meus <span class="highlight">Projetos</span></h2>
         <p class="section-subtitle">Alguns dos projetos que desenvolvi com tecnologias modernas</p>
         <div class="section-divider"></div>
+        
+        <!-- Project Filter Buttons -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="react">React</button>
+          <button class="filter-btn" data-filter="node">Node.js</button>
+          <button class="filter-btn" data-filter="vue">Vue.js</button>
+          <button class="filter-btn" data-filter="web3">Web3</button>
+          <button class="filter-btn" data-filter="docker">Docker</button>
+          <button class="filter-btn" data-filter="socket">Socket.io</button>
+        </div>
       </div>
       
       <!-- Projects Grid -->
       <div class="projects-grid">
         <!-- Project 1 -->
-        <div class="project-card">
+        <div class="project-card" data-tags="react,node,mongodb,stripe,socket">
           <div class="project-image">
             <div class="project-carousel" data-project="0">
               <div class="carousel-track">
@@ -396,7 +407,7 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card">
+        <div class="project-card" data-tags="vue,web3,ethereum,metamask">
           <div class="project-image">
             <div class="project-carousel" data-project="1">
               <div class="carousel-track">
@@ -446,7 +457,7 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card">
+        <div class="project-card" data-tags="node,docker,postgresql,redis">
           <div class="project-image">
             <div class="project-carousel" data-project="2">
               <div class="carousel-track">
@@ -496,7 +507,7 @@
         </div>
 
         <!-- Project 4 -->
-        <div class="project-card">
+        <div class="project-card" data-tags="react,socket,webrtc,mongodb">
           <div class="project-image">
             <div class="project-carousel" data-project="3">
               <div class="carousel-track">
@@ -546,7 +557,7 @@
         </div>
 
         <!-- Project 5 -->
-        <div class="project-card">
+        <div class="project-card" data-tags="react,d3,typescript,chartjs">
           <div class="project-image">
             <div class="project-carousel" data-project="4">
               <div class="carousel-track">
@@ -596,7 +607,7 @@
         </div>
 
         <!-- Project 6 -->
-        <div class="project-card">
+        <div class="project-card" data-tags="vue,node,mysql,socket">
           <div class="project-image">
             <div class="project-carousel" data-project="5">
               <div class="carousel-track">
