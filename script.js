@@ -378,22 +378,105 @@ function updateActiveSection() {
 function setupContactForm() {
   if (!contactForm) return;
 
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Get form data
+    const submitBtn = contactForm.querySelector('.btn-contact-submit');
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
 
-    // Simulate form submission
-    showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
+    // Add loading state
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
 
-    // Reset form
-    contactForm.reset();
+    // Simulate API call
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Success
+      showNotification('✨ Mensagem enviada com sucesso! Entrarei em contato em até 24 horas.', 'success');
+      contactForm.reset();
+
+      // Add success animation to form
+      const formContainer = document.querySelector('.contact-form-container');
+      formContainer.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        formContainer.style.transform = 'scale(1)';
+      }, 150);
+
+    } catch (error) {
+      showNotification('❌ Ops! Algo deu errado. Tente novamente ou entre em contato por email.', 'error');
+    } finally {
+      // Remove loading state
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+    }
 
     // In a real application, you would send this data to your backend
     console.log('Form data:', data);
   });
+
+  // Add form validation feedback
+  const inputs = contactForm.querySelectorAll('input[required], textarea[required]');
+  inputs.forEach(input => {
+    input.addEventListener('blur', validateField);
+    input.addEventListener('input', clearFieldError);
+  });
+}
+
+function validateField(e) {
+  const field = e.target;
+  const value = field.value.trim();
+  
+  // Remove existing error
+  clearFieldError(e);
+  
+  if (!value) {
+    showFieldError(field, 'Este campo é obrigatório');
+    return false;
+  }
+  
+  // Email validation
+  if (field.type === 'email' && value) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(value)) {
+      showFieldError(field, 'Digite um email válido');
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+function showFieldError(field, message) {
+  field.style.borderColor = 'var(--secondary-color)';
+  field.style.boxShadow = '0 0 0 4px rgba(255, 107, 53, 0.1)';
+  
+  // Create or update error message
+  let errorMsg = field.parentNode.querySelector('.field-error');
+  if (!errorMsg) {
+    errorMsg = document.createElement('span');
+    errorMsg.className = 'field-error';
+    errorMsg.style.cssText = `
+      color: var(--secondary-color);
+      font-size: 0.85rem;
+      margin-top: 5px;
+      display: block;
+    `;
+    field.parentNode.appendChild(errorMsg);
+  }
+  errorMsg.textContent = message;
+}
+
+function clearFieldError(e) {
+  const field = e.target;
+  field.style.borderColor = '';
+  field.style.boxShadow = '';
+  
+  const errorMsg = field.parentNode.querySelector('.field-error');
+  if (errorMsg) {
+    errorMsg.remove();
+  }
 }
 
 function showNotification(message, type = 'info') {
