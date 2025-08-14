@@ -317,83 +317,208 @@
 
   <!-- Projects Section -->
   <section id="projects" class="projects">
-    <div class="projects-bg"></div>
     <div class="container">
       <div class="section-header">
-        <div class="section-badge">💼 Portfolio</div>
-        <h2 class="section-title">Projetos <span class="highlight">Destacados</span></h2>
-        <p class="section-subtitle">Conheça alguns dos projetos mais impactantes que desenvolvi usando tecnologias modernas</p>
+        <h2 class="section-title">Meus <span class="highlight">Projetos</span></h2>
+        <p class="section-subtitle">Alguns dos projetos que desenvolvi com tecnologias modernas</p>
         <div class="section-divider"></div>
       </div>
       
-      <!-- Project Stats -->
-      <div class="projects-stats">
-        <div class="stat-item">
-          <div class="stat-number">20+</div>
-          <div class="stat-label">Projetos Concluídos</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">Anos de Experiência</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Satisfação do Cliente</div>
-        </div>
-      </div>
-      
-      <!-- Project Filters -->
-      <div class="project-filters">
-        <div class="filter-label">Filtrar por tecnologia:</div>
-        <div class="filter-buttons">
-          <button class="filter-btn active" data-filter="all">
-            <i class="fas fa-globe"></i>
-            <span>Todos</span>
-          </button>
-          <button class="filter-btn" data-filter="React">
-            <i class="fab fa-react"></i>
-            <span>React</span>
-          </button>
-          <button class="filter-btn" data-filter="Vue.js">
-            <i class="fab fa-vuejs"></i>
-            <span>Vue.js</span>
-          </button>
-          <button class="filter-btn" data-filter="Node.js">
-            <i class="fab fa-node-js"></i>
-            <span>Node.js</span>
-          </button>
-          <button class="filter-btn" data-filter="Python">
-            <i class="fab fa-python"></i>
-            <span>Python</span>
-          </button>
-          <button class="filter-btn" data-filter="TypeScript">
-            <i class="fas fa-code"></i>
-            <span>TypeScript</span>
-          </button>
-          <button class="filter-btn" data-filter="Web3">
-            <i class="fas fa-coins"></i>
-            <span>Web3</span>
-          </button>
-          <button class="filter-btn" data-filter="Docker">
-            <i class="fab fa-docker"></i>
-            <span>Docker</span>
-          </button>
-        </div>
-      </div>
-      
       <!-- Projects Grid -->
-      <div class="projects-container">
-        <div class="projects-grid" id="projects-grid">
-          <!-- Projects will be dynamically inserted here -->
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=300&fit=crop" alt="E-commerce Platform">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link" title="Código">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-type">Full Stack</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3>E-commerce Platform</h3>
+            <p>Plataforma completa de e-commerce com sistema de pagamentos, gestão de estoque e dashboard administrativo.</p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+              <span>Stripe</span>
+            </div>
+          </div>
         </div>
-        
-        <!-- Load More Button -->
-        <div class="load-more-section">
-          <button class="btn btn-outline load-more-btn" id="load-more-btn">
-            <span>Ver Mais Projetos</span>
-            <i class="fas fa-plus"></i>
-          </button>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="DeFi Dashboard">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link" title="Código">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-type">Web3</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3>DeFi Dashboard</h3>
+            <p>Dashboard para gerenciamento de ativos DeFi com integração Web3 e análise de portfólio em tempo real.</p>
+            <div class="project-tech">
+              <span>Vue.js</span>
+              <span>Web3</span>
+              <span>Ethereum</span>
+              <span>MetaMask</span>
+            </div>
+          </div>
         </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=300&fit=crop" alt="FinTech API">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link" title="Código">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-type">Backend</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3>FinTech API</h3>
+            <p>API robusta para sistema financeiro com microserviços, processamento de pagamentos e compliance.</p>
+            <div class="project-tech">
+              <span>Node.js</span>
+              <span>Docker</span>
+              <span>PostgreSQL</span>
+              <span>Redis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=600&h=300&fit=crop" alt="Chat Application">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link" title="Código">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-type">Full Stack</span>
+              <span class="project-year">2022</span>
+            </div>
+            <h3>Chat em Tempo Real</h3>
+            <p>Aplicação de chat com suporte a múltiplas salas, compartilhamento de arquivos e videochamadas.</p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Socket.io</span>
+              <span>WebRTC</span>
+              <span>MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop" alt="Analytics Dashboard">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link" title="Código">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-type">Frontend</span>
+              <span class="project-year">2022</span>
+            </div>
+            <h3>Analytics Dashboard</h3>
+            <p>Dashboard interativo com visualizações de dados em tempo real e relatórios customizáveis.</p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>D3.js</span>
+              <span>TypeScript</span>
+              <span>ChartJS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=300&fit=crop" alt="Task Management">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link" title="Ver Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="#" class="project-link" title="Código">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-type">Full Stack</span>
+              <span class="project-year">2022</span>
+            </div>
+            <h3>Gerenciador de Tarefas</h3>
+            <p>Sistema completo de gerenciamento de projetos e tarefas com colaboração em tempo real.</p>
+            <div class="project-tech">
+              <span>Vue.js</span>
+              <span>Node.js</span>
+              <span>MySQL</span>
+              <span>Socket.io</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-cta">
+        <p>Interessado em ver mais projetos ou discutir uma colaboração?</p>
+        <a href="#contact" class="btn btn-primary">
+          <span>Entre em Contato</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </section>
