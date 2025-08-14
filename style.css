@@ -185,7 +185,7 @@ body {
   height: 100%;
   background: 
     linear-gradient(135deg, rgba(10, 10, 10, 0.6) 0%, rgba(17, 17, 17, 0.8) 100%),
-    url('https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=1920&h=1080&fit=crop&crop=center') center/cover;
+    url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&h=1080&fit=crop&crop=center') center/cover;
   background-attachment: fixed;
 }
 
