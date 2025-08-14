@@ -336,7 +336,7 @@ function setupScrollEffects() {
 
     // Navbar background change
     if (navbar) {
-      if (scrollTop > 100) {
+      if (scrollTop > 50) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');

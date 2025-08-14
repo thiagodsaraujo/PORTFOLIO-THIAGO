@@ -6,9 +6,9 @@
 }
 
 :root {
-  --primary-color: #8b5cf6; /* Purple */
-  --secondary-color: #f97316; /* Orange */
-  --accent-color: #fbbf24; /* Yellow */
+  --primary-color: #9e58cb; /* Purple */
+  --secondary-color: #f76b1c; /* Orange */
+  --accent-color: #d946ef; /* Purple Accent */
   --bg-primary: #0a0a0a;
   --bg-secondary: #111111;
   --bg-tertiary: #1a1a1a;
@@ -16,9 +16,9 @@
   --text-secondary: #b0b0b0;
   --text-muted: #666666;
   --border-color: #333333;
-  --gradient-primary: linear-gradient(135deg, #9333ea, #e11d48); /* Purple to Red-Orange */
+  --gradient-primary: linear-gradient(135deg, #9e58cb, #f76b1c);
   --gradient-secondary: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-  --shadow-glow: 0 0 20px rgba(147, 51, 233, 0.3); /* Purple glow */
+  --shadow-glow: 0 0 20px rgba(158, 88, 203, 0.3);
   --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -65,15 +65,17 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
   z-index: 1000;
   transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-  background: rgba(10, 10, 10, 0.98);
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
   box-shadow: var(--shadow-dark);
 }
 
@@ -158,8 +160,8 @@ body {
   width: 100%;
   height: 100%;
   background: 
-    linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(17, 17, 17, 0.9) 100%),
-    url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop&crop=center') center/cover;
+    linear-gradient(135deg, rgba(10, 10, 10, 0.6) 0%, rgba(17, 17, 17, 0.8) 100%),
+    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&crop=center') center/cover;
   background-attachment: fixed;
 }
 
@@ -170,8 +172,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+  background: radial-gradient(ellipse at center, rgba(158, 88, 203, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, rgba(247, 107, 28, 0.1) 0%, transparent 50%);
 }
 
 .hero-particles {
