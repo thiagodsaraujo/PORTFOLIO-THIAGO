@@ -202,6 +202,7 @@ body {
     radial-gradient(ellipse at 20% 80%, rgba(255, 0, 64, 0.06) 0%, transparent 50%);
 }
 
+/* Particles animation */
 .hero-particles {
   position: absolute;
   top: 0;
@@ -210,6 +211,11 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Garantir que divs genéricas não sobreponham elementos interativos */
+div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*="modal"]):not([class*="dropdown"]) {
+  z-index: auto;
 }
 
 .hero-content {
