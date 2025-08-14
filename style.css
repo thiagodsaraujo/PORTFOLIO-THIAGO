@@ -4056,7 +4056,6 @@ section {
     width: 20px;
     height: 20px;
     font-size: 0.7rem;
-    left: -2px;
   }
 
   .timeline::before {
