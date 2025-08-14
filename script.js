@@ -165,17 +165,17 @@ const contactForm = document.getElementById('contact-form');
 const translations = {
   pt: {
     // Navigation
-    home: 'Home',
-    about: 'Sobre',
-    resume: 'Resumé',
-    techStack: 'Tech Stack',
+    home: 'Inicio',
+    about: 'Sobre Mim',
+    resume: 'Resumo',
+    techStack: 'Minhas Stacks',
     projects: 'Projetos',
     contact: 'Contato',
 
     // Hero section
     heroSubtitle: ['Software Engineer', 'Full Stack Developer', 'Inovador em Tech', 'Solucionador de Problemas', 'Arquiteto de Código'],
     location: 'Brasil 🇧🇷',
-    locationCity: 'São Paulo, SP',
+    locationCity: 'João Pessoa, PB',
     curriculum: 'Currículo',
     getInTouch: 'Entrar em contato',
 
@@ -184,13 +184,13 @@ const translations = {
     aboutQuote: 'Desenvolvo aplicações web seguras end-to-end.<br>Especializado nos setores de e-commerce, financeiro, bancário e fintech.',
 
     // Resume section
-    resumeTitle: 'Meu Resumé',
+    resumeTitle: 'Meu Resumo',
     experienceTitle: 'Experiências',
     educationTitle: 'Educação',
     certificationsTitle: 'Certificações',
 
     // Tech Stack
-    techStackTitle: 'Meu Tech Stack',
+    techStackTitle: 'Minhas Stacks',
     frontend: 'Frontend',
     backendDatabases: 'Backend & Databases',
     cloudDevops: 'Cloud & DevOps',
@@ -246,8 +246,8 @@ const translations = {
 
     // Hero section
     heroSubtitle: ['Software Engineer', 'Full Stack Developer', 'Tech Innovator', 'Problem Solver', 'Code Architect'],
-    location: 'United Kingdom 🇬🇧',
-    locationCity: 'London, UK',
+    location: 'Brasil 🇧🇷',
+    locationCity: 'João Pessoa, PB',
     curriculum: 'Resume',
     getInTouch: 'Get in Touch',
 
@@ -318,8 +318,8 @@ const translations = {
 
     // Hero section
     heroSubtitle: ['Ingeniero de Software', 'Desarrollador Full Stack', 'Innovador Tech', 'Solucionador de Problemas', 'Arquitecto de Código'],
-    location: 'México 🇲🇽',
-    locationCity: 'Ciudad de México, MX',
+    location: 'Brasil 🇧🇷',
+    locationCity: 'João Pessoa, PB',
     curriculum: 'Currículum',
     getInTouch: 'Contactar',
 
@@ -334,7 +334,7 @@ const translations = {
     certificationsTitle: 'Certificaciones',
 
     // Tech Stack
-    techStackTitle: 'Mi Tech Stack',
+    techStackTitle: 'Mis Stacks',
     frontend: 'Frontend',
     backendDatabases: 'Backend y Bases de Datos',
     cloudDevops: 'Cloud y DevOps',
