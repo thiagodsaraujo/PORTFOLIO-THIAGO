@@ -376,15 +376,15 @@ function setupTypingAnimation() {
       charIndex++;
     }
 
-    let typeSpeed = isDeleting ? 80 : 120;
+    let typeSpeed = isDeleting ? 120 : 180;
 
     if (!isDeleting && charIndex === currentText.length) {
-      typeSpeed = 3000; // Pause at end (increased from 2000ms)
+      typeSpeed = 4500; // Pause at end (increased from 3000ms)
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       typeIndex = (typeIndex + 1) % typeTexts.length;
-      typeSpeed = 800; // Pause before next word (increased from 500ms)
+      typeSpeed = 1200; // Pause before next word (increased from 800ms)
     }
 
     setTimeout(typeEffect, typeSpeed);
