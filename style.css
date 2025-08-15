@@ -3624,9 +3624,9 @@ section {
 /* Social Links - Minimal */
 .contact-social {
   text-align: center;
-  margin-top: 30px;
-  padding-top: 25px;
-  border-top: 1px solid rgba(158, 88, 203, 0.2);
+  margin-bottom: 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(158, 88, 203, 0.2);
 }
 
 .contact-social h4 {
