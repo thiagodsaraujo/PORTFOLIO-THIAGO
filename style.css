@@ -107,8 +107,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   height: 70px;
   position: relative;
@@ -118,15 +118,18 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
   font-weight: 500;
-  flex: 1;
+  justify-self: start;
 }
 
 .nav-menu {
   display: flex;
+  align-items: center;
   gap: 30px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  justify-self: center;
+}
+
+.nav-menu .language-selector {
+  justify-self: end;
 }
 
 .nav-link {
@@ -4169,8 +4172,7 @@ section {
   display: flex;
   align-items: center;
   cursor: pointer;
-  flex: 1;
-  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .lang-btn {
