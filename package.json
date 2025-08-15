@@ -8,7 +8,7 @@
     "build": "vite build",
     "postbuild": "powershell Copy-Item attached_assets dist/attached_assets -Recurse -Force; powershell Copy-Item script.js dist/; powershell Copy-Item project-detail.js dist/",
     "preview": "vite preview",
-    "start": "npx http-server dist -p 80"
+    "start": "npx http-server dist -p 80 --no-cache"
   },
   "keywords": ["portfolio", "website", "vite", "html", "css", "javascript"],
   "author": "Thiago",
