@@ -347,7 +347,21 @@ function setupNavigation() {
       menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
     }
+    
+    // Force hamburger visibility on mobile
+    if (window.innerWidth <= 768 && hamburger) {
+      hamburger.style.display = 'flex';
+      hamburger.style.visibility = 'visible';
+      hamburger.style.opacity = '1';
+    }
   });
+
+  // Force hamburger visibility on page load for mobile
+  if (window.innerWidth <= 768 && hamburger) {
+    hamburger.style.display = 'flex';
+    hamburger.style.visibility = 'visible';
+    hamburger.style.opacity = '1';
+  }
 }
 
 function updateActiveNavLink(activeSection) {
