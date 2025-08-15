@@ -135,10 +135,6 @@ body {
   justify-self: end;
 }
 
-.nav-menu .language-selector {
-  display: none;
-}
-
 .nav-link {
   color: var(--text-secondary);
   text-decoration: none;
