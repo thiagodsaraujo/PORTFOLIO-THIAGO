@@ -131,6 +131,7 @@ body {
 .language-selector {
   position: relative;
   justify-self: end;
+  display: none;
 }
 
 .nav-menu .language-selector {
@@ -3762,6 +3763,7 @@ section {
     margin-top: 30px;
     justify-content: center;
     flex: none;
+    display: flex;
   }
 
   .lang-dropdown {
