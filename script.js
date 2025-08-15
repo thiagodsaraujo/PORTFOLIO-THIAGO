@@ -459,10 +459,21 @@ function setupNavigation() {
       e.stopPropagation();
       console.log('Hamburger clicked!');
       
-      navMenu.classList.toggle('active');
-      hamburger.classList.toggle('active');
+      const isActive = navMenu.classList.contains('active');
       
-      console.log('Menu active:', navMenu.classList.contains('active'));
+      if (isActive) {
+        // Close menu
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+        console.log('Menu closed');
+      } else {
+        // Open menu
+        navMenu.classList.add('active');
+        hamburger.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('Menu opened');
+      }
     });
   }
 
@@ -474,6 +485,18 @@ function setupNavigation() {
         navMenu.classList.contains('active')) {
       navMenu.classList.remove('active');
       hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+      console.log('Menu closed by outside click');
+    }
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu && hamburger && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+      console.log('Menu closed by Escape key');
     }
   });
 
@@ -484,6 +507,12 @@ function setupNavigation() {
 
       // Skip if it's an external link or another page
       if (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.endsWith('.html')) {
+        // Close mobile menu for external links too
+        if (navMenu && hamburger && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          hamburger.classList.remove('active');
+          document.body.style.overflow = '';
+        }
         return;
       }
 
@@ -493,21 +522,34 @@ function setupNavigation() {
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
-        targetSection.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
+        // Close mobile menu first
+        if (navMenu && hamburger && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          hamburger.classList.remove('active');
+          document.body.style.overflow = '';
+        }
 
-      // Close mobile menu if open
-      if (navMenu && hamburger) {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+        // Small delay to allow menu to close before scrolling
+        setTimeout(() => {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 300);
       }
 
       // Update active link
       updateActiveNavLink(targetId);
     });
+  });
+
+  // Handle window resize - close menu if screen becomes larger
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navMenu && hamburger && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
 }
 
