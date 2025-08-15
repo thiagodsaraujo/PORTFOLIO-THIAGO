@@ -470,13 +470,13 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
     bottom: 15px;
     z-index: 0;
   }
-  
+
   .animated-arrow {
     width: 16px;
     height: 16px;
     border-width: 1.5px;
   }
-  
+
   .animated-arrow::before {
     width: 16px;
     height: 16px;
@@ -491,12 +491,12 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
     bottom: 10px;
     opacity: 0.7;
   }
-  
+
   .animated-arrow {
     width: 14px;
     height: 14px;
   }
-  
+
   .animated-arrow::before {
     width: 14px;
     height: 14px;
@@ -4167,14 +4167,6 @@ section {
 }
 
 /* Language Selector */
-.language-selector {
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin-left: auto;
-}
-
 .lang-btn {
   display: flex;
   align-items: center;
