@@ -238,7 +238,10 @@ function updateActiveNavLink(activeSection) {
   
   allNavLinks.forEach(link => {
     link.classList.remove('active');
-    if (link.getAttribute('href') === `#${activeSection}`) {
+    const href = link.getAttribute('href');
+    const dataSection = link.getAttribute('data-section');
+    
+    if (href === `#${activeSection}` || dataSection === activeSection) {
       link.classList.add('active');
     }
   });

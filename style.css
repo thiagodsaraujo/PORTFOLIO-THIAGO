@@ -159,7 +159,7 @@ body {
 
 /* Mobile Bottom Navigation */
 .mobile-nav {
-  display: none;
+  display: flex;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -3961,9 +3961,9 @@ section {
     display: none; /* Hide desktop menu on mobile */
   }
 
-  /* Show mobile bottom navigation */
+  /* Show mobile bottom navigation on all devices */
   .mobile-nav {
-    display: flex;
+    display: flex !important;
   }
 
   .language-selector {
