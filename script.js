@@ -17,27 +17,27 @@ const projectsData = [
   {
     id: 1,
     title: 'E-commerce Platform',
-    description: 'Plataforma de e-commerce completa com sistema de pagamentos, gestão de estoque e analytics em tempo real.',
-    fullDescription: 'Uma plataforma completa de e-commerce desenvolvida com React, Node.js e MongoDB. O sistema inclui um painel administrativo robusto, integração com gateways de pagamento, sistema de inventário em tempo real, e analytics detalhados. A plataforma suporta múltiplos vendedores e inclui recursos avançados como recomendações por IA e chat ao vivo.',
+    description: 'Complete e-commerce platform with payment system, inventory management, and real-time analytics.',
+    fullDescription: 'A complete e-commerce platform developed with React, Node.js, and MongoDB. The system includes a robust administrative panel, payment gateway integration, real-time inventory system, and detailed analytics. The platform supports multiple vendors and includes advanced features like AI recommendations and live chat.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Socket.io', 'AWS'],
     badge: 'Full Stack',
     year: '2023',
     features: [
-      'Sistema de autenticação e autorização completo',
-      'Painel administrativo com dashboard de vendas',
-      'Integração com múltiplos gateways de pagamento',
-      'Sistema de inventário em tempo real',
-      'Recomendações personalizadas com machine learning',
-      'Chat ao vivo entre vendedores e clientes',
-      'Sistema de avaliações e comentários',
-      'Relatórios e analytics detalhados'
+      'Complete authentication and authorization system',
+      'Administrative panel with sales dashboard',
+      'Integration with multiple payment gateways',
+      'Real-time inventory management system',
+      'Personalized recommendations with machine learning',
+      'Live chat between sellers and customers',
+      'Review and comment system',
+      'Detailed reports and analytics'
     ],
     challenges: [
-      'Implementação de um sistema de pagamentos seguro e escalável',
-      'Sincronização do inventário em tempo real entre múltiplos vendedores',
-      'Otimização de performance para lidar com alto volume de transações',
-      'Desenvolvimento de algoritmo de recomendações personalizadas',
-      'Implementação de sistema de cache distribuído com Redis'
+      'Implementation of a secure and scalable payment system',
+      'Real-time inventory synchronization across multiple vendors',
+      'Performance optimization to handle high transaction volumes',
+      'Development of personalized recommendation algorithms',
+      'Implementation of distributed caching system with Redis'
     ],
     demoUrl: '#',
     githubUrl: '#',
@@ -51,27 +51,27 @@ const projectsData = [
   {
     id: 2,
     title: 'DeFi Dashboard',
-    description: 'Dashboard para gerenciamento de ativos DeFi com integração Web3 e análise de portfólio em tempo real.',
-    fullDescription: 'Uma aplicação Web3 avançada para monitoramento e gestão de portfólios DeFi. Conecta-se com múltiplas blockchains para fornecer uma visão unificada de todos os ativos digitais do usuário, com análises detalhadas de performance e yield farming.',
+    description: 'Dashboard for DeFi asset management with Web3 integration and real-time portfolio analysis.',
+    fullDescription: 'An advanced Web3 application for monitoring and managing DeFi portfolios. Connects to multiple blockchains to provide a unified view of all user digital assets, with detailed performance analysis and yield farming insights.',
     technologies: ['Vue.js', 'Web3', 'Ethereum', 'TypeScript', 'Metamask', 'Moralis'],
     badge: 'Web3',
     year: '2023',
     features: [
-      'Conexão com múltiplas wallets (MetaMask, WalletConnect)',
-      'Monitoramento de múltiplas blockchains simultaneamente',
-      'Analytics de portfólio em tempo real',
-      'Calculadora de yield farming e staking rewards',
-      'Histórico detalhado de todas as transações',
-      'Alertas personalizáveis de preços e mudanças',
-      'Interface responsiva e intuitiva',
-      'Integração com principais protocolos DeFi'
+      'Connection to multiple wallets (MetaMask, WalletConnect)',
+      'Simultaneous monitoring of multiple blockchains',
+      'Real-time portfolio analytics',
+      'Yield farming and staking rewards calculator',
+      'Detailed history of all transactions',
+      'Customizable price and change alerts',
+      'Responsive and intuitive interface',
+      'Integration with major DeFi protocols'
     ],
     challenges: [
-      'Integração de dados de múltiplas blockchains em uma interface unificada',
-      'Otimização de chamadas para APIs de blockchain para reduzir custos',
-      'Implementação de sistema de cache para dados voláteis',
-      'Desenvolvimento de algoritmos de cálculo de APY em tempo real',
-      'Criação de sistema de notificações push para alertas de preço'
+      'Integration of data from multiple blockchains into a unified interface',
+      'Optimization of blockchain API calls to reduce costs',
+      'Implementation of caching system for volatile data',
+      'Development of real-time APY calculation algorithms',
+      'Creation of push notification system for price alerts'
     ],
     demoUrl: '#',
     githubUrl: '#',
@@ -85,27 +85,27 @@ const projectsData = [
   {
     id: 3,
     title: 'FinTech API',
-    description: 'API robusta para sistema financeiro com microserviços, processamento de pagamentos e compliance.',
-    fullDescription: 'Uma API enterprise-grade desenvolvida para instituições financeiras, oferecendo serviços completos de processamento de pagamentos, gestão de contas e conformidade regulatória. Arquitetura de microserviços escalável com alta disponibilidade.',
+    description: 'Robust API for financial systems with microservices, payment processing, and compliance features.',
+    fullDescription: 'An enterprise-grade API developed for financial institutions, offering complete payment processing services, account management, and regulatory compliance. Scalable microservices architecture with high availability.',
     technologies: ['Node.js', 'Docker', 'Redis', 'PostgreSQL', 'Kubernetes', 'RabbitMQ'],
     badge: 'Backend',
     year: '2023',
     features: [
-      'Arquitetura de microserviços highly escalável',
-      'Processamento de pagamentos PIX, TED e boletos',
-      'Sistema de compliance automático para regulamentações',
-      'API Rate limiting e throttling inteligente',
-      'Monitoramento e logging distribuído',
-      'Autenticação OAuth 2.0 e JWT',
-      'Documentação interativa com OpenAPI',
-      'Testes automatizados e pipeline CI/CD'
+      'Highly scalable microservices architecture',
+      'Payment processing for PIX, TED, and bank slips',
+      'Automated compliance system for regulations',
+      'Intelligent API rate limiting and throttling',
+      'Distributed monitoring and logging',
+      'OAuth 2.0 and JWT authentication',
+      'Interactive documentation with OpenAPI',
+      'Automated testing and CI/CD pipeline'
     ],
     challenges: [
-      'Desenvolvimento de arquitetura que processe milhares de transações por segundo',
-      'Implementação de conformidade com regulamentações bancárias',
-      'Criação de sistema de monitoramento distribuído',
-      'Otimização de performance para operações críticas',
-      'Implementação de sistema de recuperação de desastres'
+      'Development of architecture that processes thousands of transactions per second',
+      'Implementation of compliance with banking regulations',
+      'Creation of distributed monitoring system',
+      'Performance optimization for critical operations',
+      'Implementation of disaster recovery system'
     ],
     demoUrl: '#',
     githubUrl: '#',
@@ -119,27 +119,27 @@ const projectsData = [
   {
     id: 4,
     title: 'Real-time Chat Application',
-    description: 'Aplicação de chat em tempo real com suporte a múltiplas salas, compartilhamento de arquivos e videochamadas.',
-    fullDescription: 'Uma plataforma completa de comunicação empresarial com chat em tempo real, videochamadas, compartilhamento de arquivos e integração com ferramentas de produtividade.',
+    description: 'Real-time chat application with support for multiple rooms, file sharing, and video calls.',
+    fullDescription: 'A complete enterprise communication platform with real-time chat, video calls, file sharing, and integration with productivity tools.',
     technologies: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'WebRTC', 'AWS S3'],
     badge: 'Full Stack',
     year: '2022',
     features: [
-      'Chat em tempo real com Socket.io',
-      'Videochamadas em grupo com WebRTC',
-      'Compartilhamento seguro de arquivos',
-      'Salas públicas e privadas com moderação',
-      'Sistema de moderação automática',
-      'Notificações push em tempo real',
-      'Interface responsiva multiplataforma',
-      'Criptografia end-to-end para mensagens'
+      'Real-time chat with Socket.io',
+      'Group video calls with WebRTC',
+      'Secure file sharing',
+      'Public and private rooms with moderation',
+      'Automatic moderation system',
+      'Real-time push notifications',
+      'Cross-platform responsive interface',
+      'End-to-end encryption for messages'
     ],
     challenges: [
-      'Implementação de videochamadas escaláveis para múltiplos usuários',
-      'Otimização de latência para chat em tempo real',
-      'Desenvolvimento de sistema de moderação automática',
-      'Criação de sistema de backup e sincronização',
-      'Implementação de criptografia end-to-end'
+      'Implementation of scalable video calls for multiple users',
+      'Latency optimization for real-time chat',
+      'Development of automatic moderation system',
+      'Creation of backup and synchronization system',
+      'Implementation of end-to-end encryption'
     ],
     demoUrl: '#',
     githubUrl: '#',
@@ -511,7 +511,7 @@ function setupContactForm() {
       await new Promise(resolve => setTimeout(resolve, 2000));
 
       // Success
-      showNotification('✨ Mensagem enviada com sucesso! Entrarei em contato em até 24 horas.', 'success');
+      showNotification('✨ Message sent successfully! I will get back to you within 24 hours.', 'success');
       contactForm.reset();
 
       // Add success animation to form
@@ -522,7 +522,7 @@ function setupContactForm() {
       }, 150);
 
     } catch (error) {
-      showNotification('❌ Ops! Algo deu errado. Tente novamente ou entre em contato por email.', 'error');
+      showNotification('❌ Oops! Something went wrong. Please try again or contact me via email.', 'error');
     } finally {
       // Remove loading state
       submitBtn.classList.remove('loading');
@@ -549,7 +549,7 @@ function validateField(e) {
   clearFieldError(e);
 
   if (!value) {
-    showFieldError(field, 'Este campo é obrigatório');
+    showFieldError(field, 'This field is required');
     return false;
   }
 
@@ -557,7 +557,7 @@ function validateField(e) {
   if (field.type === 'email' && value) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(value)) {
-      showFieldError(field, 'Digite um email válido');
+      showFieldError(field, 'Please enter a valid email');
       return false;
     }
   }
