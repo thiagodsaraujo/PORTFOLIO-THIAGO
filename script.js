@@ -252,6 +252,10 @@ function setupNavigation() {
       hamburger.classList.remove('active');
       menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
+    }
+  }move('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
       console.log('Menu closed');
     }
   }

@@ -204,7 +204,7 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: 
+  background:
     linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(17, 17, 17, 0.85) 100%),
     url('./attached_assets/backgroud-portfolio_1755264913720.jpg') center/cover;
   background-attachment: fixed;
@@ -216,7 +216,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(ellipse at 30% 70%, rgba(158, 88, 203, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(247, 107, 28, 0.1) 0%, transparent 50%);
   pointer-events: none;
@@ -229,7 +229,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(ellipse at center, rgba(158, 88, 203, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(247, 107, 28, 0.06) 0%, transparent 50%);
 }
@@ -405,15 +405,15 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
 }
 
 @keyframes arrowBounce {
-  0%, 20%, 50%, 80%, 100% { 
+  0%, 20%, 50%, 80%, 100% {
     transform: rotate(45deg) translateY(0);
     opacity: 1;
   }
-  40% { 
+  40% {
     transform: rotate(45deg) translateY(-6px);
     opacity: 0.8;
   }
-  60% { 
+  60% {
     transform: rotate(45deg) translateY(-3px);
     opacity: 0.9;
   }
@@ -842,7 +842,7 @@ section {
 
 /* Tech Stack Section */
 .tech-stack {
-  background: 
+  background:
     linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(17, 17, 17, 0.9) 100%);
   position: relative;
   overflow: hidden;
@@ -854,7 +854,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(ellipse at 30% 70%, rgba(158, 88, 203, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(247, 107, 28, 0.1) 0%, transparent 50%);
   animation: bgFloat 20s ease-in-out infinite;
@@ -884,7 +884,7 @@ section {
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(25px);
-  box-shadow: 
+  box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
@@ -907,7 +907,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 20% 80%, rgba(158, 88, 203, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(247, 107, 28, 0.03) 0%, transparent 50%);
   pointer-events: none;
@@ -916,7 +916,7 @@ section {
 
 .tech-category:hover {
   transform: translateY(-8px);
-  box-shadow: 
+  box-shadow:
     0 16px 40px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   border-color: rgba(158, 88, 203, 0.4);
@@ -3272,7 +3272,7 @@ section {
 
 /* Contact Section */
 .contact {
-  background: 
+  background:
     linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(17, 17, 17, 0.9) 100%);
   position: relative;
   overflow: hidden;
@@ -3285,7 +3285,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(ellipse at 30% 70%, rgba(158, 88, 203, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(247, 107, 28, 0.1) 0%, transparent 50%);
   pointer-events: none;
@@ -3297,7 +3297,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
   animation: bgFloat 20s ease-in-out infinite;
@@ -3422,7 +3422,7 @@ section {
   border: 1px solid rgba(158, 88, 203, 0.2);
   border-radius: 20px;
   padding: 35px;
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
   position: relative;
@@ -3449,7 +3449,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 20% 80%, rgba(158, 88, 203, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(247, 107, 28, 0.03) 0%, transparent 50%);
   pointer-events: none;
@@ -3522,12 +3522,12 @@ section {
 .form-group select:focus {
   outline: none;
   border-color: var(--primary-color);
-  background: linear-gradient(135deg, 
-    rgba(158, 88, 203, 0.1) 0%, 
-    rgba(247, 107, 28, 0.05) 50%, 
+  background: linear-gradient(135deg,
+    rgba(158, 88, 203, 0.1) 0%,
+    rgba(247, 107, 28, 0.05) 50%,
     rgba(158, 88, 203, 0.1) 100%
   );
-  box-shadow: 
+  box-shadow:
     0 0 0 3px rgba(158, 88, 203, 0.15),
     0 4px 20px rgba(158, 88, 203, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -3563,8 +3563,6 @@ section {
   max-height: 180px;
 }
 
-
-
 /* Submit Button - Minimal */
 .btn-contact-submit {
   background: var(--gradient-primary);
@@ -3578,7 +3576,7 @@ section {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 4px 15px rgba(158, 88, 203, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   margin-top: 10px;
@@ -3597,7 +3595,7 @@ section {
 
 .btn-contact-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 
+  box-shadow:
     0 8px 25px rgba(158, 88, 203, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
