@@ -205,101 +205,135 @@ function initializeApp() {
 
 // Navigation functionality
 function setupNavigation() {
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('nav-menu');
-  const mobileOverlay = document.getElementById('mobile-overlay');
-  
-  if (!hamburger || !navMenu || !mobileOverlay) {
-    console.log('Menu elements not found');
-    return;
+  // Create menu overlay
+  let menuOverlay = document.querySelector('.menu-overlay');
+  if (!menuOverlay) {
+    menuOverlay = document.createElement('div');
+    menuOverlay.className = 'menu-overlay';
+    document.body.appendChild(menuOverlay);
   }
 
-  // Toggle mobile menu
-  hamburger.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const isMenuOpen = navMenu.classList.contains('active');
-    
-    if (isMenuOpen) {
+  // Mobile menu toggle
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('Hamburger clicked!');
+
+      const isActive = navMenu.classList.contains('active');
+
+      if (isActive) {
+        // Close menu
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        console.log('Menu closed');
+      } else {
+        // Open menu
+        navMenu.classList.add('active');
+        hamburger.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('Menu opened');
+      }
+    });
+
+    // Close menu when clicking overlay
+    menuOverlay.addEventListener('click', () => {
       closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  // Open menu function
-  function openMenu() {
-    navMenu.classList.add('active');
-    hamburger.classList.add('active');
-    mobileOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    console.log('Mobile menu opened');
+    });
   }
 
-  // Close menu function
+  // Function to close menu
   function closeMenu() {
-    navMenu.classList.remove('active');
-    hamburger.classList.remove('active');
-    mobileOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-    console.log('Mobile menu closed');
+    if (navMenu && hamburger && menuOverlay) {
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      console.log('Menu closed');
+    }
   }
 
-  // Close menu when clicking overlay
-  mobileOverlay.addEventListener('click', (e) => {
-    e.preventDefault();
-    closeMenu();
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navMenu && hamburger && menuOverlay &&
+        !navMenu.contains(e.target) && 
+        !hamburger.contains(e.target) &&
+        navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      console.log('Menu closed by outside click');
+    }
   });
 
-  // Close menu on escape key
+  // Close menu on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-      closeMenu();
+    if (e.key === 'Escape' && navMenu && hamburger && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      console.log('Menu closed by Escape key');
     }
   });
 
-  // Close menu when screen size changes to desktop
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-      closeMenu();
-    }
-  });
-
-  // Navigation link behavior
-  const navLinks = document.querySelectorAll('.nav-link');
+  // Smooth scrolling for navigation links
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
-      
-      // Close menu for all links
-      if (navMenu.classList.contains('active')) {
-        closeMenu();
-      }
 
-      // Skip smooth scroll for external links
-      if (href.startsWith('http') || href.startsWith('mailto') || href.endsWith('.html')) {
+      // Skip if it's an external link or another page
+      if (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.endsWith('.html')) {
+        // Close mobile menu for external links too
+        if (navMenu && hamburger && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          hamburger.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
         return;
       }
 
       e.preventDefault();
-      
+
       const targetId = href.substring(1);
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
-        // Wait for menu to close then scroll
+        // Close mobile menu first
+        if (navMenu && hamburger && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          hamburger.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        // Small delay to allow menu to close before scrolling
         setTimeout(() => {
           targetSection.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
           });
         }, 300);
-        
-        // Update active link
-        updateActiveNavLink(targetId);
       }
+
+      // Update active link
+      updateActiveNavLink(targetId);
     });
+  });
+
+  // Handle window resize - close menu if screen becomes larger
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navMenu && hamburger && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   });
 }
 
