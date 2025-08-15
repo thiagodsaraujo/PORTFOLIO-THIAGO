@@ -1,16 +1,22 @@
 {
-  "name": "my-project",
-  "private": true,
-  "version": "0.0.0",
+  "name": "portfolio-thiago",
+  "version": "1.0.0",
+  "description": "Portfólio pessoal de Thiago",
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp -r attached_assets dist/",
-    "preview": "vite preview",
-    "build:prod": "vite build --mode production && cp -r attached_assets dist/",
-    "start": "vite preview --port 5000 --host 0.0.0.0"
+    "build": "vite build",
+    "postbuild": "powershell Copy-Item attached_assets dist/attached_assets -Recurse -Force; powershell Copy-Item script.js dist/; powershell Copy-Item project-detail.js dist/",
+    "preview": "vite preview"
   },
-  "dependencies": {
-    "serve": "^14.2.4",
-    "vite": "^5.4.8"
+  "keywords": ["portfolio", "website", "vite", "html", "css", "javascript"],
+  "author": "Thiago",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "terser": "^5.19.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
