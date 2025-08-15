@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "cp -r attached_assets dist/attached_assets 2>/dev/null || true && cp script.js dist/ 2>/dev/null || true && cp project-detail.js dist/ 2>/dev/null || true",
+    "postbuild": "mkdir -p dist/attached_assets && cp -r attached_assets/* dist/attached_assets/ 2>/dev/null || true && cp script.js dist/ 2>/dev/null || true && cp project-detail.js dist/ 2>/dev/null || true",
     "preview": "vite preview",
     "start": "npx http-server dist -p 80 --no-cache"
   },
