@@ -255,7 +255,7 @@ body {
 /* Responsive - mostrar apenas em mobile */
 @media (max-width: 768px) {
   .hamburger {
-    display: flex !important;
+    display: flex;
     order: 3;
     position: relative;
     z-index: 10003;
@@ -263,11 +263,19 @@ body {
     border: none;
     cursor: pointer;
   }
+  
+  .nav-menu {
+    display: none; /* Esconder menu por padrão */
+  }
+  
+  .nav-menu.active {
+    display: flex !important; /* Mostrar apenas quando ativo */
+  }
 }
 
 @media (max-width: 480px) {
   .hamburger {
-    display: flex !important;
+    display: flex;
     width: 28px;
     height: 22px;
     padding: 3px;
@@ -4060,12 +4068,13 @@ section {
     visibility: hidden;
     transform: translateX(100%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
+    display: none; /* Escondido por padrão */
     box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-menu.active {
+    display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
     transform: translateX(0) !important;
