@@ -5,6 +5,11 @@ export default defineConfig({
   plugins: [],
   server: {
     host: '0.0.0.0',
-    hmr: true, // Change this line to false disable auto-refreshing.
+    port: 5173,
+    hmr: true,
+    open: false // Não abre automaticamente o browser
+  },
+  build: {
+    outDir: 'dist'
   }
 })
