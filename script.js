@@ -613,11 +613,8 @@ function changeLanguage(lang) {
   updateElementText('[href="#contact"]', t.contact);
 
   // Update hero section
-  const curriculumBtn = document.querySelector('.btn-primary span');
-  if (curriculumBtn) curriculumBtn.textContent = t.curriculum;
-
-  const contactBtn = document.querySelector('.btn-secondary span');
-  if (contactBtn) contactBtn.textContent = t.getInTouch;
+  updateElementByAttribute('data-translate', 'curriculum', t.curriculum);
+  updateElementByAttribute('data-translate', 'getInTouch', t.getInTouch);
 
   const locationTitle = document.querySelector('.hero-location h4');
   if (locationTitle) locationTitle.textContent = t.location;
@@ -625,12 +622,14 @@ function changeLanguage(lang) {
   const locationCity = document.querySelector('.hero-location span');
   if (locationCity) locationCity.textContent = t.locationCity;
 
-  // Update section titles
-  updateElementText('.about .section-title', t.aboutTitle);
-  updateElementText('.resume .section-title', t.resumeTitle);
-  updateElementText('.tech-stack .section-title', t.techStackTitle);
-  updateElementText('.projects .section-title', `${t.projectsTitle.split(' ')[0]} <span class="highlight">${t.projectsTitle.split(' ')[1]}</span>`);
-  updateElementText('.contact .section-title', `${t.contactTitle.split(' ')[0]} <span class="highlight">${t.contactTitle.split(' ')[1]}</span>`);
+  // Update section titles using data-translate attributes
+  updateElementByAttribute('data-translate', 'aboutTitle', t.aboutTitle);
+  updateElementByAttribute('data-translate', 'resumeTitle', t.resumeTitle);
+  updateElementByAttribute('data-translate', 'techStackTitle', t.techStackTitle);
+  updateElementByAttribute('data-translate', 'projectsTitle', `${t.projectsTitle.split(' ')[0]} <span class="highlight">${t.projectsTitle.split(' ')[1]}</span>`);
+  updateElementByAttribute('data-translate', 'contactTitle', `${t.contactTitle.split(' ')[0]} <span class="highlight">${t.contactTitle.split(' ')[1]}</span>`);
+  updateElementByAttribute('data-translate', 'projectsSubtitle', t.projectsSubtitle);
+  updateElementByAttribute('data-translate', 'contactSubtitle', t.contactSubtitle);
 
   // Update about quote
   const aboutQuote = document.querySelector('.quote p');
@@ -760,7 +759,11 @@ function updateFormField(fieldName, labelText, placeholderText) {
 function updateElementByAttribute(attribute, value, text) {
   const element = document.querySelector(`[${attribute}="${value}"]`);
   if (element) {
-    element.textContent = text;
+    if (text.includes('<span') || text.includes('<')) {
+      element.innerHTML = text;
+    } else {
+      element.textContent = text;
+    }
   }
 }
 
