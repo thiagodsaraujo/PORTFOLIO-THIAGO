@@ -3762,9 +3762,10 @@ section {
   }
 
   .language-selector {
-    margin-top: 30px;
-    justify-content: center;
-    flex: none;
+    position: absolute;
+    top: 15px;
+    right: 60px;
+    z-index: 10000;
   }
 
   .lang-dropdown {
