@@ -3499,6 +3499,28 @@ section {
   font-size: 1rem;
 }
 
+/* Social Links Responsive */
+@media (max-width: 768px) {
+  .social-links {
+    gap: 8px;
+  }
+
+  .social-link {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .social-link span {
+    display: none;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+}
+
 /* Contact Section Responsive */
 @media (max-width: 992px) {
   .contact-cards {
@@ -3690,7 +3712,7 @@ section {
   .nav-logo {
     font-size: 10px;
     flex: 0 0 auto;
-    max-width: 60%;
+    max-width: 70%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
