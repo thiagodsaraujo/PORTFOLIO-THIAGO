@@ -3,10 +3,10 @@ let currentSection = 0;
 const sections = ['home', 'about', 'resume', 'tech-stack', 'projects', 'contact'];
 const typeTexts = [
   'Software Engineer',
-  'Full Stack Developer',
-  'Tech Innovator',
+  'Kitesurfer',
   'Problem Solver',
-  'Code Architect'
+  'AI Enthusiast',
+  'Automation Specialist'
 ];
 let typeIndex = 0;
 let charIndex = 0;
