@@ -257,25 +257,34 @@ body {
   .hamburger {
     display: flex;
     order: 3;
-    position: relative;
-    z-index: 10003;
-    background: transparent;
-    border: none;
-    cursor: pointer;
   }
-  
+
   .nav-menu {
-    display: none; /* Esconder menu por padrão */
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 350px;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 80px 30px 30px;
+    transition: right 0.4s ease;
+    z-index: 10000;
+    border-left: 1px solid var(--border-color);
   }
-  
+
   .nav-menu.active {
-    display: flex !important; /* Mostrar apenas quando ativo */
+    right: 0;
   }
 }
 
 @media (max-width: 480px) {
   .hamburger {
-    display: flex;
+    display: flex !important;
     width: 28px;
     height: 22px;
     padding: 3px;
@@ -4052,7 +4061,7 @@ section {
   .nav-menu {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -100%;
     width: 100%;
     max-width: 400px;
     height: 100vh;

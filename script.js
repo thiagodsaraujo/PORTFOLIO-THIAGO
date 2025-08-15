@@ -45,7 +45,7 @@ const projectsData = [
     gallery: [
       'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
       'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop'
+      'https://images.unsplash.com/photo-1472851294608-0cfed4f6a45d?w=800&h=600&fit=crop'
     ]
   },
   {
@@ -205,148 +205,81 @@ function initializeApp() {
 
 // Navigation functionality
 function setupNavigation() {
-  // Create menu overlay
-  let menuOverlay = document.querySelector('.menu-overlay');
-  if (!menuOverlay) {
-    menuOverlay = document.createElement('div');
-    menuOverlay.className = 'menu-overlay';
-    document.body.appendChild(menuOverlay);
-  }
-
-  // Functions to open and close menu
-  function openMenu() {
-    console.log('Opening menu...');
-    navMenu.classList.add('active');
-    hamburger.classList.add('active');
-    menuOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    
-    // Update ARIA attributes
-    hamburger.setAttribute('aria-expanded', 'true');
-    hamburger.setAttribute('aria-label', 'Fechar menu');
-    
-    // Focus on first link
-    const firstLink = navMenu.querySelector('.nav-link');
-    if (firstLink) {
-      setTimeout(() => firstLink.focus(), 300);
-    }
-    
-    console.log('Menu opened successfully');
-  }
-
-  function closeMenu() {
-    console.log('Closing menu...');
-    if (navMenu && hamburger && menuOverlay) {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
-      menuOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-      
-      // Update ARIA attributes
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.setAttribute('aria-label', 'Abrir menu');
-      
-      console.log('Menu closed successfully');
-    }
+  // Create mobile overlay if it doesn't exist
+  let mobileOverlay = document.querySelector('.mobile-overlay');
+  if (!mobileOverlay) {
+    mobileOverlay = document.createElement('div');
+    mobileOverlay.className = 'mobile-overlay';
+    document.body.appendChild(mobileOverlay);
   }
 
   // Mobile menu toggle
   if (hamburger && navMenu) {
-    hamburger.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      console.log('Hamburger clicked!');
-
+    hamburger.addEventListener('click', () => {
       const isActive = navMenu.classList.contains('active');
-      console.log('Menu is currently active:', isActive);
 
       if (isActive) {
-        closeMenu();
+        // Close menu
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
       } else {
-        openMenu();
+        // Open menu
+        navMenu.classList.add('active');
+        hamburger.classList.add('active');
+        mobileOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
       }
     });
 
     // Close menu when clicking overlay
-    if (menuOverlay) {
-      menuOverlay.addEventListener('click', () => {
-        console.log('Overlay clicked, closing menu...');
-        closeMenu();
-      });
-    }
+    mobileOverlay.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
   }
 
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (navMenu && hamburger && menuOverlay &&
-        !navMenu.contains(e.target) && 
-        !hamburger.contains(e.target) &&
-        navMenu.classList.contains('active')) {
+  // Close menu on window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
       navMenu.classList.remove('active');
       hamburger.classList.remove('active');
-      menuOverlay.classList.remove('active');
+      mobileOverlay.classList.remove('active');
       document.body.style.overflow = '';
-      console.log('Menu closed by outside click');
     }
   });
 
-  // Close menu on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu && hamburger && navMenu.classList.contains('active')) {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
-      menuOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-      console.log('Menu closed by Escape key');
-    }
-  });
-
-  // Smooth scrolling for navigation links
+  // Handle navigation links
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
 
-      // Skip if it's an external link or another page
+      // Close mobile menu for all links
+      navMenu.classList.remove('active');
+      hamburger.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+
+      // Skip smooth scrolling for external links
       if (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.endsWith('.html')) {
-        // Close mobile menu for external links too
-        if (navMenu && hamburger && navMenu.classList.contains('active')) {
-          navMenu.classList.remove('active');
-          hamburger.classList.remove('active');
-          menuOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }
         return;
       }
 
       e.preventDefault();
-
       const targetId = href.substring(1);
       const targetSection = document.getElementById(targetId);
 
       if (targetSection) {
-        // Close mobile menu first
-        if (navMenu && hamburger && navMenu.classList.contains('active')) {
-          navMenu.classList.remove('active');
-          hamburger.classList.remove('active');
-          menuOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-          console.log('Menu closed');
-        }
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        updateActiveNavLink(targetId);
       }
-
-      // Update active link
-      updateActiveNavLink(targetId);
     });
-  });
-
-  // Handle window resize - close menu if screen becomes larger
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navMenu && hamburger && navMenu.classList.contains('active')) {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
-      menuOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
   });
 }
 
@@ -706,8 +639,8 @@ function setupProjects() {
   projectCards.forEach((card, index) => {
     card.addEventListener('click', (e) => {
       // Prevent opening modal if clicking on links or carousel controls
-      if (e.target.closest('.project-link') || 
-          e.target.closest('.carousel-btn') || 
+      if (e.target.closest('.project-link') ||
+          e.target.closest('.carousel-btn') ||
           e.target.closest('.indicator')) {
         return;
       }
@@ -1223,9 +1156,9 @@ function createProjectModal(project) {
         <div class="modal-carousel">
           <div class="modal-carousel-track">
             ${project.gallery.map((image, index) => `
-              <img src="${image}" 
-                   alt="${project.title} - Imagem ${index + 1}" 
-                   class="modal-carousel-image ${index === 0 ? 'active' : ''}" 
+              <img src="${image}"
+                   alt="${project.title} - Imagem ${index + 1}"
+                   class="modal-carousel-image ${index === 0 ? 'active' : ''}"
                    loading="lazy" />
             `).join('')}
           </div>
