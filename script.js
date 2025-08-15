@@ -232,7 +232,15 @@ const translations = {
 
     // Footer
     footerLeft: '© 2024 João Dev. Todos os direitos reservados.',
-    footerRight: 'Feito com ❤️ usando tecnologias modernas'
+    footerRight: 'Feito com ❤️ usando tecnologias modernas',
+
+    // Blog
+    blog: 'Blog',
+    'blog-subtitle': 'Compartilhando conhecimento sobre desenvolvimento, tecnologia e inovação',
+    'newsletter-title': 'Receba novos artigos por email',
+    'newsletter-desc': 'Fique por dentro das últimas tendências em desenvolvimento e tecnologia',
+    'newsletter-email': 'Seu melhor email',
+    'newsletter-btn': 'Inscrever-se'
   },
 
   en: {
@@ -304,7 +312,15 @@ const translations = {
 
     // Footer
     footerLeft: '© 2024 João Dev. All rights reserved.',
-    footerRight: 'Made with ❤️ using modern technologies'
+    footerRight: 'Made with ❤️ using modern technologies',
+
+    // Blog
+    blog: 'Blog',
+    'blog-subtitle': 'Sharing knowledge about development, technology and innovation',
+    'newsletter-title': 'Get new articles via email',
+    'newsletter-desc': 'Stay up to date with the latest trends in development and technology',
+    'newsletter-email': 'Your best email',
+    'newsletter-btn': 'Subscribe'
   },
 
   es: {
@@ -376,7 +392,15 @@ const translations = {
 
     // Footer
     footerLeft: '© 2024 João Dev. Todos los derechos reservados.',
-    footerRight: 'Hecho con ❤️ usando tecnologías modernas'
+    footerRight: 'Hecho con ❤️ usando tecnologías modernas',
+
+    // Blog
+    blog: 'Blog',
+    'blog-subtitle': 'Compartiendo conocimiento sobre desarrollo, tecnología e innovación',
+    'newsletter-title': 'Recibe nuevos artículos por email',
+    'newsletter-desc': 'Mantente al día con las últimas tendencias en desarrollo y tecnología',
+    'newsletter-email': 'Tu mejor email',
+    'newsletter-btn': 'Suscribirse'
   }
 };
 
@@ -646,6 +670,25 @@ function changeLanguage(lang) {
   const footerRight = document.querySelector('.footer-right p');
   if (footerRight) footerRight.innerHTML = t.footerRight;
 
+  // Update blog elements
+  updateElementByAttribute('data-translate', 'blog-subtitle', t['blog-subtitle']);
+  updateElementByAttribute('data-translate', 'newsletter-title', t['newsletter-title']);
+  updateElementByAttribute('data-translate', 'newsletter-desc', t['newsletter-desc']);
+  updateElementByAttribute('data-translate', 'newsletter-btn', t['newsletter-btn']);
+  
+  // Update placeholders
+  const newsletterInput = document.querySelector('[data-translate-placeholder="newsletter-email"]');
+  if (newsletterInput) newsletterInput.placeholder = t['newsletter-email'];
+
+  // Update navigation links with data-translate attributes
+  updateElementByAttribute('data-translate', 'home', t.home);
+  updateElementByAttribute('data-translate', 'about', t.about);
+  updateElementByAttribute('data-translate', 'resume', t.resume);
+  updateElementByAttribute('data-translate', 'techStack', t.techStack);
+  updateElementByAttribute('data-translate', 'projects', t.projects);
+  updateElementByAttribute('data-translate', 'blog', t.blog);
+  updateElementByAttribute('data-translate', 'contact', t.contact);
+
   // Update typing animation texts
   typeTexts.length = 0;
   typeTexts.push(...t.heroSubtitle);
@@ -667,6 +710,13 @@ function updateFormField(fieldName, labelText, placeholderText) {
 
   if (label) label.textContent = labelText;
   if (input && placeholderText) input.placeholder = placeholderText;
+}
+
+function updateElementByAttribute(attribute, value, text) {
+  const element = document.querySelector(`[${attribute}="${value}"]`);
+  if (element) {
+    element.textContent = text;
+  }
 }
 
 // Load saved language preference

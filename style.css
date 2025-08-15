@@ -4013,17 +4013,16 @@ section {
     font-size: 0.8rem;
   }
 
+  .timeline::before {
+    left: 8px;
+  }
+
   .timeline-content {
     padding: 20px;
   }
 
-  .timeline-content h4 {
-    font-size: 1.1rem;
-  }
-
-  .timeline-achievements li {
-    font-size: 0.9rem;
-    line-height: 1.5;
+  .timeline-content::before {
+    left: -8px;
   }
 
   .certifications {
@@ -4239,15 +4238,20 @@ section {
   display: flex;
   align-items: center;
   gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   padding: 8px 12px;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
   color: var(--text-primary);
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+.flag-icon {
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .lang-btn:hover {
