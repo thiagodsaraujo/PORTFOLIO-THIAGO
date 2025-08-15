@@ -217,7 +217,7 @@ function setupNavigation() {
         return;
       }
 
-      e.preventDefault();
+      e.preventDefault(); // Previne comportamento padrão
       const targetId = href.substring(1);
       const targetSection = document.getElementById(targetId);
 
@@ -226,7 +226,7 @@ function setupNavigation() {
           behavior: 'smooth',
           block: 'start'
         });
-        updateActiveNavLink(targetId);
+        updateActiveNavLink(targetId); // Atualiza o link ativo
       }
     });
   });
