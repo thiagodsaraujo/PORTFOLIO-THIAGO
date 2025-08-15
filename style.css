@@ -303,6 +303,7 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
   margin-top: 40px;
   position: relative;
   z-index: 10;
+  font-size: 1rem !important;
 }
 
 .btn {
@@ -313,16 +314,18 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
   border: none;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1rem !important;
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   z-index: 10;
-  min-width: 160px;
+  min-width: 180px;
+  width: 180px;
   height: 50px;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .btn-primary {
@@ -3856,11 +3859,12 @@ section {
   }
 
   .btn {
-    width: 100%;
-    max-width: 300px;
+    width: 280px;
+    max-width: 280px;
     padding: 12px 25px;
-    font-size: 0.95rem;
+    font-size: 0.95rem !important;
     justify-content: center;
+    flex-shrink: 0;
   }
 
   .btn i {
@@ -4069,7 +4073,10 @@ section {
 
   .btn {
     padding: 10px 20px;
-    font-size: 0.9rem;
+    font-size: 0.9rem !important;
+    width: 250px;
+    max-width: 250px;
+    flex-shrink: 0;
   }
 
   section {
