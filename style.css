@@ -119,6 +119,7 @@ body {
   font-size: 14px;
   font-weight: 500;
   justify-self: start;
+  display: none;
 }
 
 .nav-menu {
@@ -131,7 +132,6 @@ body {
 .language-selector {
   position: relative;
   justify-self: end;
-  display: none;
 }
 
 .nav-menu .language-selector {
@@ -3719,6 +3719,7 @@ section {
     font-size: 10px;
     flex: 0 0 auto;
     white-space: nowrap;
+    display: block;
   }
 
   .nav-menu {
@@ -3763,7 +3764,6 @@ section {
     margin-top: 30px;
     justify-content: center;
     flex: none;
-    display: flex;
   }
 
   .lang-dropdown {
