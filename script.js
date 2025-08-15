@@ -369,6 +369,16 @@ function setupScrollEffects() {
       }
     }
 
+    // Mobile nav background change
+    const mobileNav = document.getElementById('mobile-nav');
+    if (mobileNav) {
+      if (scrollTop > 50) {
+        mobileNav.classList.add('scrolled');
+      } else {
+        mobileNav.classList.remove('scrolled');
+      }
+    }
+
     // Update active section
     updateActiveSection();
 

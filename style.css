@@ -159,16 +159,24 @@ body {
 
 /* Mobile Bottom Navigation */
 .mobile-nav {
-  display: flex;
+  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  background: transparent;
+  backdrop-filter: none;
+  border-top: 1px solid transparent;
+  padding: 12px 0 max(12px, env(safe-area-inset-bottom));
+  z-index: 1000;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav.scrolled {
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(20px);
   border-top: 1px solid var(--border-color);
-  padding: 12px 0 max(12px, env(safe-area-inset-bottom));
-  z-index: 1000;
   box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -3961,7 +3969,7 @@ section {
     display: none; /* Hide desktop menu on mobile */
   }
 
-  /* Show mobile bottom navigation on all devices */
+  /* Show mobile bottom navigation only on mobile */
   .mobile-nav {
     display: flex !important;
   }
