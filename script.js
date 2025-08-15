@@ -161,251 +161,6 @@ const typedElement = document.getElementById('typed-text');
 const particlesContainer = document.getElementById('particles');
 const contactForm = document.getElementById('contact-form');
 
-// Translation data
-const translations = {
-  pt: {
-    // Navigation
-    home: 'Inicio',
-    about: 'Sobre Mim',
-    resume: 'Resumo',
-    techStack: 'Minhas Stacks',
-    projects: 'Projetos',
-    contact: 'Contato',
-
-    // Hero section
-    heroSubtitle: ['Software Engineer', 'Full Stack Developer', 'Inovador em Tech', 'Solucionador de Problemas', 'Arquiteto de Código'],
-    location: 'Brasil 🇧🇷',
-    locationCity: 'João Pessoa, PB',
-    curriculum: 'Currículo',
-    getInTouch: 'Entrar em contato',
-
-    // About section
-    aboutTitle: 'Sobre Mim',
-    aboutQuote: 'Desenvolvo aplicações web seguras end-to-end.<br>Especializado nos setores de e-commerce, financeiro, bancário e fintech.',
-
-    // Resume section
-    resumeTitle: 'Meu Resumo',
-    experienceTitle: 'Experiências',
-    educationTitle: 'Educação',
-    certificationsTitle: 'Certificações',
-
-    // Tech Stack
-    techStackTitle: 'Minhas Stacks',
-    frontend: 'Frontend',
-    backendDatabases: 'Backend & Databases',
-    cloudDevops: 'Cloud & DevOps',
-    otherTech: 'Outras Tecnologias',
-
-    // Projects
-    projectsTitle: 'Meus Projetos',
-    projectsSubtitle: 'Alguns dos projetos que desenvolvi com tecnologias modernas',
-    projectsCta: 'Interessado em ver mais projetos ou discutir uma colaboração?',
-
-    // Contact
-    contactTitle: 'Vamos Conversar',
-    contactSubtitle: 'Transforme sua ideia em realidade. Entre em contato e vamos construir algo incrível juntos.',
-    email: 'Email',
-    phone: 'Telefone',
-    location: 'Localização',
-    meeting: 'Reunião',
-    sendMessage: 'Envie sua mensagem',
-    sendMessageDesc: 'Preencha o formulário abaixo e entrarei em contato em até 24 horas.',
-
-    // Form labels
-    fullName: 'Nome completo',
-    fullNamePlaceholder: 'Como você se chama?',
-    emailLabel: 'Email',
-    emailPlaceholder: 'seu.email@exemplo.com',
-    company: 'Empresa (opcional)',
-    companyPlaceholder: 'Nome da sua empresa',
-    budget: 'Orçamento estimado',
-    subject: 'Assunto',
-    subjectPlaceholder: 'Sobre o que você gostaria de conversar?',
-    message: 'Mensagem',
-    messagePlaceholder: 'Descreva seu projeto, necessidades ou dúvidas. Quanto mais detalhes, melhor posso ajudar!',
-    newsletter: 'Quero receber novidades sobre tecnologia e projetos',
-    sendBtn: 'Enviar Mensagem',
-    sending: 'Enviando...',
-
-    // Social
-    connectWith: 'Conecte-se comigo',
-
-    // Footer
-    footerLeft: '© 2024 João Dev. Todos os direitos reservados.',
-    footerRight: 'Feito com ❤️ usando tecnologias modernas',
-
-    // Blog
-    blog: 'Blog',
-    'blog-subtitle': 'Compartilhando conhecimento sobre desenvolvimento, tecnologia e inovação',
-    'newsletter-title': 'Receba novos artigos por email',
-    'newsletter-desc': 'Fique por dentro das últimas tendências em desenvolvimento e tecnologia',
-    'newsletter-email': 'Seu melhor email',
-    'newsletter-btn': 'Inscrever-se'
-  },
-
-  en: {
-    // Navigation
-    home: 'Home',
-    about: 'About',
-    resume: 'Resume',
-    techStack: 'Tech Stack',
-    projects: 'Projects',
-    contact: 'Contact',
-
-    // Hero section
-    heroSubtitle: ['Software Engineer', 'Full Stack Developer', 'Tech Innovator', 'Problem Solver', 'Code Architect'],
-    location: 'Brasil 🇧🇷',
-    locationCity: 'João Pessoa, PB',
-    curriculum: 'Resume',
-    getInTouch: 'Get in Touch',
-
-    // About section
-    aboutTitle: 'About Me',
-    aboutQuote: 'I develop secure end-to-end web applications.<br>Specialized in e-commerce, financial, banking and fintech sectors.',
-
-    // Resume section
-    resumeTitle: 'My Resume',
-    experienceTitle: 'Experience',
-    educationTitle: 'Education',
-    certificationsTitle: 'Certifications',
-
-    // Tech Stack
-    techStackTitle: 'My Tech Stack',
-    frontend: 'Frontend',
-    backendDatabases: 'Backend & Databases',
-    cloudDevops: 'Cloud & DevOps',
-    otherTech: 'Other Technologies',
-
-    // Projects
-    projectsTitle: 'My Projects',
-    projectsSubtitle: 'Some of the projects I\'ve developed with modern technologies',
-    projectsCta: 'Interested in seeing more projects or discussing a collaboration?',
-
-    // Contact
-    contactTitle: 'Let\'s Talk',
-    contactSubtitle: 'Turn your idea into reality. Get in touch and let\'s build something incredible together.',
-    email: 'Email',
-    phone: 'Phone',
-    location: 'Location',
-    meeting: 'Meeting',
-    sendMessage: 'Send your message',
-    sendMessageDesc: 'Fill out the form below and I\'ll get back to you within 24 hours.',
-
-    // Form labels
-    fullName: 'Full name',
-    fullNamePlaceholder: 'What\'s your name?',
-    emailLabel: 'Email',
-    emailPlaceholder: 'your.email@example.com',
-    company: 'Company (optional)',
-    companyPlaceholder: 'Your company name',
-    budget: 'Estimated budget',
-    subject: 'Subject',
-    subjectPlaceholder: 'What would you like to talk about?',
-    message: 'Message',
-    messagePlaceholder: 'Describe your project, needs or questions. The more details, the better I can help!',
-    newsletter: 'I want to receive tech and project updates',
-    sendBtn: 'Send Message',
-    sending: 'Sending...',
-
-    // Social
-    connectWith: 'Connect with me',
-
-    // Footer
-    footerLeft: '© 2024 João Dev. All rights reserved.',
-    footerRight: 'Made with ❤️ using modern technologies',
-
-    // Blog
-    blog: 'Blog',
-    'blog-subtitle': 'Sharing knowledge about development, technology and innovation',
-    'newsletter-title': 'Get new articles via email',
-    'newsletter-desc': 'Stay up to date with the latest trends in development and technology',
-    'newsletter-email': 'Your best email',
-    'newsletter-btn': 'Subscribe'
-  },
-
-  es: {
-    // Navigation
-    home: 'Inicio',
-    about: 'Acerca',
-    resume: 'Currículum',
-    techStack: 'Tech Stack',
-    projects: 'Proyectos',
-    contact: 'Contacto',
-
-    // Hero section
-    heroSubtitle: ['Ingeniero de Software', 'Desarrollador Full Stack', 'Innovador Tech', 'Solucionador de Problemas', 'Arquitecto de Código'],
-    location: 'Brasil 🇧🇷',
-    locationCity: 'João Pessoa, PB',
-    curriculum: 'Currículum',
-    getInTouch: 'Contactar',
-
-    // About section
-    aboutTitle: 'Acerca de Mí',
-    aboutQuote: 'Desarrollo aplicaciones web seguras end-to-end.<br>Especializado en los sectores de e-commerce, financiero, bancario y fintech.',
-
-    // Resume section
-    resumeTitle: 'Mi Currículum',
-    experienceTitle: 'Experiencia',
-    educationTitle: 'Educación',
-    certificationsTitle: 'Certificaciones',
-
-    // Tech Stack
-    techStackTitle: 'Mis Stacks',
-    frontend: 'Frontend',
-    backendDatabases: 'Backend y Bases de Datos',
-    cloudDevops: 'Cloud y DevOps',
-    otherTech: 'Otras Tecnologías',
-
-    // Projects
-    projectsTitle: 'Mis Proyectos',
-    projectsSubtitle: 'Algunos de los proyectos que he desarrollado con tecnologías modernas',
-    projectsCta: '¿Interesado en ver más proyectos o discutir una colaboración?',
-
-    // Contact
-    contactTitle: 'Hablemos',
-    contactSubtitle: 'Convierte tu idea en realidad. Ponte en contacto y construyamos algo increíble juntos.',
-    email: 'Email',
-    phone: 'Teléfono',
-    location: 'Ubicación',
-    meeting: 'Reunión',
-    sendMessage: 'Envía tu mensaje',
-    sendMessageDesc: 'Completa el formulario a continuación y te responderé en 24 horas.',
-
-    // Form labels
-    fullName: 'Nombre completo',
-    fullNamePlaceholder: '¿Cómo te llamas?',
-    emailLabel: 'Email',
-    emailPlaceholder: 'tu.email@ejemplo.com',
-    company: 'Empresa (opcional)',
-    companyPlaceholder: 'Nombre de tu empresa',
-    budget: 'Presupuesto estimado',
-    subject: 'Asunto',
-    subjectPlaceholder: '¿De qué te gustaría hablar?',
-    message: 'Mensaje',
-    messagePlaceholder: 'Describe tu proyecto, necesidades o preguntas. ¡Cuantos más detalles, mejor puedo ayudar!',
-    newsletter: 'Quiero recibir novedades sobre tecnología y proyectos',
-    sendBtn: 'Enviar Mensaje',
-    sending: 'Enviando...',
-
-    // Social
-    connectWith: 'Conéctate conmigo',
-
-    // Footer
-    footerLeft: '© 2024 João Dev. Todos los derechos reservados.',
-    footerRight: 'Hecho con ❤️ usando tecnologías modernas',
-
-    // Blog
-    blog: 'Blog',
-    'blog-subtitle': 'Compartiendo conocimiento sobre desarrollo, tecnología e innovación',
-    'newsletter-title': 'Recibe nuevos artículos por email',
-    'newsletter-desc': 'Mantente al día con las últimas tendencias en desarrollo y tecnología',
-    'newsletter-email': 'Tu mejor email',
-    'newsletter-btn': 'Suscribirse'
-  }
-};
-
-let currentLanguage = 'pt';
-
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM Content Loaded - Initializing app...');
@@ -428,8 +183,6 @@ function initializeApp() {
   try {
     setupNavigation();
     console.log('Navigation setup complete');
-    setupLanguageSelector();
-    console.log('Language selector setup complete');
     setupTypingAnimation();
     console.log('Typing animation setup complete');
     setupParticles();
@@ -458,9 +211,9 @@ function setupNavigation() {
       e.preventDefault();
       e.stopPropagation();
       console.log('Hamburger clicked!');
-      
+
       const isActive = navMenu.classList.contains('active');
-      
+
       if (isActive) {
         // Close menu
         navMenu.classList.remove('active');
@@ -552,306 +305,6 @@ function setupNavigation() {
     }
   });
 }
-
-// Language selector functionality
-function setupLanguageSelector() {
-  const langBtn = document.getElementById('lang-btn');
-  const langDropdown = document.getElementById('lang-dropdown');
-  const langOptions = document.querySelectorAll('.lang-option');
-
-  console.log('Language selector setup:', { langBtn, langDropdown, langOptions: langOptions.length });
-
-  if (!langBtn || !langDropdown || langOptions.length === 0) {
-    console.error('Language selector elements not found');
-    return;
-  }
-
-  // Toggle dropdown
-  langBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const isOpen = langDropdown.classList.contains('show');
-    console.log('Language button clicked, dropdown currently open:', isOpen);
-    
-    // Force close all other dropdowns first
-    document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
-      if (dropdown !== langDropdown) {
-        dropdown.classList.remove('show');
-      }
-    });
-    
-    if (isOpen) {
-      // Close dropdown
-      langDropdown.classList.remove('show');
-      langBtn.classList.remove('active');
-      console.log('Closing dropdown');
-    } else {
-      // Open dropdown
-      langDropdown.classList.add('show');
-      langBtn.classList.add('active');
-      console.log('Opening dropdown');
-      
-      // Force display and position
-      setTimeout(() => {
-        langDropdown.style.display = 'block';
-        langDropdown.style.zIndex = '15002';
-      }, 10);
-    }
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
-      langDropdown.classList.remove('show');
-      langBtn.classList.remove('active');
-    }
-  });
-
-  // Prevent dropdown from closing when clicking inside it
-  langDropdown.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-
-  // Handle language selection
-  langOptions.forEach(option => {
-    option.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const selectedLang = option.getAttribute('data-lang');
-      console.log('Language option clicked:', selectedLang);
-
-      if (selectedLang && selectedLang !== currentLanguage) {
-        // Update active state
-        langOptions.forEach(opt => opt.classList.remove('active'));
-        option.classList.add('active');
-
-        // Update flag in button
-        const btnFlag = langBtn.querySelector('.flag-icon');
-        const optionFlag = option.querySelector('.flag-icon');
-        
-        if (btnFlag && optionFlag) {
-          btnFlag.textContent = optionFlag.textContent;
-        }
-
-        // Apply translation
-        changeLanguage(selectedLang);
-        console.log('Language changed to:', selectedLang);
-      }
-
-      // Close dropdown
-      langDropdown.classList.remove('show');
-      langBtn.classList.remove('active');
-    });
-  });
-
-  // Set initial active state
-  const initialOption = document.querySelector(`[data-lang="${currentLanguage}"]`);
-  if (initialOption) {
-    initialOption.classList.add('active');
-
-    // Set initial flag
-    const optionFlag = initialOption.querySelector('.flag-icon');
-    const btnFlag = langBtn.querySelector('.flag-icon');
-    
-    if (btnFlag && optionFlag) {
-      btnFlag.textContent = optionFlag.textContent;
-    }
-  }
-
-  console.log('Language selector setup complete');
-}
-
-// Change language function
-function changeLanguage(lang) {
-  currentLanguage = lang;
-  const t = translations[lang];
-
-  // Update navigation
-  updateElementText('[href="#home"]', t.home);
-  updateElementText('[href="#about"]', t.about);
-  updateElementText('[href="#resume"]', t.resume);
-  updateElementText('[href="#tech-stack"]', t.techStack);
-  updateElementText('[href="#projects"]', t.projects);
-  updateElementText('[href="#contact"]', t.contact);
-
-  // Update hero section
-  updateElementByAttribute('data-translate', 'curriculum', t.curriculum);
-  updateElementByAttribute('data-translate', 'getInTouch', t.getInTouch);
-
-  const locationTitle = document.querySelector('.hero-location h4');
-  if (locationTitle) locationTitle.textContent = t.location;
-
-  const locationCity = document.querySelector('.hero-location span');
-  if (locationCity) locationCity.textContent = t.locationCity;
-
-  // Update section titles using data-translate attributes
-  updateElementByAttribute('data-translate', 'aboutTitle', t.aboutTitle);
-  updateElementByAttribute('data-translate', 'resumeTitle', t.resumeTitle);
-  updateElementByAttribute('data-translate', 'techStackTitle', t.techStackTitle);
-  updateElementByAttribute('data-translate', 'projectsTitle', `${t.projectsTitle.split(' ')[0]} <span class="highlight">${t.projectsTitle.split(' ')[1]}</span>`);
-  updateElementByAttribute('data-translate', 'contactTitle', `${t.contactTitle.split(' ')[0]} <span class="highlight">${t.contactTitle.split(' ')[1]}</span>`);
-  updateElementByAttribute('data-translate', 'projectsSubtitle', t.projectsSubtitle);
-  updateElementByAttribute('data-translate', 'contactSubtitle', t.contactSubtitle);
-
-  // Update about quote
-  const aboutQuote = document.querySelector('.quote p');
-  if (aboutQuote) aboutQuote.innerHTML = t.aboutQuote;
-
-  // Update resume column titles
-  const experienceTitle = document.querySelector('.resume-column:first-child .resume-column-title');
-  if (experienceTitle) {
-    experienceTitle.innerHTML = `<i class="fas fa-briefcase"></i>${t.experienceTitle}`;
-  }
-
-  const educationTitle = document.querySelector('.resume-column:last-child .resume-column-title:first-of-type');
-  if (educationTitle) {
-    educationTitle.innerHTML = `<i class="fas fa-graduation-cap"></i>${t.educationTitle}`;
-  }
-
-  const certificationsTitle = document.querySelector('.resume-column:last-child .resume-column-title:last-of-type');
-  if (certificationsTitle) {
-    certificationsTitle.innerHTML = `<i class="fas fa-certificate"></i>${t.certificationsTitle}`;
-  }
-
-  // Update tech stack categories
-  const techCategories = document.querySelectorAll('.tech-category h3');
-  if (techCategories[0]) techCategories[0].textContent = t.frontend;
-  if (techCategories[1]) techCategories[1].textContent = t.backendDatabases;
-  if (techCategories[2]) techCategories[2].textContent = t.cloudDevops;
-  if (techCategories[3]) techCategories[3].textContent = t.otherTech;
-
-  // Update projects section
-  const projectsSubtitle = document.querySelector('.projects .section-subtitle');
-  if (projectsSubtitle) projectsSubtitle.textContent = t.projectsSubtitle;
-
-  const projectsCtaText = document.querySelector('.projects-cta p');
-  if (projectsCtaText) projectsCtaText.textContent = t.projectsCta;
-
-  const projectsCtaBtn = document.querySelector('.projects-cta .btn span');
-  if (projectsCtaBtn) projectsCtaBtn.textContent = t.getInTouch;
-
-  // Update contact section
-  const contactSubtitle = document.querySelector('.contact .section-subtitle');
-  if (contactSubtitle) contactSubtitle.textContent = t.contactSubtitle;
-
-  // Update contact cards
-  const contactCards = document.querySelectorAll('.contact-card h3');
-  if (contactCards[0]) contactCards[0].textContent = t.email;
-  if (contactCards[1]) contactCards[1].textContent = t.phone;
-  if (contactCards[2]) contactCards[2].textContent = t.location;
-  if (contactCards[3]) contactCards[3].textContent = t.meeting;
-
-  // Update form
-  const formHeader = document.querySelector('.contact-form-header h3');
-  if (formHeader) formHeader.textContent = t.sendMessage;
-
-  const formDesc = document.querySelector('.contact-form-header p');
-  if (formDesc) formDesc.textContent = t.sendMessageDesc;
-
-  // Update form labels and placeholders
-  updateFormField('name', t.fullName, t.fullNamePlaceholder);
-  updateFormField('email', t.emailLabel, t.emailPlaceholder);
-  updateFormField('company', t.company, t.companyPlaceholder);
-  updateFormField('budget', t.budget, '');
-  updateFormField('subject', t.subject, t.subjectPlaceholder);
-  updateFormField('message', t.message, t.messagePlaceholder);
-
-  const newsletterLabel = document.querySelector('label[for="newsletter"]');
-  if (newsletterLabel) newsletterLabel.textContent = t.newsletter;
-
-  const submitBtnText = document.querySelector('.btn-contact-submit .btn-content span');
-  if (submitBtnText) submitBtnText.textContent = t.sendBtn;
-
-  const loadingText = document.querySelector('.btn-contact-submit .btn-loading span');
-  if (loadingText) loadingText.textContent = t.sending;
-
-  // Update social section
-  const socialTitle = document.querySelector('.contact-social h4');
-  if (socialTitle) socialTitle.textContent = t.connectWith;
-
-  // Update footer
-  const footerLeft = document.querySelector('.footer-left p');
-  if (footerLeft) footerLeft.textContent = t.footerLeft;
-
-  const footerRight = document.querySelector('.footer-right p');
-  if (footerRight) footerRight.innerHTML = t.footerRight;
-
-  // Update blog elements
-  updateElementByAttribute('data-translate', 'blog-subtitle', t['blog-subtitle']);
-  updateElementByAttribute('data-translate', 'newsletter-title', t['newsletter-title']);
-  updateElementByAttribute('data-translate', 'newsletter-desc', t['newsletter-desc']);
-  updateElementByAttribute('data-translate', 'newsletter-btn', t['newsletter-btn']);
-  
-  // Update placeholders
-  const newsletterInput = document.querySelector('[data-translate-placeholder="newsletter-email"]');
-  if (newsletterInput) newsletterInput.placeholder = t['newsletter-email'];
-
-  // Update navigation links with data-translate attributes
-  updateElementByAttribute('data-translate', 'home', t.home);
-  updateElementByAttribute('data-translate', 'about', t.about);
-  updateElementByAttribute('data-translate', 'resume', t.resume);
-  updateElementByAttribute('data-translate', 'techStack', t.techStack);
-  updateElementByAttribute('data-translate', 'projects', t.projects);
-  updateElementByAttribute('data-translate', 'blog', t.blog);
-  updateElementByAttribute('data-translate', 'contact', t.contact);
-
-  // Update typing animation texts
-  typeTexts.length = 0;
-  typeTexts.push(...t.heroSubtitle);
-
-  // Save language preference
-  localStorage.setItem('preferredLanguage', lang);
-}
-
-function updateElementText(selector, text) {
-  const element = document.querySelector(selector);
-  if (element) {
-    element.innerHTML = text;
-  }
-}
-
-function updateFormField(fieldName, labelText, placeholderText) {
-  const label = document.querySelector(`label[for="${fieldName}"]`);
-  const input = document.querySelector(`#${fieldName}`);
-
-  if (label) label.textContent = labelText;
-  if (input && placeholderText) input.placeholder = placeholderText;
-}
-
-function updateElementByAttribute(attribute, value, text) {
-  const element = document.querySelector(`[${attribute}="${value}"]`);
-  if (element) {
-    if (text.includes('<span') || text.includes('<')) {
-      element.innerHTML = text;
-    } else {
-      element.textContent = text;
-    }
-  }
-}
-
-// Load saved language preference
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('preferredLanguage');
-  if (savedLang && savedLang !== currentLanguage) {
-    currentLanguage = savedLang;
-
-    // Update language display
-    const langBtn = document.getElementById('lang-btn');
-    const savedOption = document.querySelector(`[data-lang="${savedLang}"]`);
-
-    if (langBtn && savedOption) {
-      const flagIcon = langBtn.querySelector('.flag-icon');
-      const optionFlagIcon = savedOption.querySelector('.flag-icon');
-
-      if (flagIcon && optionFlagIcon) {
-        flagIcon.textContent = optionFlagIcon.textContent;
-      }
-    }
-
-    changeLanguage(savedLang);
-  }
-});
 
 function updateActiveNavLink(activeSection) {
   navLinks.forEach(link => {
@@ -1244,12 +697,12 @@ function setupProjectFilters() {
     btn.addEventListener('click', () => {
       // Remove active class from all buttons
       filterBtns.forEach(b => b.classList.remove('active'));
-      
+
       // Add active class to clicked button
       btn.classList.add('active');
-      
+
       const filterValue = btn.getAttribute('data-filter');
-      
+
       // Filter projects
       filterProjects(filterValue, projectCards);
     });
@@ -1260,10 +713,10 @@ function filterProjects(filterValue, projectCards) {
   // First, hide all cards that don't match
   const cardsToHide = [];
   const cardsToShow = [];
-  
+
   projectCards.forEach((card) => {
     const cardTags = card.getAttribute('data-tags');
-    
+
     if (filterValue === 'all') {
       cardsToShow.push(card);
     } else {
@@ -1274,14 +727,14 @@ function filterProjects(filterValue, projectCards) {
       }
     }
   });
-  
+
   // Hide cards with animation
   cardsToHide.forEach((card, index) => {
     setTimeout(() => {
       hideProject(card);
     }, index * 50);
   });
-  
+
   // Show cards with staggered animation after hiding is complete
   setTimeout(() => {
     cardsToShow.forEach((card, index) => {
@@ -1297,7 +750,7 @@ function showProject(card, index) {
   card.classList.add('filtering-in');
   card.style.visibility = 'visible';
   card.style.pointerEvents = 'auto';
-  
+
   // Remove animation class after animation completes
   setTimeout(() => {
     card.classList.remove('filtering-in');
@@ -1307,7 +760,7 @@ function showProject(card, index) {
 function hideProject(card) {
   card.classList.remove('filtering-in');
   card.classList.add('filtering-out');
-  
+
   // Hide completely after animation
   setTimeout(() => {
     card.classList.add('hidden');
