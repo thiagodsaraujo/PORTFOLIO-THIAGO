@@ -108,7 +108,7 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   height: 70px;
   position: relative;
@@ -118,7 +118,7 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
   font-weight: 500;
-  justify-self: start;
+  grid-column: 1;
   display: none;
 }
 
@@ -126,15 +126,17 @@ body {
   display: flex;
   align-items: center;
   gap: 30px;
-  justify-self: center;
+  justify-content: center;
+  grid-column: 2;
 }
 
 .language-selector {
+  grid-column: 3;
   justify-self: end;
 }
 
 .nav-menu .language-selector {
-  justify-self: end;
+  display: none;
 }
 
 .nav-link {
