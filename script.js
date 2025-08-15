@@ -452,105 +452,69 @@ function initializeApp() {
 
 // Navigation functionality
 function setupNavigation() {
-  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Create menu overlay
+  const menuOverlay = document.createElement('div');
+  menuOverlay.className = 'menu-overlay';
+  document.body.appendChild(menuOverlay);
+
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', (e) => {
-      e.preventDefault();
       e.stopPropagation();
-      console.log('Hamburger clicked!');
-      
-      const isActive = navMenu.classList.contains('active');
-      
-      if (isActive) {
-        // Close menu
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.style.overflow = '';
-        console.log('Menu closed');
-      } else {
-        // Open menu
-        navMenu.classList.add('active');
-        hamburger.classList.add('active');
+      const isActive = hamburger.classList.contains('active');
+
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+
+      // Prevent body scroll when menu is open
+      if (!isActive) {
         document.body.style.overflow = 'hidden';
-        console.log('Menu opened');
+        // Reset animations
+        const links = navMenu.querySelectorAll('.nav-link');
+        links.forEach((link, index) => {
+          link.style.animation = 'none';
+          link.offsetHeight; // Trigger reflow
+          link.style.animation = `slideInMenu 0.6s ease forwards`;
+          link.style.animationDelay = `${0.1 + (index * 0.05)}s`;
+        });
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close menu when clicking on nav links
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Close menu when clicking on overlay
+    menuOverlay.addEventListener('click', () => {
+      closeMenu();
+    });
+
+    // Close menu function
+    function closeMenu() {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close menu with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        closeMenu();
       }
     });
   }
 
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (navMenu && hamburger && 
-        !navMenu.contains(e.target) && 
-        !hamburger.contains(e.target) &&
-        navMenu.classList.contains('active')) {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
-      document.body.style.overflow = '';
-      console.log('Menu closed by outside click');
-    }
-  });
-
-  // Close menu on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu && hamburger && navMenu.classList.contains('active')) {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
-      document.body.style.overflow = '';
-      console.log('Menu closed by Escape key');
-    }
-  });
-
-  // Smooth scrolling for navigation links
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-
-      // Skip if it's an external link or another page
-      if (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.endsWith('.html')) {
-        // Close mobile menu for external links too
-        if (navMenu && hamburger && navMenu.classList.contains('active')) {
-          navMenu.classList.remove('active');
-          hamburger.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-        return;
-      }
-
-      e.preventDefault();
-
-      const targetId = href.substring(1);
-      const targetSection = document.getElementById(targetId);
-
-      if (targetSection) {
-        // Close mobile menu first
-        if (navMenu && hamburger && navMenu.classList.contains('active')) {
-          navMenu.classList.remove('active');
-          hamburger.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-
-        // Small delay to allow menu to close before scrolling
-        setTimeout(() => {
-          targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }, 300);
-      }
-
-      // Update active link
-      updateActiveNavLink(targetId);
-    });
-  });
-
-  // Handle window resize - close menu if screen becomes larger
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navMenu && hamburger && navMenu.classList.contains('active')) {
-      navMenu.classList.remove('active');
-      hamburger.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  });
+  console.log('Navigation setup complete');
 }
 
 // Language selector functionality
@@ -570,17 +534,17 @@ function setupLanguageSelector() {
   langBtn.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     const isOpen = langDropdown.classList.contains('show');
     console.log('Language button clicked, dropdown currently open:', isOpen);
-    
+
     // Force close all other dropdowns first
     document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
       if (dropdown !== langDropdown) {
         dropdown.classList.remove('show');
       }
     });
-    
+
     if (isOpen) {
       langDropdown.classList.remove('show');
       langBtn.classList.remove('active');
@@ -630,7 +594,7 @@ function setupLanguageSelector() {
         // Update flag in button
         const btnFlag = langBtn.querySelector('.flag-icon');
         const optionFlag = option.querySelector('.flag-icon');
-        
+
         if (btnFlag && optionFlag) {
           btnFlag.textContent = optionFlag.textContent;
         }
@@ -658,7 +622,7 @@ function setupLanguageSelector() {
     // Set initial flag
     const optionFlag = initialOption.querySelector('.flag-icon');
     const btnFlag = langBtn.querySelector('.flag-icon');
-    
+
     if (btnFlag && optionFlag) {
       btnFlag.textContent = optionFlag.textContent;
     }
@@ -787,7 +751,7 @@ function changeLanguage(lang) {
   updateElementByAttribute('data-translate', 'newsletter-title', t['newsletter-title']);
   updateElementByAttribute('data-translate', 'newsletter-desc', t['newsletter-desc']);
   updateElementByAttribute('data-translate', 'newsletter-btn', t['newsletter-btn']);
-  
+
   // Update placeholders
   const newsletterInput = document.querySelector('[data-translate-placeholder="newsletter-email"]');
   if (newsletterInput) newsletterInput.placeholder = t['newsletter-email'];
@@ -1249,12 +1213,12 @@ function setupProjectFilters() {
     btn.addEventListener('click', () => {
       // Remove active class from all buttons
       filterBtns.forEach(b => b.classList.remove('active'));
-      
+
       // Add active class to clicked button
       btn.classList.add('active');
-      
+
       const filterValue = btn.getAttribute('data-filter');
-      
+
       // Filter projects
       filterProjects(filterValue, projectCards);
     });
@@ -1265,10 +1229,10 @@ function filterProjects(filterValue, projectCards) {
   // First, hide all cards that don't match
   const cardsToHide = [];
   const cardsToShow = [];
-  
+
   projectCards.forEach((card) => {
     const cardTags = card.getAttribute('data-tags');
-    
+
     if (filterValue === 'all') {
       cardsToShow.push(card);
     } else {
@@ -1279,14 +1243,14 @@ function filterProjects(filterValue, projectCards) {
       }
     }
   });
-  
+
   // Hide cards with animation
   cardsToHide.forEach((card, index) => {
     setTimeout(() => {
       hideProject(card);
     }, index * 50);
   });
-  
+
   // Show cards with staggered animation after hiding is complete
   setTimeout(() => {
     cardsToShow.forEach((card, index) => {
@@ -1302,7 +1266,7 @@ function showProject(card, index) {
   card.classList.add('filtering-in');
   card.style.visibility = 'visible';
   card.style.pointerEvents = 'auto';
-  
+
   // Remove animation class after animation completes
   setTimeout(() => {
     card.classList.remove('filtering-in');
@@ -1312,7 +1276,7 @@ function showProject(card, index) {
 function hideProject(card) {
   card.classList.remove('filtering-in');
   card.classList.add('filtering-out');
-  
+
   // Hide completely after animation
   setTimeout(() => {
     card.classList.add('hidden');
