@@ -384,19 +384,46 @@ let currentLanguage = 'pt';
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM Content Loaded - Initializing app...');
   initializeApp();
 });
 
+// Backup initialization if DOMContentLoaded doesn't fire
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded - Initializing app...');
+    initializeApp();
+  });
+} else {
+  console.log('DOM already loaded - Initializing app immediately...');
+  initializeApp();
+}
+
 function initializeApp() {
-  setupNavigation();
-  setupLanguageSelector();
-  setupTypingAnimation();
-  setupParticles();
-  setupScrollEffects();
-  setupContactForm();
-  setupAnimations();
-  setupProjects();
-  setupProjectDetailPage();
+  console.log('Initializing app functions...');
+  try {
+    setupNavigation();
+    console.log('Navigation setup complete');
+    setupLanguageSelector();
+    console.log('Language selector setup complete');
+    setupTypingAnimation();
+    console.log('Typing animation setup complete');
+    setupParticles();
+    console.log('Particles setup complete');
+    setupScrollEffects();
+    console.log('Scroll effects setup complete');
+    setupContactForm();
+    console.log('Contact form setup complete');
+    setupAnimations();
+    console.log('Animations setup complete');
+    setupProjects();
+    console.log('Projects setup complete');
+    setupProjectDetailPage();
+    console.log('Project detail page setup complete');
+    console.log('App initialization complete!');
+  } catch (error) {
+    console.error('Error during app initialization:', error);
+  }
 }
 
 // Navigation functionality

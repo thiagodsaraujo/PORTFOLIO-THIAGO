@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp -r attached_assets dist/",
     "preview": "vite preview",
-    "start": "npx serve dist -s -l 5000 -H 0.0.0.0",
-    "build:prod": "vite build --mode production"
+    "build:prod": "vite build --mode production && cp -r attached_assets dist/",
+    "start": "vite preview --port 5000 --host 0.0.0.0"
   },
   "dependencies": {
     "serve": "^14.2.4",

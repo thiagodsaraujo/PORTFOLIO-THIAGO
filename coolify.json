@@ -1,0 +1,14 @@
+
+{
+  "build": {
+    "command": "npm run build",
+    "directory": "dist"
+  },
+  "start": {
+    "command": "npm run preview",
+    "port": 5000
+  },
+  "environment": {
+    "NODE_ENV": "production"
+  }
+}
