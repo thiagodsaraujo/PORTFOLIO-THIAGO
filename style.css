@@ -3712,9 +3712,6 @@ section {
   .nav-logo {
     font-size: 10px;
     flex: 0 0 auto;
-    max-width: 70%;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
   }
 
