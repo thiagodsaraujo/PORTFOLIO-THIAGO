@@ -8,8 +8,9 @@ channel = "stable-23_05"
 
 [deployment]
 deploymentTarget = "static"
-build = ["npm", "run", "build"]
+build = ["sh", "-c", "npm run build"]
 publicDir = "dist"
+run = ["sh", "-c", "npx serve dist -s -l 5000"]
 
 [[ports]]
 localPort = 5173
@@ -30,3 +31,16 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "vite"
+
+[[workflows.workflow]]
+name = "Build Production"
+author = 42632289
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run build:prod"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run start"
