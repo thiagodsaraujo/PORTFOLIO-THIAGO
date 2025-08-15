@@ -4493,26 +4493,27 @@ section {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: rgba(10, 10, 10, 0.98) !important;
-  border: 1px solid var(--primary-color);
+  background: rgba(10, 10, 10, 0.98);
+  border: 2px solid var(--primary-color);
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
   padding: 8px 0;
   min-width: 140px;
   z-index: 15002 !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transform: translateY(-10px) scale(0.95) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(20px);
-  display: none;
+  display: block;
+  pointer-events: none;
 }
 
 .lang-dropdown.show {
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateY(0) scale(1) !important;
-  display: block !important;
+  pointer-events: auto !important;
 }
 
 .lang-option {

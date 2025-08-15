@@ -578,20 +578,28 @@ function setupLanguageSelector() {
     document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
       if (dropdown !== langDropdown) {
         dropdown.classList.remove('show');
+        dropdown.style.opacity = '';
+        dropdown.style.visibility = '';
+        dropdown.style.transform = '';
+        dropdown.style.pointerEvents = '';
       }
     });
     
     if (isOpen) {
       langDropdown.classList.remove('show');
       langBtn.classList.remove('active');
+      langDropdown.style.opacity = '';
+      langDropdown.style.visibility = '';
+      langDropdown.style.transform = '';
+      langDropdown.style.pointerEvents = '';
       console.log('Closing dropdown');
     } else {
-      // Force show with important styles
+      // Force show with styles
       langDropdown.classList.add('show');
-      langDropdown.style.display = 'block';
       langDropdown.style.opacity = '1';
       langDropdown.style.visibility = 'visible';
       langDropdown.style.transform = 'translateY(0) scale(1)';
+      langDropdown.style.pointerEvents = 'auto';
       langBtn.classList.add('active');
       console.log('Opening dropdown');
     }
@@ -602,10 +610,10 @@ function setupLanguageSelector() {
     if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
       langDropdown.classList.remove('show');
       langBtn.classList.remove('active');
-      langDropdown.style.display = '';
       langDropdown.style.opacity = '';
       langDropdown.style.visibility = '';
       langDropdown.style.transform = '';
+      langDropdown.style.pointerEvents = '';
     }
   });
 
@@ -643,10 +651,10 @@ function setupLanguageSelector() {
       // Close dropdown
       langDropdown.classList.remove('show');
       langBtn.classList.remove('active');
-      langDropdown.style.display = '';
       langDropdown.style.opacity = '';
       langDropdown.style.visibility = '';
       langDropdown.style.transform = '';
+      langDropdown.style.pointerEvents = '';
     });
   });
 
