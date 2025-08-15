@@ -3495,9 +3495,9 @@ section {
   font-size: 0.95rem;
   font-family: inherit;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  resize: vertical;
   position: relative;
   backdrop-filter: blur(15px);
+  resize: vertical;
 }
 
 .form-group input:focus,
@@ -4152,14 +4152,13 @@ section {
   /* Botões Sociais Circulares na Hero */
   .hero-social-buttons {
     display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 18px;
   }
 
   .btn-social-circle {
-    width: 60px;
-    height: 60px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -4197,7 +4196,7 @@ section {
   }
 
   .btn-social-circle i {
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin: 0;
   }
 
@@ -4430,16 +4429,17 @@ section {
 
   /* Responsivo para botões sociais */
   .hero-social-buttons {
-    gap: 12px;
+    gap: 10px;
+    margin-top: 18px;
   }
 
   .btn-social-circle {
-    width: 55px;
-    height: 55px;
+    width: 42px;
+    height: 42px;
   }
 
   .btn-social-circle i {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .photo-container {
