@@ -223,19 +223,9 @@ function setupNavigation() {
       const isActive = navMenu.classList.contains('active');
 
       if (isActive) {
-        // Close menu
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-        console.log('Menu closed');
+        closeMenu();
       } else {
-        // Open menu
-        navMenu.classList.add('active');
-        hamburger.classList.add('active');
-        menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        console.log('Menu opened');
+        openMenu();
       }
     });
 
@@ -243,6 +233,39 @@ function setupNavigation() {
     menuOverlay.addEventListener('click', () => {
       closeMenu();
     });
+  }
+
+  // Funções para abrir e fechar o menu
+  function openMenu() {
+    navMenu.classList.add('active');
+    hamburger.classList.add('active');
+    menuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Adicionar atributo ARIA
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Fechar menu');
+    
+    // Focus no primeiro link do menu
+    const firstLink = navMenu.querySelector('.nav-link');
+    if (firstLink) {
+      setTimeout(() => firstLink.focus(), 300);
+    }
+    
+    console.log('Menu opened');
+  }
+
+  function closeMenu() {
+    navMenu.classList.remove('active');
+    hamburger.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    
+    // Atualizar atributos ARIA
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Abrir menu');
+    
+    console.log('Menu closed');
   }
 
   // Function to close menu
