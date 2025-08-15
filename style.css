@@ -300,6 +300,9 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 40px;
+  position: relative;
+  z-index: 10;
 }
 
 .btn {
