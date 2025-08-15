@@ -501,7 +501,12 @@ function setupLanguageSelector() {
   const langOptions = document.querySelectorAll('.lang-option');
   const currentLangSpan = document.getElementById('current-lang');
 
-  if (!langBtn || !langDropdown) return;
+  console.log('Language selector setup:', { langBtn, langDropdown, langOptions: langOptions.length });
+
+  if (!langBtn || !langDropdown) {
+    console.error('Language selector elements not found');
+    return;
+  }
 
   // Toggle dropdown
   langBtn.addEventListener('click', (e) => {
@@ -509,13 +514,16 @@ function setupLanguageSelector() {
     e.stopPropagation();
     
     const isOpen = langDropdown.classList.contains('show');
+    console.log('Language button clicked, dropdown currently open:', isOpen);
     
     if (isOpen) {
       langDropdown.classList.remove('show');
       langBtn.classList.remove('active');
+      console.log('Closing dropdown');
     } else {
       langDropdown.classList.add('show');
       langBtn.classList.add('active');
+      console.log('Opening dropdown');
     }
   });
 
@@ -537,6 +545,7 @@ function setupLanguageSelector() {
     option.addEventListener('click', (e) => {
       e.stopPropagation();
       const selectedLang = option.getAttribute('data-lang');
+      console.log('Language option clicked:', selectedLang);
 
       if (selectedLang !== currentLanguage) {
         // Update active state
@@ -545,10 +554,21 @@ function setupLanguageSelector() {
 
         // Update current language display
         const optionLangText = option.querySelector('.lang-text');
-        currentLangSpan.textContent = optionLangText.textContent;
+        const optionFlag = option.querySelector('.flag-icon');
+        
+        if (currentLangSpan && optionLangText) {
+          currentLangSpan.textContent = optionLangText.textContent;
+        }
+
+        // Update flag in button
+        const btnFlag = langBtn.querySelector('.flag-icon');
+        if (btnFlag && optionFlag) {
+          btnFlag.textContent = optionFlag.textContent;
+        }
 
         // Apply translation
         changeLanguage(selectedLang);
+        console.log('Language changed to:', selectedLang);
       }
 
       // Close dropdown
@@ -562,12 +582,21 @@ function setupLanguageSelector() {
   if (initialOption) {
     initialOption.classList.add('active');
 
-    // Set initial text
+    // Set initial text and flag
     const optionLangText = initialOption.querySelector('.lang-text');
+    const optionFlag = initialOption.querySelector('.flag-icon');
+    
     if (currentLangSpan && optionLangText) {
       currentLangSpan.textContent = optionLangText.textContent;
     }
+
+    const btnFlag = langBtn.querySelector('.flag-icon');
+    if (btnFlag && optionFlag) {
+      btnFlag.textContent = optionFlag.textContent;
+    }
   }
+
+  console.log('Language selector setup complete');
 }
 
 // Change language function
