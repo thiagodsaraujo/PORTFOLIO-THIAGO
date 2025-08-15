@@ -257,7 +257,7 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
 }
 
 .hero-subtitle {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2rem, 6vw, 4rem);
   margin-bottom: 30px;
   font-family: 'Inter', sans-serif;
   font-weight: 900;
