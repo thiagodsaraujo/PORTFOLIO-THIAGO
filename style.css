@@ -491,9 +491,84 @@ section {
 }
 
 .about-content {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  text-align: center;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 100px;
+}
+
+.photo-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 3px solid var(--border-color);
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.photo-border {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid var(--primary-color);
+  border-radius: 25px;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.photo-container:hover .profile-photo {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--primary-color);
+}
+
+.photo-container:hover .photo-overlay {
+  opacity: 0.1;
+}
+
+.photo-container:hover .photo-border {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.about-text {
+  text-align: left;
 }
 
 .quote {
@@ -3892,9 +3967,31 @@ section {
   }
 
   /* About Section Mobile */
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .about-photo {
+    order: -1;
+    position: static;
+  }
+
+  .photo-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
   .quote {
     padding: 25px 20px;
     margin-bottom: 30px;
+    text-align: center;
   }
 
   .quote p {
@@ -3904,7 +4001,7 @@ section {
 
   .about-description p {
     font-size: 1rem;
-    text-align: left;
+    text-align: justify;
   }
 
   /* Resume Section Mobile */
@@ -4093,6 +4190,11 @@ section {
 
   .quote p {
     font-size: 1rem;
+  }
+
+  .photo-container {
+    width: 160px;
+    height: 160px;
   }
 
   .timeline-item {
