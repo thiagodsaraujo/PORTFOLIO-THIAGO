@@ -552,16 +552,10 @@ function setupLanguageSelector() {
         langOptions.forEach(opt => opt.classList.remove('active'));
         option.classList.add('active');
 
-        // Update current language display
-        const optionLangText = option.querySelector('.lang-text');
-        const optionFlag = option.querySelector('.flag-icon');
-        
-        if (currentLangSpan && optionLangText) {
-          currentLangSpan.textContent = optionLangText.textContent;
-        }
-
         // Update flag in button
         const btnFlag = langBtn.querySelector('.flag-icon');
+        const optionFlag = option.querySelector('.flag-icon');
+        
         if (btnFlag && optionFlag) {
           btnFlag.textContent = optionFlag.textContent;
         }
@@ -582,15 +576,10 @@ function setupLanguageSelector() {
   if (initialOption) {
     initialOption.classList.add('active');
 
-    // Set initial text and flag
-    const optionLangText = initialOption.querySelector('.lang-text');
+    // Set initial flag
     const optionFlag = initialOption.querySelector('.flag-icon');
-    
-    if (currentLangSpan && optionLangText) {
-      currentLangSpan.textContent = optionLangText.textContent;
-    }
-
     const btnFlag = langBtn.querySelector('.flag-icon');
+    
     if (btnFlag && optionFlag) {
       btnFlag.textContent = optionFlag.textContent;
     }
@@ -775,19 +764,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update language display
     const langBtn = document.getElementById('lang-btn');
-    const currentLangSpan = document.getElementById('current-lang');
     const savedOption = document.querySelector(`[data-lang="${savedLang}"]`);
 
     if (langBtn && savedOption) {
       const flagIcon = langBtn.querySelector('.flag-icon');
       const optionFlagIcon = savedOption.querySelector('.flag-icon');
-      const optionLangText = savedOption.querySelector('.lang-text');
 
       if (flagIcon && optionFlagIcon) {
         flagIcon.textContent = optionFlagIcon.textContent;
-      }
-      if (currentLangSpan && optionLangText) {
-        currentLangSpan.textContent = optionLangText.textContent;
       }
     }
 

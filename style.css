@@ -3950,22 +3950,27 @@ section {
 
   .language-selector {
     position: absolute;
-    top: 15px;
-    right: 60px;
-    z-index: 10000;
+    top: 12px;
+    right: 65px;
+    z-index: 15000 !important;
   }
 
   .lang-btn {
     position: relative;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    gap: 4px;
   }
 
   .lang-dropdown {
     position: absolute;
-    top: calc(100% + 8px);
+    top: calc(100% + 6px);
     right: 0;
-    width: 160px;
+    width: 100px;
     margin-top: 0;
-    z-index: 10001 !important;
+    z-index: 15002 !important;
+    border-radius: 8px;
+    padding: 4px 0;
   }
 
   .lang-dropdown.show {
@@ -3975,9 +3980,9 @@ section {
   }
 
   .lang-dropdown:not(.show) {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px) scale(0.95);
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) scale(0.95) !important;
   }
 
   .hamburger {
@@ -4346,24 +4351,24 @@ section {
 /* Language Selector */
 .language-selector {
   position: relative;
-  z-index: 10000 !important;
+  z-index: 15000 !important;
 }
 
 .lang-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 8px 12px;
+  border-radius: 10px;
+  padding: 6px 10px;
   color: var(--text-primary);
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   position: relative;
-  z-index: 10001 !important;
+  z-index: 15001 !important;
 }
 
 .flag-icon {
@@ -4403,13 +4408,13 @@ section {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: rgba(26, 26, 26, 0.98) !important;
+  background: rgba(10, 10, 10, 0.95) !important;
   border: 1px solid var(--border-color);
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
-  padding: 8px 0;
-  min-width: 140px;
-  z-index: 10002 !important;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9) !important;
+  padding: 6px 0;
+  min-width: 120px;
+  z-index: 15002 !important;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px) scale(0.95);
@@ -4426,18 +4431,18 @@ section {
 .lang-option {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  padding: 12px 16px;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
   background: none;
   border: none;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
-  text-align: left;
+  text-align: center;
 }
 
 .lang-option:hover {
