@@ -2711,6 +2711,8 @@ section {
 
 .article-breadcrumb {
   margin-bottom: 20px;
+  position: relative;
+  z-index: 5;
 }
 
 .article-breadcrumb a {
@@ -2724,11 +2726,14 @@ section {
   padding: 8px 16px;
   border-radius: 20px;
   background: rgba(158, 88, 203, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(158, 88, 203, 0.2);
 }
 
 .article-breadcrumb a:hover {
   color: var(--primary-color);
   transform: translateX(-3px);
+  background: rgba(158, 88, 203, 0.2);
 }
 
 .article-category {
@@ -3062,6 +3067,17 @@ section {
     padding: 100px 0 50px;
   }
 
+  .article-breadcrumb {
+    margin-bottom: 15px;
+    margin-top: -20px;
+  }
+
+  .article-breadcrumb a {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    gap: 6px;
+  }
+
   .article-meta {
     flex-direction: column;
     align-items: flex-start;
@@ -3138,7 +3154,7 @@ section {
   font-size: 0.9rem;
   box-shadow: 0 4px 15px rgba(158, 88, 203, 0.3);
   transition: all 0.3s ease;
-  z-index: 1000;
+  z-index: 9999;
   backdrop-filter: blur(10px);
 }
 
@@ -3180,6 +3196,18 @@ section {
 }
 
 @media (max-width: 480px) {
+  .article-breadcrumb {
+    margin-bottom: 12px;
+    margin-top: -15px;
+  }
+
+  .article-breadcrumb a {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    gap: 5px;
+    border-radius: 15px;
+  }
+
   .floating-back-btn {
     top: 15px;
     left: 15px;
