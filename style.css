@@ -4086,7 +4086,7 @@ section {
     height: 100vh;
     min-height: 600px;
     padding: 60px 0 0;
-    background-position: 60% center;
+    background-position: 20% center;
   }
 
   .hero-content {
@@ -4296,7 +4296,7 @@ section {
   }
 
   .hero {
-    background-position: 65% center;
+    background-position: 15% center;
   }
 
   .container {
