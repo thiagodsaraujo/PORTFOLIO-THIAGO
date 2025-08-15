@@ -183,6 +183,10 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background: 
+    linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(17, 17, 17, 0.9) 100%),
+    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop&crop=center') center/cover;
+  background-attachment: fixed;
 }
 
 .hero-bg {
@@ -192,9 +196,9 @@ body {
   width: 100%;
   height: 100%;
   background: 
-    linear-gradient(135deg, rgba(10, 10, 10, 0.7) 0%, rgba(17, 17, 17, 0.85) 100%),
-    url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1920&h=1080&fit=crop&crop=center') center/cover;
-  background-attachment: fixed;
+    radial-gradient(ellipse at 30% 70%, rgba(158, 88, 203, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(247, 107, 28, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .hero-bg::before {
@@ -205,9 +209,8 @@ body {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(ellipse at center, rgba(255, 0, 64, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(255, 0, 64, 0.06) 0%, transparent 50%);
+    radial-gradient(ellipse at center, rgba(158, 88, 203, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(247, 107, 28, 0.06) 0%, transparent 50%);
 }
 
 /* Particles animation */
@@ -238,7 +241,6 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
@@ -253,85 +255,7 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
   margin: 0;
 }
 
-/* Hero Photo Container */
-.hero-photo-container {
-  position: relative;
-  animation: fadeInScale 1.2s ease-out 0.5s both;
-}
 
-.photo-placeholder {
-  width: 120px;
-  height: 120px;
-  background: rgba(17, 17, 17, 0.4);
-  border: 2px solid rgba(255, 0, 64, 0.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: breathe 4s ease-in-out infinite;
-}
-
-.photo-placeholder::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: var(--gradient-primary);
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.photo-placeholder:hover::before {
-  opacity: 1;
-}
-
-.photo-placeholder:hover {
-  transform: scale(1.05);
-  border-color: transparent;
-  box-shadow: 0 0 30px rgba(255, 0, 64, 0.4);
-}
-
-.photo-placeholder i {
-  font-size: 3rem;
-  color: var(--primary-color);
-  transition: all 0.3s ease;
-}
-
-.photo-placeholder:hover i {
-  color: var(--bg-primary);
-  transform: scale(1.1);
-}
-
-/* Animations */
-@keyframes fadeInScale {
-  0% {
-    opacity: 0;
-    transform: scale(0.8) translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes breathe {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 20px rgba(255, 0, 64, 0.2);
-  }
-  50% {
-    transform: scale(1.02);
-    box-shadow: 0 0 25px rgba(255, 0, 64, 0.3);
-  }
-}
 
 .hero-subtitle {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
