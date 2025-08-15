@@ -241,12 +241,19 @@ function setupNavigation() {
 
     // Close menu when clicking overlay
     menuOverlay.addEventListener('click', () => {
+      closeMenu();
+    });
+  }
+
+  // Function to close menu
+  function closeMenu() {
+    if (navMenu && hamburger && menuOverlay) {
       navMenu.classList.remove('active');
       hamburger.classList.remove('active');
       menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
-      console.log('Menu closed by overlay click');
-    });
+      console.log('Menu closed');
+    }
   }
 
   // Close menu when clicking outside
