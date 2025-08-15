@@ -505,15 +505,31 @@ function setupLanguageSelector() {
 
   // Toggle dropdown
   langBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     e.stopPropagation();
-    langDropdown.classList.toggle('show');
-    langBtn.classList.toggle('active');
+    
+    const isOpen = langDropdown.classList.contains('show');
+    
+    if (isOpen) {
+      langDropdown.classList.remove('show');
+      langBtn.classList.remove('active');
+    } else {
+      langDropdown.classList.add('show');
+      langBtn.classList.add('active');
+    }
   });
 
   // Close dropdown when clicking outside
-  document.addEventListener('click', () => {
-    langDropdown.classList.remove('show');
-    langBtn.classList.remove('active');
+  document.addEventListener('click', (e) => {
+    if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+      langDropdown.classList.remove('show');
+      langBtn.classList.remove('active');
+    }
+  });
+
+  // Prevent dropdown from closing when clicking inside it
+  langDropdown.addEventListener('click', (e) => {
+    e.stopPropagation();
   });
 
   // Handle language selection

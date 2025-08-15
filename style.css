@@ -3927,18 +3927,23 @@ section {
     z-index: 10000;
   }
 
+  .lang-btn {
+    position: relative;
+  }
+
   .lang-dropdown {
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
     width: 160px;
     margin-top: 0;
+    z-index: 10001 !important;
   }
 
   .lang-dropdown.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
   }
 
   .lang-dropdown:not(.show) {
