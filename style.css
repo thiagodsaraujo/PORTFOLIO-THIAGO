@@ -502,6 +502,12 @@ section {
   align-items: start;
 }
 
+.about-content-centered {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .about-photo {
   display: flex;
   justify-content: center;
@@ -3967,24 +3973,7 @@ section {
   }
 
   /* About Section Mobile */
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
-  }
-
-  .about-photo {
-    order: -1;
-    position: static;
-  }
-
-  .photo-container {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-  }
-
-  .about-text {
+  .about-content-centered {
     text-align: center;
   }
 
