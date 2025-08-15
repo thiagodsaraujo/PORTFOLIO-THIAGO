@@ -91,7 +91,7 @@ const projectsData = [
     badge: 'Backend',
     year: '2023',
     features: [
-      'Arquitetura de microserviços altamente escalável',
+      'Arquitetura de microserviços highly escalável',
       'Processamento de pagamentos PIX, TED e boletos',
       'Sistema de compliance automático para regulamentações',
       'API Rate limiting e throttling inteligente',
@@ -253,11 +253,6 @@ function setupNavigation() {
       menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
     }
-  }move('active');
-      menuOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-      console.log('Menu closed');
-    }
   }
 
   // Close menu when clicking outside
@@ -314,15 +309,8 @@ function setupNavigation() {
           hamburger.classList.remove('active');
           menuOverlay.classList.remove('active');
           document.body.style.overflow = '';
+          console.log('Menu closed');
         }
-
-        // Small delay to allow menu to close before scrolling
-        setTimeout(() => {
-          targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }, 300);
       }
 
       // Update active link
