@@ -111,19 +111,22 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  position: relative;
 }
 
 .nav-logo {
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
   font-weight: 500;
-  margin-right: auto;
-  padding-right: 40px;
+  flex: 1;
 }
 
 .nav-menu {
   display: flex;
   gap: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-link {
@@ -3755,6 +3758,7 @@ section {
 
   .nav-logo {
     font-size: 12px;
+    flex: none;
   }
 
   .nav-menu {
@@ -3772,6 +3776,9 @@ section {
     padding: 40px 20px;
     overflow-y: auto;
     z-index: 9999;
+    position: fixed;
+    transform: none;
+    left: auto;
   }
 
   .nav-menu.active {
@@ -3794,7 +3801,8 @@ section {
 
   .language-selector {
     margin-top: 30px;
-    margin-left: 0;
+    justify-content: center;
+    flex: none;
   }
 
   .lang-dropdown {
@@ -4161,7 +4169,8 @@ section {
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-left: 15px;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .lang-btn {
