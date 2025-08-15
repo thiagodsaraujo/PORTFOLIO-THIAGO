@@ -384,7 +384,7 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 15px 30px;
+  padding: 15px 35px;
   border: none;
   border-radius: 50px;
   font-weight: 600;
@@ -395,8 +395,8 @@ div:not(.hero-content):not(.hero-cta):not(.btn):not([class*="nav"]):not([class*=
   position: relative;
   overflow: hidden;
   z-index: 10;
-  min-width: 180px;
-  width: 180px;
+  min-width: 200px;
+  width: 200px;
   height: 50px;
   justify-content: center;
   flex-shrink: 0;
