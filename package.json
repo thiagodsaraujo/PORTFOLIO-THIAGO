@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --force",
     "build": "vite build --force",
-    "postbuild": "powershell -Command \"if (Test-Path 'attached_assets') { Copy-Item attached_assets dist/attached_assets -Recurse -Force }; if (Test-Path 'script.js') { Copy-Item script.js dist/ -Force }; if (Test-Path 'project-detail.js') { Copy-Item project-detail.js dist/ -Force }\"",
+    "postbuild": "mkdir -p dist/attached_assets && if [ -d 'attached_assets' ]; then cp -r attached_assets/* dist/attached_assets/; fi && if [ -f 'script.js' ]; then cp script.js dist/; fi && if [ -f 'project-detail.js' ]; then cp project-detail.js dist/; fi",
     "preview": "vite preview",
     "start": "npx http-server dist -p 80 --no-cache"
   },
