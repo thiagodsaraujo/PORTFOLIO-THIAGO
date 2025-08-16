@@ -3,30 +3,35 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copy package.json
-COPY package.json ./
+# Copy package files
+COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm ci --only=production
 
 # Copy source code
 COPY . .
 
-# Build the project and copy assets manually
-RUN npm run build && \
-    mkdir -p dist/attached_assets && \
-    cp -r attached_assets/* dist/attached_assets/ 2>/dev/null || true && \
-    cp script.js dist/ 2>/dev/null || true && \
-    cp project-detail.js dist/ 2>/dev/null || true
+# Build the project
+RUN npm run build
 
 # Production stage  
 FROM nginx:alpine
 
+# Remove default nginx config
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/
+
 # Copy built files
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Simple nginx config
-RUN echo 'server { listen 80; location / { try_files $uri $uri/ /index.html; } }' > /etc/nginx/conf.d/default.conf
+# Create nginx user if not exists and set permissions
+RUN addgroup -g 101 -S nginx || true && \
+    adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx || true && \
+    chown -R nginx:nginx /usr/share/nginx/html && \
+    chown -R nginx:nginx /var/cache/nginx
 
 EXPOSE 80
 
