@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --force",
-    "build": "vite build --force",
+    "build": "vite build",
     "postbuild": "mkdir -p dist/attached_assets && if [ -d 'attached_assets' ]; then cp -r attached_assets/* dist/attached_assets/; fi && if [ -f 'script.js' ]; then cp script.js dist/; fi && if [ -f 'project-detail.js' ]; then cp project-detail.js dist/; fi",
     "preview": "vite preview",
     "start": "npx http-server dist -p 80 --no-cache"
