@@ -865,6 +865,8 @@ section {
   min-width: 60px;
   text-align: center;
   height: fit-content;
+  width: fit-content;
+  margin-bottom: 10px;
 }
 
 .certification-content h4 {
@@ -4269,10 +4271,27 @@ section {
   }
 
   .certification-item {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+    display: flex;
+    align-items: center; /* Adicione esta linha */
+    gap: 20px;
   }
+
+  /* Estilo para a imagem da certificação */
+.certification-badge {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+/* Estilo para a imagem da certificação (VERSÃO CORRIGIDA) */
+.certification-item .certification-badge {
+  width: 100px;      /* Você pode ajustar este valor se preferir (ex: 70px) */
+  height: 100px;     /* Mantenha igual à largura para um bom aspecto */
+  flex-shrink: 0;
+  object-fit: contain; /* Garante que a imagem não se estique ou distorça */
+}
+
+
 
   /* Tech Stack Mobile */
   .tech-grid {
