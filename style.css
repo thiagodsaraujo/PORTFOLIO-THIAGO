@@ -2258,7 +2258,7 @@ section {
 .modal-features-list li::before {
   content: '✓';
   position: absolute;
-  left: -2px;
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -2276,7 +2276,7 @@ section {
 .modal-challenges-list li::before {
   content: '⚡';
   position: absolute;
-  left: -2px;
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
