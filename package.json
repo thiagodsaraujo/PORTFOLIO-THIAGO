@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "mkdir -p dist/attached_assets && if [ -d 'attached_assets' ]; then cp -r attached_assets/* dist/attached_assets/; fi && if [ -f 'script.js' ]; then cp script.js dist/; fi && if [ -f 'project-detail.js' ]; then cp project-detail.js dist/; fi",
+    "test:portfolio": "node scripts/validate-portfolio.mjs",
+    "postbuild": "node scripts/postbuild.mjs",
     "preview": "vite preview",
-    "start": "npx http-server dist -p 80 --no-cache"
+    "start": "npx http-server dist -p 3000 --no-cache"
   },
   "keywords": ["portfolio", "website", "vite", "html", "css", "javascript"],
   "author": "Thiago",

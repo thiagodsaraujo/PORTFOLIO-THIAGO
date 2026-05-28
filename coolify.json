@@ -5,8 +5,8 @@
     "directory": "dist"
   },
   "start": {
-    "command": "npm run preview",
-    "port": 5000
+    "command": "npm run start",
+    "port": 3000
   },
   "environment": {
     "NODE_ENV": "production"
