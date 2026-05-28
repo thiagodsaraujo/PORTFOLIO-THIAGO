@@ -4782,7 +4782,7 @@ section {
 }
 
 .portfolio-simplified main .simplified-section + .simplified-section {
-  border-top: 1px solid #ff0040 !important;
+  border-top: 0 !important;
 }
 
 .portfolio-simplified .contact.simplified-section {
@@ -4794,23 +4794,55 @@ section {
   text-align: left;
 }
 
+.portfolio-simplified .section-header {
+  margin-bottom: 44px;
+  text-align: left;
+}
+
 .portfolio-simplified .section-title {
   background: none;
   -webkit-background-clip: initial;
   -webkit-text-fill-color: initial;
   color: var(--text-primary);
-  font-size: clamp(2rem, 4vw, 4.5rem);
+  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
   letter-spacing: -0.055em;
-  line-height: 0.98;
-  margin-bottom: 18px;
+  line-height: 1.02;
+  margin-bottom: 12px;
 }
 
 .portfolio-simplified .section-subtitle {
   color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.98rem;
+  line-height: 1.65;
   margin: 0;
   max-width: 620px;
+}
+
+.portfolio-simplified .resume-column-title {
+  align-items: center;
+  border-bottom: 1px solid #ff0040;
+  color: var(--text-primary);
+  flex-direction: row;
+  font-size: clamp(1.32rem, 3vw, 1.72rem);
+  gap: 12px;
+  justify-content: flex-start;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  text-align: left;
+}
+
+.portfolio-simplified .resume-column-title i {
+  align-items: center;
+  background: rgba(255, 0, 64, 0.1);
+  border: 1px solid rgba(255, 0, 64, 0.35);
+  border-radius: 12px;
+  color: #ff0040;
+  display: inline-flex;
+  font-size: 0.95rem;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
 }
 
 .portfolio-simplified .section-divider,
@@ -4941,14 +4973,30 @@ section {
 }
 
 .portfolio-simplified .project-tech {
+  display: flex;
+  flex-wrap: nowrap;
   gap: 8px;
   margin-top: 24px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .portfolio-simplified .project-tech span {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.portfolio-simplified .project-tech .tech-badge-hidden {
+  display: none;
+}
+
+.portfolio-simplified .project-tech .tech-badge-more {
+  font-weight: 700;
+  min-width: 30px;
+  text-align: center;
 }
 
 .portfolio-simplified .certification-strip {
@@ -4976,7 +5024,7 @@ section {
 
 .portfolio-simplified .contact-links > a {
   align-items: center;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 0;
   color: var(--text-primary);
   display: flex;
   gap: 12px;
@@ -5082,7 +5130,15 @@ section {
   }
 
   .portfolio-simplified .simplified-section {
-    padding: 72px 0;
+    padding: 56px 0;
+  }
+
+  .portfolio-simplified .resume.simplified-section {
+    padding-bottom: 42px;
+  }
+
+  .portfolio-simplified .projects.simplified-section {
+    padding-top: 42px;
   }
 
   .portfolio-simplified .contact.simplified-section {
@@ -5091,6 +5147,34 @@ section {
 
   .portfolio-simplified .compact-header {
     margin-bottom: 28px;
+  }
+
+  .portfolio-simplified .section-header {
+    margin-bottom: 28px;
+  }
+
+  .portfolio-simplified .resume-content {
+    gap: 28px;
+  }
+
+  .portfolio-simplified .resume .timeline {
+    margin-bottom: 0;
+  }
+
+  .portfolio-simplified .resume-column-title {
+    flex-direction: row;
+    font-size: 1.28rem;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    text-align: left;
+  }
+
+  .portfolio-simplified .resume-column-title i {
+    font-size: 0.86rem;
+    height: 30px;
+    width: 30px;
   }
 
   .portfolio-simplified .specialty-item,
@@ -5128,7 +5212,7 @@ section {
   }
 
   .portfolio-simplified .section-title {
-    font-size: 2.35rem;
+    font-size: 2.05rem;
   }
 }
 
@@ -5606,7 +5690,7 @@ section {
   min-height: 410px;
   opacity: 0;
   overflow: hidden;
-  padding: 30px;
+  padding: 56px 30px 30px;
   position: relative;
   transform: translateY(22px);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
@@ -5638,18 +5722,33 @@ section {
 }
 
 .portfolio-simplified .capability-number {
-  color: rgba(255, 178, 26, 0.78);
+  align-items: center;
+  background: rgba(255, 0, 64, 0.08);
+  border: 1px solid rgba(255, 0, 64, 0.24);
+  border-radius: 999px;
+  color: var(--primary-color);
+  display: inline-flex;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.82rem;
-  margin-bottom: auto;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  min-height: 30px;
+  padding: 0 10px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
 }
 
 .portfolio-simplified .capability-panel h3 {
   color: var(--text-primary);
-  font-size: clamp(1.45rem, 2.6vw, 2.05rem);
-  letter-spacing: -0.045em;
-  line-height: 1.04;
-  margin: 54px 0 16px;
+  font-size: clamp(1.25rem, 2.1vw, 1.7rem);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  margin: 8px 0 14px;
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: normal;
 }
 
 .portfolio-simplified .capability-panel p {
@@ -5713,8 +5812,17 @@ section {
 }
 
 .portfolio-simplified .case-study-card .project-content h3 {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+  letter-spacing: -0.01em;
+  line-height: 1.16;
   margin-bottom: 10px;
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.portfolio-simplified .case-study-card .project-content h3.long-title {
+  font-size: clamp(0.95rem, 1.55vw, 1.16rem);
 }
 
 .portfolio-simplified .case-study-card .project-content p {
@@ -5778,11 +5886,13 @@ section {
 @media (max-width: 768px) {
   .portfolio-simplified .capability-panel {
     border-radius: 22px;
-    padding: 24px;
+    padding: 58px 24px 24px;
   }
 
   .portfolio-simplified .capability-panel h3 {
-    margin-top: 42px;
+    font-size: clamp(1.1rem, 4.5vw, 1.35rem);
+    line-height: 1.14;
+    margin-top: 0;
   }
 
   .portfolio-simplified .mobile-nav {
@@ -5798,8 +5908,12 @@ section {
   }
 
   .portfolio-simplified .case-study-card .project-content h3 {
-    font-size: 1.12rem;
+    font-size: 1rem;
     margin-bottom: 8px;
+  }
+
+  .portfolio-simplified .case-study-card .project-content h3.long-title {
+    font-size: 0.92rem;
   }
 
   .portfolio-simplified .project-meta {

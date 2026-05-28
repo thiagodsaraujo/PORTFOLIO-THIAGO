@@ -33,9 +33,9 @@ assert.ok(
 );
 
 mustInclude('class="capabilities-grid"', 'capabilities layout');
-mustInclude('Backend systems', 'backend capability copy');
-mustInclude('Automation workflows', 'automation capability copy');
-mustInclude('Cloud delivery', 'cloud capability copy');
+mustInclude('Backend & distributed systems', 'backend capability copy');
+mustInclude('RAG, chatbots & LLM delivery', 'ai capability copy');
+mustInclude('Product ownership & launch', 'product capability copy');
 
 mustInclude('class="resume-content"', 'classic resume layout');
 mustInclude('class="timeline"', 'classic timeline layout');
@@ -43,18 +43,18 @@ mustInclude('class="timeline-marker"', 'classic timeline marker');
 mustInclude('Education', 'education resume column');
 mustInclude('Certifications', 'certifications resume column');
 
-mustInclude('Selected case studies', 'case study heading');
+mustInclude('Projects', 'case study heading');
 mustInclude('Problem', 'project problem label');
 mustInclude('Role', 'project role label');
 mustInclude('Outcome', 'project outcome label');
 mustInclude('href="/projects/ecommerce-platform.html"', 'ecommerce project detail link');
-mustInclude('href="/projects/financial-system-api.html"', 'financial API project detail link');
-mustInclude('href="/projects/n8n-automation.html"', 'automation project detail link');
+mustInclude('href="/projects/role-junino.html"', 'role junino project detail link');
+mustInclude('href="/projects/rag-chatbot.html"', 'rag chatbot project detail link');
 
 for (const file of [
   'public/projects/ecommerce-platform.html',
-  'public/projects/financial-system-api.html',
-  'public/projects/n8n-automation.html',
+  'public/projects/role-junino.html',
+  'public/projects/rag-chatbot.html',
   'public/robots.txt',
   'public/sitemap.xml',
   'public/llms.txt'
@@ -67,12 +67,12 @@ mustInclude('Sitemap: https://ojuara.com/sitemap.xml', 'robots sitemap directive
 
 const sitemap = readFileSync('public/sitemap.xml', 'utf8');
 mustInclude('https://ojuara.com/projects/ecommerce-platform.html', 'ecommerce sitemap URL', sitemap);
-mustInclude('https://ojuara.com/projects/financial-system-api.html', 'financial sitemap URL', sitemap);
-mustInclude('https://ojuara.com/projects/n8n-automation.html', 'automation sitemap URL', sitemap);
+mustInclude('https://ojuara.com/projects/role-junino.html', 'role junino sitemap URL', sitemap);
+mustInclude('https://ojuara.com/projects/rag-chatbot.html', 'rag chatbot sitemap URL', sitemap);
 
 const llms = readFileSync('public/llms.txt', 'utf8');
 mustInclude('Thiago Araujo', 'llms identity', llms);
-mustInclude('Backend Developer', 'llms role', llms);
+mustInclude('backend engineer', 'llms role', llms);
 mustInclude('thiagodsaraujo@gmail.com', 'llms email', llms);
 mustInclude('https://www.linkedin.com/in/thiago-araujo-5870a321a/', 'llms LinkedIn link', llms);
 mustInclude('https://github.com/thiagodsaraujo', 'llms GitHub link', llms);

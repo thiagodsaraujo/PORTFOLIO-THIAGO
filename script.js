@@ -7,15 +7,17 @@ const particlesContainer = document.getElementById('particles');
 const typedRole = document.getElementById('typed-role');
 const typingRoles = [
   'Problem Solver',
-  'Backend Developer',
-  'Automation Specialist',
-  'API Builder'
+  'Backend Engineer',
+  'AI-Assisted Tech Lead',
+  'LLM Workflow Architect',
+  'Product Builder'
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
   setupNavigation();
   setupTypingAnimation();
   setupEmailCopy();
+  setupProjectBadgeOverflow();
   setupParticles();
   setupScrollEffects();
   setupSectionReveals();
@@ -236,4 +238,41 @@ function setupEmailCopy() {
       copyButton.setAttribute('aria-label', originalAria);
     }, 1600);
   });
+}
+
+function setupProjectBadgeOverflow() {
+  const containers = document.querySelectorAll('.project-tech');
+  if (!containers.length) {
+    return;
+  }
+
+  const apply = () => {
+    const maxVisible = window.matchMedia('(max-width: 768px)').matches ? 4 : 5;
+
+    containers.forEach(container => {
+      container.querySelector('.tech-badge-more')?.remove();
+      const badges = Array.from(container.querySelectorAll('span'));
+      badges.forEach(badge => badge.classList.remove('tech-badge-hidden'));
+
+      let hiddenCount = 0;
+
+      if (badges.length > maxVisible) {
+        for (let index = maxVisible; index < badges.length; index++) {
+          badges[index].classList.add('tech-badge-hidden');
+          hiddenCount += 1;
+        }
+      }
+
+      if (hiddenCount > 0) {
+        const more = document.createElement('span');
+        more.className = 'tech-badge-more';
+        more.textContent = '+';
+        more.setAttribute('aria-label', `${hiddenCount} more technologies`);
+        container.appendChild(more);
+      }
+    });
+  };
+
+  apply();
+  window.addEventListener('resize', apply);
 }
