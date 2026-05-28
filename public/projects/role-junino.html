@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role Junino | Technical Case Study - Thiago Araujo</title>
+  <meta name="description" content="Role Junino is a full-stack production platform launched in June 2026 to centralize Junino festival information in Paraiba, with scalable architecture, cache, queues, and AI-assisted execution.">
+  <link rel="canonical" href="https://ojuara.com/projects/role-junino.html">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --pink: #ff174d; --yellow: #ffb21a; --text: #fff; --muted: #b8b8b8; --bg: #080808; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: radial-gradient(circle at 80% 0%, rgba(255, 23, 77, .18), transparent 28%), var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; overflow-x: hidden; }
+    main { margin: 0 auto; max-width: 980px; padding: 56px 22px 80px; }
+    a { color: var(--pink); }
+    .back { display: inline-flex; margin-bottom: 56px; text-decoration: none; }
+    .kicker { color: var(--pink); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { font-size: clamp(2.7rem, 8vw, 5.8rem); letter-spacing: -.07em; line-height: .95; margin: 14px 0 22px; }
+    .lead { color: var(--muted); font-size: 1.1rem; line-height: 1.75; max-width: 760px; }
+    .link-icons { display: flex; gap: 12px; margin: 18px 0 36px; }
+    .link-icons a { width: 42px; height: 42px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04); color: var(--text); text-decoration: none; transition: border-color .2s ease, color .2s ease, transform .2s ease; }
+    .link-icons a:hover { color: var(--pink); border-color: var(--pink); transform: translateY(-1px); }
+    .grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); margin: 34px 0 0; }
+    section, .fact { background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025)); border: 1px solid rgba(255,255,255,.1); border-radius: 24px; padding: 26px; }
+    .grid + section { margin-top: 24px; }
+    section + section { margin-top: 24px; }
+    dt { color: var(--yellow); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .72rem; letter-spacing: .1em; margin-bottom: 8px; text-transform: uppercase; }
+    dd { color: var(--muted); line-height: 1.65; margin: 0; }
+    h2 { font-size: 1.55rem; letter-spacing: -.04em; margin: 0 0 14px; }
+    p, li { color: var(--muted); line-height: 1.75; }
+    ul { padding-left: 1.2rem; }
+    code { color: #ffe39b; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; gap: 16px; } .grid + section, section + section { margin-top: 20px; } main { padding-top: 34px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="/#projects">Back to portfolio</a>
+    <p class="kicker">Production platform case study</p>
+    <h1>Role Junino</h1>
+    <p class="lead">Mobile-first digital guide for Paraiba Junino festivals, launched in June 2026. Built as a full-stack production platform with SSR web, domain API, Redis cache/queues, and AI-assisted delivery orchestration.</p>
+    <div class="link-icons" aria-label="Role Junino links">
+      <a href="https://rolejunino.com/" target="_blank" rel="noopener noreferrer" aria-label="Role Junino website">
+        <i class="fas fa-globe"></i>
+      </a>
+      <a href="https://www.instagram.com/rolejunino.com.br/" target="_blank" rel="noopener noreferrer" aria-label="Role Junino Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+
+    <dl class="grid">
+      <div class="fact"><dt>Problem</dt><dd>Festival information was fragmented across social networks, city channels, and private groups during high-demand tourism periods.</dd></div>
+      <div class="fact"><dt>Role</dt><dd>Founder & Tech Lead: architecture, execution orchestration, quality gates, and production operation.</dd></div>
+      <div class="fact"><dt>Stack</dt><dd>Next.js 16, React 19, Express, PostgreSQL/Prisma, Redis, BullMQ, Zod, Docker, Coolify, k6.</dd></div>
+    </dl>
+
+    <section>
+      <h2>Architecture</h2>
+      <ul>
+        <li>pnpm monorepo with <code>apps/web</code>, <code>apps/api</code>, and <code>packages/shared</code> for type-safe contracts.</li>
+        <li>Public read-heavy APIs separated from admin APIs with JWT + RBAC authorization.</li>
+        <li>Graceful degradation strategy: app keeps running without Redis by falling back to in-memory behavior.</li>
+        <li>Shared Zod schemas for runtime validation and frontend form/type consistency.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Engineering Highlights</h2>
+      <ul>
+        <li>Google Places integration with async imports, dry-run controls, cost kill-switches, and claim flow conversion.</li>
+        <li>Cache middleware + targeted invalidation by domain with <code>X-Cache: HIT|MISS</code> observability.</li>
+        <li>BullMQ workers for heavy async jobs (places import and geocoding) decoupled from request/response.</li>
+        <li>Scalability improvements validated with k6 test suite: from ~300-400 to ~2-3K concurrent users.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
