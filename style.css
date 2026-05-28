@@ -2433,46 +2433,16 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  display: grid;
+  place-items: center;
 }
 
-.footer-left,
-.footer-right {
+.footer-minimal {
   color: var(--text-secondary);
   font-size: 0.9rem;
   line-height: 1.6;
-}
-
-.footer-left {
   font-weight: 500;
-}
-
-.footer-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer-right i {
-  color: var(--secondary-color);
-  animation: heartbeat 1.5s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-
-  0%,
-  50%,
-  100% {
-    transform: scale(1);
-  }
-
-  25%,
-  75% {
-    transform: scale(1.1);
-  }
+  margin: 0;
 }
 
 /* Blog Styles */
@@ -3218,11 +3188,6 @@ section {
   }
 
   .footer-content {
-    gap: 10px;
-  }
-
-  .footer-left,
-  .footer-right {
     font-size: 0.85rem;
   }
 }
@@ -4648,4 +4613,1223 @@ section {
 .lang-option .lang-text {
   font-weight: 600;
   letter-spacing: 0.5px;
+}
+
+/* Simplified portfolio direction */
+.portfolio-simplified {
+  --primary-color: #ff0040;
+  --secondary-color: #ffd700;
+  --accent-color: #cc0033;
+  --bg-primary: #080808;
+  --bg-secondary: #101010;
+  --bg-tertiary: #171717;
+  --text-primary: #ffffff;
+  --text-secondary: #c7c7c7;
+  --text-muted: #777777;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --gradient-primary: linear-gradient(135deg, #ff0040, #ffd700);
+}
+
+.portfolio-simplified .container {
+  max-width: 1040px;
+}
+
+.portfolio-simplified .navbar {
+  background: transparent;
+  border-bottom: 0;
+}
+
+.portfolio-simplified .navbar.scrolled {
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.portfolio-simplified .nav-container {
+  justify-content: center;
+  gap: 56px;
+}
+
+.portfolio-simplified .nav-logo {
+  position: absolute;
+  left: 32px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.portfolio-simplified .nav-menu {
+  gap: 34px;
+}
+
+.portfolio-simplified .nav-link {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+
+.portfolio-simplified .nav-link:hover,
+.portfolio-simplified .nav-link.active {
+  color: var(--text-primary);
+}
+
+.portfolio-simplified .nav-link::after {
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.portfolio-simplified .hero {
+  min-height: 100svh;
+  background:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.54) 0%, rgba(8, 8, 8, 0.62) 42%, rgba(8, 8, 8, 0.88) 100%),
+    url('/attached_assets/background-portfolio_1755264913720.jpg') center/cover;
+}
+
+.portfolio-simplified .hero-bg {
+  background:
+    radial-gradient(circle at 72% 45%, rgba(255, 23, 77, 0.14), transparent 34%),
+    linear-gradient(90deg, rgba(8, 8, 8, 0.1), rgba(8, 8, 8, 0.58));
+}
+
+.portfolio-simplified .hero-bg::before {
+  opacity: 0.18;
+}
+
+.portfolio-simplified .simplified-hero-content {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: 10vw;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.portfolio-simplified .eyebrow,
+.portfolio-simplified .section-kicker {
+  color: var(--primary-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+
+.portfolio-simplified .hero-title {
+  color: var(--text-primary);
+  font-size: clamp(3rem, 6vw, 6.7rem);
+  font-weight: 700;
+  letter-spacing: -0.075em;
+  line-height: 0.92;
+  margin-bottom: 24px;
+  text-shadow: none;
+}
+
+.portfolio-simplified .static-subtitle {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.6;
+  max-width: 560px;
+  min-height: auto;
+  margin-bottom: 28px;
+}
+
+.portfolio-simplified .hero-location {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  margin: 0 0 34px;
+  padding: 0;
+}
+
+.portfolio-simplified .hero-location h4 {
+  color: var(--text-primary);
+}
+
+.portfolio-simplified .hero-location i {
+  color: var(--primary-color);
+}
+
+.portfolio-simplified .hero-cta {
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.portfolio-simplified .btn {
+  min-width: 0;
+  border-radius: 999px;
+  padding: 15px 24px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.portfolio-simplified .btn-primary {
+  color: #080808;
+}
+
+.portfolio-simplified .btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
+}
+
+.portfolio-simplified .hero-arrow {
+  opacity: 0.55;
+}
+
+.portfolio-simplified .simplified-section {
+  padding: clamp(72px, 10vw, 124px) 0;
+}
+
+.portfolio-simplified main .simplified-section + .simplified-section {
+  border-top: 1px solid #ff0040 !important;
+}
+
+.portfolio-simplified .contact.simplified-section {
+  padding-bottom: clamp(20px, 4vw, 36px);
+}
+
+.portfolio-simplified .compact-header {
+  margin-bottom: 44px;
+  text-align: left;
+}
+
+.portfolio-simplified .section-title {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  color: var(--text-primary);
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  margin-bottom: 18px;
+}
+
+.portfolio-simplified .section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 620px;
+}
+
+.portfolio-simplified .section-divider,
+.portfolio-simplified .tech-bg,
+.portfolio-simplified .contact-bg-animation,
+.portfolio-simplified .projects::before,
+.portfolio-simplified .resume::before,
+.portfolio-simplified .about::before {
+  display: none;
+}
+
+.portfolio-simplified .tech-stack,
+.portfolio-simplified .projects,
+.portfolio-simplified .resume,
+.portfolio-simplified .contact {
+  background: var(--bg-primary);
+}
+
+.portfolio-simplified .specialty-list,
+.portfolio-simplified .experience-list,
+.portfolio-simplified .projects-list,
+.portfolio-simplified .contact-links {
+  display: grid;
+  gap: 18px;
+}
+
+.portfolio-simplified .specialty-item,
+.portfolio-simplified .experience-item,
+.portfolio-simplified .certification-strip,
+.portfolio-simplified .contact-simple {
+  border-top: 1px solid var(--border-color);
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 140px minmax(0, 1fr);
+  padding: 28px 0;
+}
+
+.portfolio-simplified .specialty-index,
+.portfolio-simplified .experience-period {
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+}
+
+.portfolio-simplified .specialty-item h3,
+.portfolio-simplified .experience-body h3,
+.portfolio-simplified .certification-strip h3 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.portfolio-simplified .specialty-item p,
+.portfolio-simplified .experience-body p,
+.portfolio-simplified .experience-body li {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.portfolio-simplified .experience-company {
+  margin-bottom: 14px;
+}
+
+.portfolio-simplified .experience-body ul {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.portfolio-simplified .experience-body li::before {
+  color: var(--primary-color);
+  content: '— ';
+}
+
+.portfolio-simplified .projects-list {
+  gap: 28px;
+}
+
+.portfolio-simplified .simple-project-card {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+  box-shadow: none;
+  cursor: default;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.portfolio-simplified .simple-project-card:hover {
+  box-shadow: none;
+  transform: translateY(-3px);
+}
+
+.portfolio-simplified .project-media {
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.portfolio-simplified .project-media img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.portfolio-simplified .project-content {
+  padding: clamp(24px, 4vw, 42px);
+}
+
+.portfolio-simplified .project-content h3 {
+  color: var(--text-primary);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+}
+
+.portfolio-simplified .project-content p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.portfolio-simplified .project-type {
+  background: transparent;
+  color: var(--primary-color);
+  padding: 0;
+}
+
+.portfolio-simplified .project-tech {
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.portfolio-simplified .project-tech span {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.portfolio-simplified .certification-strip {
+  align-items: center;
+  margin-top: 36px;
+}
+
+.portfolio-simplified .certification-badge {
+  height: 72px;
+  object-fit: contain;
+  width: 72px;
+}
+
+.portfolio-simplified .certification-strip a {
+  color: var(--primary-color);
+  display: inline-block;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+.portfolio-simplified .contact-simple {
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.portfolio-simplified .contact-links > a {
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  display: flex;
+  gap: 12px;
+  padding: 15px 0;
+  text-decoration: none;
+}
+
+.portfolio-simplified .contact-links > a:hover {
+  color: var(--primary-color);
+}
+
+.portfolio-simplified .footer {
+  background: #050505;
+  padding: 12px 0 96px;
+}
+
+.portfolio-simplified .footer-content {
+  border-top: 1px solid #ff0040 !important;
+  padding-top: 14px;
+}
+
+.portfolio-simplified .mobile-nav {
+  left: 50%;
+  max-width: 360px;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+}
+
+.portfolio-simplified .mobile-nav-item {
+  flex: 1;
+}
+
+.portfolio-simplified .animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.portfolio-simplified .specialty-item,
+.portfolio-simplified .simple-project-card,
+.portfolio-simplified .experience-item,
+.portfolio-simplified .certification-strip,
+.portfolio-simplified .contact-simple {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+@media (max-width: 992px) {
+  .portfolio-simplified .nav-logo {
+    display: none;
+  }
+
+  .portfolio-simplified .simplified-hero-content {
+    margin: 0 auto;
+    max-width: 620px;
+    padding: 0 28px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .portfolio-simplified .hero-location,
+  .portfolio-simplified .hero-cta {
+    justify-content: center;
+  }
+
+  .portfolio-simplified .simple-project-card,
+  .portfolio-simplified .contact-simple {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-simplified .navbar {
+    display: none;
+  }
+
+  .portfolio-simplified .hero {
+    min-height: 100svh;
+    background-position: 42% center;
+  }
+
+  .portfolio-simplified .hero-title {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+    letter-spacing: -0.06em;
+  }
+
+  .portfolio-simplified .static-subtitle {
+    font-size: 1rem;
+    max-width: 330px;
+  }
+
+  .portfolio-simplified .hero-cta {
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .portfolio-simplified .btn {
+    justify-content: center;
+    max-width: 280px;
+    width: 100%;
+  }
+
+  .portfolio-simplified .simplified-section {
+    padding: 72px 0;
+  }
+
+  .portfolio-simplified .contact.simplified-section {
+    padding-bottom: 16px;
+  }
+
+  .portfolio-simplified .compact-header {
+    margin-bottom: 28px;
+  }
+
+  .portfolio-simplified .specialty-item,
+  .portfolio-simplified .experience-item,
+  .portfolio-simplified .certification-strip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .portfolio-simplified .project-media {
+    min-height: 210px;
+  }
+
+  .portfolio-simplified .mobile-nav {
+    bottom: 12px;
+    display: flex;
+  }
+
+  .portfolio-simplified .mobile-nav-item span {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-simplified .container {
+    padding: 0 22px;
+  }
+
+  .portfolio-simplified .simplified-hero-content {
+    padding: 0 22px;
+  }
+
+  .portfolio-simplified .hero-title {
+    font-size: 3rem;
+  }
+
+  .portfolio-simplified .section-title {
+    font-size: 2.35rem;
+  }
+}
+
+/* Expressive minimal refinement */
+.portfolio-simplified .hero {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 178, 26, 0.12), transparent 26%),
+    linear-gradient(90deg, rgba(8, 8, 8, 0.7) 0%, rgba(8, 8, 8, 0.48) 46%, rgba(8, 8, 8, 0.84) 100%),
+    url('/attached_assets/background-portfolio_1755264913720.jpg') center/cover;
+}
+
+.portfolio-simplified .hero-bg {
+  background:
+    radial-gradient(circle at 50% 54%, rgba(0, 216, 255, 0.1), transparent 18%),
+    radial-gradient(circle at 68% 48%, rgba(255, 23, 77, 0.18), transparent 34%),
+    linear-gradient(180deg, rgba(8, 8, 8, 0.08), rgba(8, 8, 8, 0.72));
+}
+
+.portfolio-simplified .simplified-hero-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 28px;
+  text-align: center;
+  align-items: center;
+}
+
+.portfolio-simplified .hero-code-line {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.82);
+  display: inline-flex;
+  flex-wrap: wrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.72rem, 1.5vw, 0.95rem);
+  gap: 0.35rem;
+  justify-content: center;
+  letter-spacing: -0.02em;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: calc(70px + clamp(18px, 2.8vh, 32px));
+  transform: translateX(-50%);
+  width: min(92vw, 760px);
+  z-index: 3;
+}
+
+.portfolio-simplified .code-keyword,
+.portfolio-simplified .code-name {
+  color: var(--primary-color);
+}
+
+.portfolio-simplified .code-type {
+  color: #ffb21a;
+}
+
+.portfolio-simplified .code-string {
+  color: #b7ff62;
+}
+
+.portfolio-simplified .hero-name {
+  color: #ffd400;
+  font-size: clamp(1.45rem, 3vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 0 0 18px;
+}
+
+.portfolio-simplified .typing-subtitle {
+  color: var(--text-primary);
+  font-size: clamp(2.65rem, 7vw, 6.2rem);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  line-height: 0.95;
+  margin: 0 auto 24px;
+  max-width: 920px;
+  min-height: clamp(3.1rem, 7vw, 6.4rem);
+  text-shadow: 0 0 42px rgba(255, 23, 77, 0.25);
+  text-transform: uppercase;
+}
+
+.portfolio-simplified .typing-subtitle .cursor {
+  color: var(--primary-color);
+  display: inline-block;
+  margin-left: 0.08em;
+  opacity: 1;
+  animation: simplifiedCursor 0.85s infinite;
+}
+
+.portfolio-simplified .hero-note {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: clamp(0.98rem, 1.6vw, 1.16rem);
+  line-height: 1.7;
+  margin: 0 auto 24px;
+  max-width: 560px;
+}
+
+.portfolio-simplified .hero-location {
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.portfolio-simplified .hero-cta {
+  justify-content: center;
+}
+
+.portfolio-simplified .btn-primary {
+  background: var(--gradient-primary);
+  border: 0;
+  box-shadow: 0 16px 45px rgba(255, 23, 77, 0.24);
+}
+
+.portfolio-simplified .btn-secondary {
+  background: rgba(8, 8, 8, 0.3);
+  border: 1px solid rgba(255, 23, 77, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  color: var(--primary-color);
+}
+
+.portfolio-simplified .tech-stack,
+.portfolio-simplified .projects,
+.portfolio-simplified .resume,
+.portfolio-simplified .contact {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-simplified .tech-stack::before,
+.portfolio-simplified .projects::after,
+.portfolio-simplified .resume::after,
+.portfolio-simplified .contact::before {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.portfolio-simplified .tech-stack::before {
+  background: radial-gradient(circle, rgba(255, 178, 26, 0.12), transparent 62%);
+  height: 420px;
+  right: -140px;
+  top: 40px;
+  width: 420px;
+}
+
+.portfolio-simplified .projects::after {
+  background: radial-gradient(circle, rgba(255, 23, 77, 0.16), transparent 62%);
+  height: 520px;
+  left: -220px;
+  top: 18%;
+  width: 520px;
+}
+
+.portfolio-simplified .resume::after {
+  background: linear-gradient(180deg, transparent, rgba(255, 23, 77, 0.28), transparent);
+  height: calc(100% - 250px);
+  left: max(22px, calc((100vw - 1040px) / 2 + 72px));
+  top: 220px;
+  width: 1px;
+}
+
+.portfolio-simplified .contact::before {
+  background: radial-gradient(circle, rgba(255, 178, 26, 0.18), transparent 64%);
+  bottom: -220px;
+  height: 540px;
+  right: 8%;
+  width: 540px;
+}
+
+.portfolio-simplified .tech-stack .container,
+.portfolio-simplified .projects .container,
+.portfolio-simplified .resume .container,
+.portfolio-simplified .contact .container {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-simplified .specialty-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.portfolio-simplified .specialty-item,
+.portfolio-simplified .experience-item,
+.portfolio-simplified .certification-strip,
+.portfolio-simplified .contact-simple {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 26px;
+  box-shadow: 0 22px 80px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-simplified .specialty-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 30px;
+}
+
+.portfolio-simplified .specialty-item::before,
+.portfolio-simplified .experience-item::before,
+.portfolio-simplified .simple-project-card::before,
+.portfolio-simplified .contact-simple::before {
+  background: var(--gradient-primary);
+  content: '';
+  height: 3px;
+  left: 0;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  width: 82px;
+}
+
+.portfolio-simplified .specialty-index {
+  color: rgba(255, 178, 26, 0.78);
+  margin-bottom: auto;
+}
+
+.portfolio-simplified .specialty-item h3,
+.portfolio-simplified .experience-body h3,
+.portfolio-simplified .certification-strip h3 {
+  letter-spacing: -0.035em;
+}
+
+.portfolio-simplified .projects-list {
+  gap: 34px;
+}
+
+.portfolio-simplified .projects-list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.portfolio-simplified .simple-project-card {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+    #0c0c0c;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.portfolio-simplified .simple-project-card:nth-child(even) {
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.86fr);
+}
+
+.portfolio-simplified .simple-project-card:nth-child(even) .project-media {
+  order: 2;
+}
+
+.portfolio-simplified .simple-project-card:hover {
+  border-color: rgba(255, 23, 77, 0.28);
+  box-shadow: 0 28px 110px rgba(255, 23, 77, 0.12);
+}
+
+.portfolio-simplified .project-media {
+  position: relative;
+  min-height: 180px;
+}
+
+.portfolio-simplified .project-media::after {
+  background: linear-gradient(135deg, rgba(255, 23, 77, 0.28), rgba(255, 178, 26, 0.12));
+  content: '';
+  inset: 0;
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  position: absolute;
+}
+
+.portfolio-simplified .project-meta {
+  color: rgba(255, 255, 255, 0.45);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.portfolio-simplified .project-tech span {
+  border-color: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+.portfolio-simplified .experience-list {
+  gap: 22px;
+}
+
+.portfolio-simplified .experience-item {
+  grid-template-columns: 170px minmax(0, 1fr);
+  padding: 30px;
+}
+
+.portfolio-simplified .experience-period {
+  color: rgba(255, 178, 26, 0.78);
+}
+
+.portfolio-simplified .certification-strip {
+  padding: 28px 30px;
+}
+
+.portfolio-simplified .contact-simple {
+  background:
+    radial-gradient(circle at 84% 18%, rgba(255, 178, 26, 0.16), transparent 34%),
+    linear-gradient(145deg, rgba(255, 23, 77, 0.12), rgba(255, 255, 255, 0.04));
+  padding: clamp(30px, 5vw, 54px);
+}
+
+.portfolio-simplified .contact-links > a {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 16px 18px;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.portfolio-simplified .contact-email-row {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  display: flex;
+  gap: 10px;
+  min-height: 56px;
+  padding: 0 18px;
+}
+
+.portfolio-simplified .contact-email-link {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: var(--text-primary);
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.portfolio-simplified .email-text {
+  font-size: 0.88rem;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.portfolio-simplified .copy-email-btn {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  justify-content: center;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 0;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.portfolio-simplified .copy-email-btn:hover {
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.portfolio-simplified .copy-email-btn.copied {
+  color: #ffd700;
+}
+
+.portfolio-simplified .contact-links > a:hover {
+  border-color: rgba(255, 0, 64, 0.45);
+  transform: translateX(4px);
+}
+
+.portfolio-simplified .contact-email-row:hover {
+  border-color: rgba(255, 0, 64, 0.45);
+}
+
+@keyframes simplifiedCursor {
+  0%, 46% {
+    opacity: 1;
+  }
+
+  47%, 100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .portfolio-simplified .projects-list {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-simplified .specialty-list {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-simplified .simple-project-card:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-simplified .simple-project-card:nth-child(even) .project-media {
+    order: 0;
+  }
+
+  .portfolio-simplified .resume::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-simplified .hero {
+    background:
+      radial-gradient(circle at 50% 38%, rgba(255, 178, 26, 0.13), transparent 26%),
+      linear-gradient(180deg, rgba(8, 8, 8, 0.3) 0%, rgba(8, 8, 8, 0.42) 42%, rgba(8, 8, 8, 0.9) 100%),
+      url('/attached_assets/background-portfolio_1755264913720.jpg') 42% center/cover;
+  }
+
+  .portfolio-simplified .hero-code-line {
+    top: 24px;
+    width: calc(100% - 32px);
+  }
+
+  .portfolio-simplified .typing-subtitle {
+    font-size: clamp(2.6rem, 11vw, 4rem);
+    min-height: 4.25rem;
+  }
+
+  .portfolio-simplified .hero-note {
+    font-size: 0.98rem;
+    max-width: 340px;
+  }
+
+  .portfolio-simplified .hero-arrow {
+    display: none;
+  }
+
+  .portfolio-simplified .project-media {
+    min-height: 130px;
+  }
+
+  .portfolio-simplified .specialty-item,
+  .portfolio-simplified .experience-item,
+  .portfolio-simplified .certification-strip,
+  .portfolio-simplified .contact-simple {
+    border-radius: 22px;
+    padding: 24px;
+  }
+
+  .portfolio-simplified .experience-item {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Recruiter and crawler friendly sections */
+.portfolio-simplified .capabilities-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.portfolio-simplified .capability-panel {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+    #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  box-shadow: 0 22px 80px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  min-height: 410px;
+  opacity: 0;
+  overflow: hidden;
+  padding: 30px;
+  position: relative;
+  transform: translateY(22px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+}
+
+.portfolio-simplified .capability-panel::before {
+  background: var(--gradient-primary);
+  content: '';
+  height: 3px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 86px;
+}
+
+.portfolio-simplified .capability-panel::after {
+  background: radial-gradient(circle, rgba(255, 23, 77, 0.14), transparent 62%);
+  content: '';
+  height: 240px;
+  position: absolute;
+  right: -118px;
+  top: -100px;
+  width: 240px;
+}
+
+.portfolio-simplified .featured-capability {
+  border-color: rgba(255, 23, 77, 0.24);
+  box-shadow: 0 28px 110px rgba(255, 23, 77, 0.1);
+}
+
+.portfolio-simplified .capability-number {
+  color: rgba(255, 178, 26, 0.78);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  margin-bottom: auto;
+}
+
+.portfolio-simplified .capability-panel h3 {
+  color: var(--text-primary);
+  font-size: clamp(1.45rem, 2.6vw, 2.05rem);
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+  margin: 54px 0 16px;
+}
+
+.portfolio-simplified .capability-panel p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+.portfolio-simplified .capability-details {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.portfolio-simplified .capability-details div {
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  padding-top: 14px;
+}
+
+.portfolio-simplified .capability-details dt,
+.portfolio-simplified .project-facts dt {
+  color: var(--primary-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.portfolio-simplified .capability-details dd,
+.portfolio-simplified .project-facts dd {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.portfolio-simplified .case-study-card {
+  display: block;
+}
+
+.portfolio-simplified .project-card-link {
+  color: inherit;
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100%;
+  text-decoration: none;
+}
+
+.portfolio-simplified .case-study-card:nth-child(even) .project-card-link {
+  grid-template-columns: 1fr;
+}
+
+.portfolio-simplified .case-study-card:nth-child(even) .project-media {
+  order: 0;
+}
+
+.portfolio-simplified .case-study-card .project-content {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 20px;
+}
+
+.portfolio-simplified .case-study-card .project-content h3 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  margin-bottom: 10px;
+}
+
+.portfolio-simplified .case-study-card .project-content p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.portfolio-simplified .project-facts {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.portfolio-simplified .project-facts div {
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  padding-top: 14px;
+}
+
+.portfolio-simplified .case-study-cta {
+  align-items: center;
+  color: var(--primary-color);
+  display: inline-flex;
+  font-weight: 700;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.portfolio-simplified .case-study-cta i {
+  transition: transform 0.25s ease;
+}
+
+.portfolio-simplified .case-study-card:hover .case-study-cta i {
+  transform: translateX(5px);
+}
+
+.portfolio-simplified .mobile-nav {
+  max-width: 430px;
+}
+
+@media (max-width: 992px) {
+  .portfolio-simplified .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-simplified .capability-panel {
+    min-height: 0;
+  }
+
+  .portfolio-simplified .case-study-card .project-card-link,
+  .portfolio-simplified .case-study-card:nth-child(even) .project-card-link {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-simplified .case-study-card:nth-child(even) .project-media {
+    order: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-simplified .capability-panel {
+    border-radius: 22px;
+    padding: 24px;
+  }
+
+  .portfolio-simplified .capability-panel h3 {
+    margin-top: 42px;
+  }
+
+  .portfolio-simplified .mobile-nav {
+    width: calc(100% - 20px);
+  }
+
+  .portfolio-simplified .mobile-nav-item {
+    min-width: 0;
+  }
+
+  .portfolio-simplified .case-study-card .project-content {
+    padding: 14px 14px 16px;
+  }
+
+  .portfolio-simplified .case-study-card .project-content h3 {
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+  }
+
+  .portfolio-simplified .project-meta {
+    font-size: 0.7rem;
+    margin-bottom: 6px;
+  }
+
+  .portfolio-simplified .project-facts {
+    display: none;
+  }
+
+  .portfolio-simplified .project-tech {
+    margin-top: 10px;
+  }
+
+  .portfolio-simplified .project-tech span {
+    font-size: 0.68rem;
+    padding: 5px 8px;
+  }
+
+  .portfolio-simplified .case-study-cta {
+    margin-top: 10px;
+  }
+
+  .portfolio-simplified .contact-email-row {
+    min-height: 56px;
+    padding: 0 16px;
+  }
+
+  .portfolio-simplified .email-text {
+    font-size: 0.78rem;
+  }
 }

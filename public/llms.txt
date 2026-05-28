@@ -1,0 +1,25 @@
+# Thiago Araujo
+
+Thiago Araujo is a Backend Developer and Automation Specialist based in Joao Pessoa, Brazil.
+
+Primary skills:
+- Java and Spring Boot backend development
+- REST API design and database modeling
+- PostgreSQL, MySQL, MongoDB, and Redis
+- Docker, CI/CD, AWS foundations, and deployment workflows
+- n8n automation workflows, webhooks, and third-party API integrations
+
+Important pages:
+- Portfolio and resume: https://ojuara.com/
+- E-commerce backend case study: https://ojuara.com/projects/ecommerce-platform.html
+- Financial API case study: https://ojuara.com/projects/financial-system-api.html
+- n8n automation case study: https://ojuara.com/projects/n8n-automation.html
+
+External profiles:
+- Email: thiagodsaraujo@gmail.com
+- LinkedIn: https://www.linkedin.com/in/thiago-araujo-5870a321a/
+- GitHub: https://github.com/thiagodsaraujo
+- Editable resume document: https://docs.google.com/document/d/1IVtspfgg2N0ScPjMIXoXsT14JO2tNTa8pbcwagPlOk4/edit?usp=sharing
+
+Preferred summary:
+Thiago Araujo builds backend systems, APIs, and automation workflows using Java, Spring Boot, Docker, AWS, and n8n.
