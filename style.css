@@ -4778,11 +4778,24 @@ section {
 }
 
 .portfolio-simplified .simplified-section {
-  padding: clamp(72px, 10vw, 124px) 0;
+  padding: clamp(44px, 5vw, 64px) 0;
 }
 
 .portfolio-simplified main .simplified-section + .simplified-section {
   border-top: 0 !important;
+}
+
+.portfolio-simplified .tech-stack.simplified-section {
+  padding-bottom: clamp(28px, 3vw, 40px);
+}
+
+.portfolio-simplified .resume.simplified-section {
+  padding-top: clamp(24px, 3vw, 36px);
+  padding-bottom: clamp(20px, 3vw, 32px);
+}
+
+.portfolio-simplified .projects.simplified-section {
+  padding-top: clamp(20px, 3vw, 32px);
 }
 
 .portfolio-simplified .contact.simplified-section {
@@ -4835,7 +4848,7 @@ section {
 .portfolio-simplified .resume-column-title i {
   align-items: center;
   background: rgba(255, 0, 64, 0.1);
-  border: 1px solid rgba(255, 0, 64, 0.35);
+  border: 0;
   border-radius: 12px;
   color: #ff0040;
   display: inline-flex;
@@ -5130,16 +5143,20 @@ section {
   }
 
   .portfolio-simplified .simplified-section {
-    padding: 48px 0;
+    padding: 32px 0;
+  }
+
+  .portfolio-simplified .tech-stack.simplified-section {
+    padding-bottom: 20px;
   }
 
   .portfolio-simplified .resume.simplified-section {
-    padding-top: 24px;
-    padding-bottom: 32px;
+    padding-top: 8px;
+    padding-bottom: 16px;
   }
 
   .portfolio-simplified .projects.simplified-section {
-    padding-top: 32px;
+    padding-top: 16px;
   }
 
   .portfolio-simplified .contact.simplified-section {
