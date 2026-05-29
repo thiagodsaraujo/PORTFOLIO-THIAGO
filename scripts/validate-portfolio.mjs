@@ -44,7 +44,7 @@ mustInclude('class="timeline-marker"', 'classic timeline marker');
 mustInclude('Education', 'education resume column');
 mustInclude('Certifications', 'certifications resume column');
 
-mustInclude('Projects', 'case study heading');
+mustInclude('Projects', 'project heading');
 mustInclude('Problem', 'project problem label');
 mustInclude('Role', 'project role label');
 mustInclude('Outcome', 'project outcome label');

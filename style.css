@@ -5980,3 +5980,103 @@ section {
     font-size: 0.78rem;
   }
 }
+
+/* Project card alignment and original dark-background depth */
+body.portfolio-simplified {
+  background:
+    radial-gradient(ellipse at 18% 12%, rgba(255, 0, 64, 0.08), transparent 34%),
+    radial-gradient(ellipse at 82% 18%, rgba(255, 215, 0, 0.055), transparent 30%),
+    linear-gradient(135deg, #080808 0%, #101010 46%, #080808 100%);
+}
+
+.portfolio-simplified .tech-stack,
+.portfolio-simplified .projects,
+.portfolio-simplified .resume,
+.portfolio-simplified .contact {
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(255, 0, 64, 0.055), transparent 34%),
+    radial-gradient(ellipse at 82% 8%, rgba(255, 215, 0, 0.035), transparent 30%),
+    var(--bg-primary);
+}
+
+.portfolio-simplified .projects-list {
+  align-items: stretch;
+}
+
+.portfolio-simplified .simple-project-card,
+.portfolio-simplified .project-card-link,
+.portfolio-simplified .project-media,
+.portfolio-simplified .project-content {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.portfolio-simplified .case-study-card {
+  height: 100%;
+  min-width: 0;
+}
+
+.portfolio-simplified .project-card-link {
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+
+.portfolio-simplified .case-study-card .project-content {
+  flex: 1;
+  min-height: 0;
+}
+
+.portfolio-simplified .project-media img {
+  max-width: 100%;
+}
+
+.portfolio-simplified .project-meta {
+  align-items: flex-start;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.portfolio-simplified .project-year {
+  flex: 0 0 auto;
+}
+
+.portfolio-simplified .project-facts dd {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.portfolio-simplified .case-study-card .project-tech {
+  margin-top: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding-top: 18px;
+}
+
+.portfolio-simplified .case-study-card .project-tech span {
+  max-width: 132px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.portfolio-simplified .case-study-cta {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .portfolio-simplified .case-study-card .project-tech {
+    margin-top: auto;
+    padding-top: 12px;
+  }
+
+  .portfolio-simplified .case-study-card .project-tech span {
+    max-width: 96px;
+  }
+}
