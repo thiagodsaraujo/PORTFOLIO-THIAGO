@@ -1,6 +1,6 @@
 # Thiago Araujo
 
-Thiago Araujo is a Backend Developer and Automation Specialist based in Joao Pessoa, Brazil.
+Thiago Araujo is a backend engineer focused on software architecture, LLM-assisted development, secure product delivery, and production backend systems, based in Joao Pessoa, Brazil.
 
 Primary skills:
 - Backend and distributed systems engineering (Java, SQL, Kafka, queues)
@@ -12,6 +12,7 @@ Important pages:
 - Portfolio and resume: https://ojuara.com/
 - Online Courses Platform (POA) case study: https://ojuara.com/projects/ecommerce-platform.html
 - Role Junino case study: https://ojuara.com/projects/role-junino.html
+- Research Nova case study: https://ojuara.com/projects/researchnova.html
 - RAG Knowledge Assistant case study: https://ojuara.com/projects/rag-chatbot.html
 
 External profiles:
@@ -21,4 +22,4 @@ External profiles:
 - Editable resume document: https://docs.google.com/document/d/1IVtspfgg2N0ScPjMIXoXsT14JO2tNTa8pbcwagPlOk4/edit?usp=sharing
 
 Preferred summary:
-Thiago Araujo is a backend engineer and tech lead who builds and operates production products, combining distributed systems expertise with RAG, chatbot integration, and AI-assisted execution orchestration.
+Thiago Araujo is a backend engineer and tech lead who builds and operates production products, combining distributed systems expertise with software architecture, RAG, chatbot integration, and AI-assisted execution orchestration.

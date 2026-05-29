@@ -50,12 +50,15 @@ mustInclude('Role', 'project role label');
 mustInclude('Outcome', 'project outcome label');
 mustInclude('href="/projects/ecommerce-platform.html"', 'ecommerce project detail link');
 mustInclude('href="/projects/role-junino.html"', 'role junino project detail link');
+mustInclude('href="/projects/researchnova.html"', 'research nova project detail link');
 mustInclude('href="/projects/rag-chatbot.html"', 'rag chatbot project detail link');
 
 for (const file of [
   'public/projects/ecommerce-platform.html',
   'public/projects/role-junino.html',
+  'public/projects/researchnova.html',
   'public/projects/rag-chatbot.html',
+  'public/attached_assets/researchnova-home-full.png',
   'public/favicon.svg',
   'public/robots.txt',
   'public/sitemap.xml',
@@ -70,6 +73,7 @@ mustInclude('Sitemap: https://ojuara.com/sitemap.xml', 'robots sitemap directive
 const sitemap = readFileSync('public/sitemap.xml', 'utf8');
 mustInclude('https://ojuara.com/projects/ecommerce-platform.html', 'ecommerce sitemap URL', sitemap);
 mustInclude('https://ojuara.com/projects/role-junino.html', 'role junino sitemap URL', sitemap);
+mustInclude('https://ojuara.com/projects/researchnova.html', 'research nova sitemap URL', sitemap);
 mustInclude('https://ojuara.com/projects/rag-chatbot.html', 'rag chatbot sitemap URL', sitemap);
 
 const llms = readFileSync('public/llms.txt', 'utf8');
@@ -79,3 +83,4 @@ mustInclude('thiagodsaraujo@gmail.com', 'llms email', llms);
 mustInclude('https://www.linkedin.com/in/thiago-araujo-5870a321a/', 'llms LinkedIn link', llms);
 mustInclude('https://github.com/thiagodsaraujo', 'llms GitHub link', llms);
 mustInclude('https://docs.google.com/document/d/1IVtspfgg2N0ScPjMIXoXsT14JO2tNTa8pbcwagPlOk4/edit?usp=sharing', 'llms resume document link', llms);
+mustInclude('https://ojuara.com/projects/researchnova.html', 'llms research nova link', llms);
