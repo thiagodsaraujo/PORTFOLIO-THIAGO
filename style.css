@@ -4848,7 +4848,7 @@ section {
 .portfolio-simplified .resume-column-title i {
   align-items: center;
   background: rgba(255, 0, 64, 0.1);
-  border: 1px solid rgba(255, 0, 64, 0.35);
+  border: 0;
   border-radius: 12px;
   color: #ff0040;
   display: inline-flex;
