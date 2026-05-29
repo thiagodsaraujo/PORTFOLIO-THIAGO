@@ -34,8 +34,8 @@ assert.ok(
 
 mustInclude('class="capabilities-grid"', 'capabilities layout');
 mustInclude('Backend & distributed systems', 'backend capability copy');
-mustInclude('RAG, chatbots & LLM delivery', 'ai capability copy');
-mustInclude('Product ownership & launch', 'product capability copy');
+mustInclude('Vibecoding, LLM Orchestration & RAG/Chatbots', 'ai capability copy');
+mustInclude('Product Development & launch', 'product capability copy');
 
 mustInclude('class="resume-content"', 'classic resume layout');
 mustInclude('class="timeline"', 'classic timeline layout');

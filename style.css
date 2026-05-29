@@ -5130,15 +5130,16 @@ section {
   }
 
   .portfolio-simplified .simplified-section {
-    padding: 56px 0;
+    padding: 48px 0;
   }
 
   .portfolio-simplified .resume.simplified-section {
-    padding-bottom: 42px;
+    padding-top: 24px;
+    padding-bottom: 32px;
   }
 
   .portfolio-simplified .projects.simplified-section {
-    padding-top: 42px;
+    padding-top: 32px;
   }
 
   .portfolio-simplified .contact.simplified-section {
