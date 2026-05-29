@@ -5807,6 +5807,17 @@ section {
   display: block;
 }
 
+.portfolio-simplified .case-study-card .project-media {
+  height: 300px;
+  min-height: 0;
+}
+
+.portfolio-simplified .case-study-card .project-media img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
 .portfolio-simplified .project-card-link {
   color: inherit;
   display: grid;
@@ -5923,6 +5934,10 @@ section {
 
   .portfolio-simplified .case-study-card .project-content {
     padding: 14px 14px 16px;
+  }
+
+  .portfolio-simplified .case-study-card .project-media {
+    height: 190px;
   }
 
   .portfolio-simplified .case-study-card .project-content h3 {
