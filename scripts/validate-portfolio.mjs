@@ -15,6 +15,7 @@ const position = value => {
 
 mustInclude('<meta name="description"', 'meta description');
 mustInclude('<link rel="canonical" href="https://ojuara.com/">', 'canonical URL');
+mustInclude('<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">', 'root SVG favicon');
 mustInclude('<meta property="og:title"', 'Open Graph title');
 mustInclude('<script type="application/ld+json">', 'JSON-LD schema');
 mustInclude('"@type": "ProfilePage"', 'ProfilePage schema');
@@ -55,6 +56,7 @@ for (const file of [
   'public/projects/ecommerce-platform.html',
   'public/projects/role-junino.html',
   'public/projects/rag-chatbot.html',
+  'public/favicon.svg',
   'public/robots.txt',
   'public/sitemap.xml',
   'public/llms.txt'
