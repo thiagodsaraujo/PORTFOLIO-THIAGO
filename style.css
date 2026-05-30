@@ -4628,6 +4628,11 @@ section {
   --text-muted: #777777;
   --border-color: rgba(255, 255, 255, 0.1);
   --gradient-primary: linear-gradient(135deg, #ff0040, #ffd700);
+  --motion-fast: 180ms;
+  --motion-medium: 420ms;
+  --motion-slow: 900ms;
+  --ease-out-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .portfolio-simplified .container {
@@ -5072,7 +5077,7 @@ section {
 
 .portfolio-simplified .animate-in {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: translate3d(0, 0, 0);
 }
 
 .portfolio-simplified .specialty-item,
@@ -5080,9 +5085,8 @@ section {
 .portfolio-simplified .experience-item,
 .portfolio-simplified .certification-strip,
 .portfolio-simplified .contact-simple {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 992px) {
@@ -5706,12 +5710,12 @@ section {
   display: flex;
   flex-direction: column;
   min-height: 410px;
-  opacity: 0;
+  opacity: 1;
   overflow: hidden;
   padding: 56px 30px 30px;
   position: relative;
-  transform: translateY(22px);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(0);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .portfolio-simplified .capability-panel::before {
@@ -5808,7 +5812,7 @@ section {
 }
 
 .portfolio-simplified .case-study-card .project-media {
-  height: 300px;
+  height: 240px;
   min-height: 0;
 }
 
@@ -5862,7 +5866,7 @@ section {
 }
 
 .portfolio-simplified .project-facts {
-  display: grid;
+  display: none;
   gap: 10px;
   margin: 12px 0 0;
 }
@@ -6053,10 +6057,10 @@ body.portfolio-simplified {
 }
 
 .portfolio-simplified .case-study-card .project-tech {
-  margin-top: auto;
+  margin-top: 18px;
   max-width: 100%;
   min-width: 0;
-  padding-top: 18px;
+  padding-top: 0;
 }
 
 .portfolio-simplified .case-study-card .project-tech span {
@@ -6078,5 +6082,398 @@ body.portfolio-simplified {
 
   .portfolio-simplified .case-study-card .project-tech span {
     max-width: 96px;
+  }
+}
+
+/* Structural motion system: visible content, animated lines and interactions */
+@keyframes heroCodeGlow {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(255, 0, 64, 0);
+  }
+
+  45% {
+    text-shadow: 0 0 18px rgba(255, 0, 64, 0.4);
+  }
+}
+
+@keyframes gradientDrift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes buttonSheen {
+  0%, 58% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+
+  82%, 100% {
+    transform: translateX(140%) skewX(-18deg);
+  }
+}
+
+@keyframes structuralLineDraw {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.portfolio-simplified .hero-code-line {
+  animation: heroCodeGlow 4.8s ease-in-out infinite;
+}
+
+.portfolio-simplified .btn {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  transition:
+    border-color var(--motion-medium) var(--ease-soft),
+    box-shadow var(--motion-medium) var(--ease-soft),
+    transform var(--motion-medium) var(--ease-soft);
+}
+
+.portfolio-simplified .btn::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.36), transparent);
+  content: '';
+  inset: -20% auto -20% 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-140%) skewX(-18deg);
+  width: 36%;
+  z-index: -1;
+}
+
+.portfolio-simplified .btn-primary {
+  animation: gradientDrift 7s ease-in-out infinite;
+  background-size: 180% 180%;
+}
+
+.portfolio-simplified .btn-primary::after {
+  animation: buttonSheen 4.8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.portfolio-simplified .btn:hover,
+.portfolio-simplified .btn:focus-visible {
+  transform: translate3d(0, -3px, 0);
+}
+
+.portfolio-simplified .nav-link::after,
+.portfolio-simplified .mobile-nav-item::before,
+.portfolio-simplified .resume-column-title,
+.portfolio-simplified .capability-panel::before,
+.portfolio-simplified .simple-project-card::before,
+.portfolio-simplified .contact-simple::before {
+  transform-origin: left;
+  transition:
+    opacity var(--motion-medium) var(--ease-soft),
+    transform var(--motion-medium) var(--ease-soft),
+    width var(--motion-medium) var(--ease-soft);
+}
+
+.portfolio-simplified .capability-panel.animate-in::before,
+.portfolio-simplified .simple-project-card.animate-in::before,
+.portfolio-simplified .contact-simple.animate-in::before {
+  animation: structuralLineDraw 720ms var(--ease-out-premium) both;
+}
+
+.portfolio-simplified .compact-header .section-kicker,
+.portfolio-simplified .resume-column-title i,
+.portfolio-simplified .project-type,
+.portfolio-simplified .capability-number {
+  transition:
+    color var(--motion-fast) ease,
+    opacity var(--motion-fast) ease,
+    text-shadow var(--motion-medium) var(--ease-soft),
+    transform var(--motion-medium) var(--ease-soft);
+}
+
+.portfolio-simplified .capability-panel,
+.portfolio-simplified .simple-project-card,
+.portfolio-simplified .timeline-content,
+.portfolio-simplified .contact-simple {
+  transition:
+    border-color var(--motion-medium) var(--ease-soft),
+    box-shadow var(--motion-medium) var(--ease-soft),
+    transform var(--motion-medium) var(--ease-soft);
+}
+
+.portfolio-simplified .capability-panel:hover,
+.portfolio-simplified .capability-panel:focus-within {
+  border-color: rgba(255, 23, 77, 0.36);
+  box-shadow: 0 30px 105px rgba(255, 23, 77, 0.13);
+  transform: translate3d(0, -4px, 0);
+}
+
+.portfolio-simplified .capability-panel:hover .capability-number,
+.portfolio-simplified .capability-panel:focus-within .capability-number {
+  text-shadow: 0 0 18px rgba(255, 0, 64, 0.55);
+  transform: translate3d(0, -1px, 0);
+}
+
+.portfolio-simplified .capability-panel:hover::before,
+.portfolio-simplified .capability-panel:focus-within::before,
+.portfolio-simplified .simple-project-card:hover::before,
+.portfolio-simplified .simple-project-card:focus-within::before,
+.portfolio-simplified .contact-simple:hover::before,
+.portfolio-simplified .contact-simple:focus-within::before {
+  width: 128px;
+}
+
+.portfolio-simplified .simple-project-card:hover,
+.portfolio-simplified .simple-project-card:focus-within {
+  border-color: rgba(255, 23, 77, 0.4);
+  box-shadow: 0 30px 110px rgba(255, 23, 77, 0.13);
+  transform: translate3d(0, -6px, 0);
+}
+
+.portfolio-simplified .simple-project-card .project-media img {
+  transition: transform var(--motion-slow) var(--ease-soft);
+}
+
+.portfolio-simplified .simple-project-card:hover .project-media img,
+.portfolio-simplified .simple-project-card:focus-within .project-media img {
+  transform: scale(1.035);
+}
+
+.portfolio-simplified .case-study-cta {
+  position: relative;
+}
+
+.portfolio-simplified .case-study-cta::after {
+  background: var(--gradient-primary);
+  bottom: -4px;
+  content: '';
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-medium) var(--ease-soft);
+  width: 100%;
+}
+
+.portfolio-simplified .simple-project-card:hover .case-study-cta::after,
+.portfolio-simplified .simple-project-card:focus-within .case-study-cta::after {
+  transform: scaleX(1);
+}
+
+.portfolio-simplified .timeline-marker {
+  transition:
+    box-shadow var(--motion-medium) var(--ease-soft),
+    transform var(--motion-medium) var(--ease-soft);
+}
+
+.portfolio-simplified .timeline-item.animate-in .timeline-marker,
+.portfolio-simplified .timeline-item:hover .timeline-marker {
+  box-shadow:
+    0 0 0 4px rgba(255, 0, 64, 0.12),
+    0 0 24px rgba(255, 0, 64, 0.28);
+}
+
+.portfolio-simplified .timeline-item:hover .timeline-marker {
+  transform: scale(1.06);
+}
+
+.portfolio-simplified .timeline-item:hover .timeline-content {
+  border-color: rgba(255, 23, 77, 0.28);
+  box-shadow: 0 22px 70px rgba(255, 23, 77, 0.09);
+}
+
+.portfolio-simplified .contact-email-row,
+.portfolio-simplified .contact-links > a {
+  transition:
+    background-color var(--motion-fast) ease,
+    border-color var(--motion-medium) var(--ease-soft),
+    color var(--motion-fast) ease,
+    transform var(--motion-medium) var(--ease-soft);
+}
+
+.portfolio-simplified .contact-email-row:hover,
+.portfolio-simplified .contact-links > a:hover {
+  background-color: rgba(255, 255, 255, 0.035);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .portfolio-simplified .particle {
+    animation: none !important;
+    opacity: 0.16;
+  }
+
+  .portfolio-simplified .capability-panel:hover,
+  .portfolio-simplified .simple-project-card:hover,
+  .portfolio-simplified .timeline-item:hover .timeline-marker,
+  .portfolio-simplified .contact-links > a:hover {
+    transform: none !important;
+  }
+}
+
+/* Premium motion v2: structural scroll motion, no content-hiding reveals */
+.portfolio-simplified .compact-header {
+  position: relative;
+  --header-line-progress: 0%;
+}
+
+.portfolio-simplified .compact-header::after {
+  background: var(--primary-color);
+  box-shadow: 0 0 14px rgba(255, 0, 64, 0.34);
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: clamp(1.1rem, 3vw, 1.7rem);
+  width: var(--header-line-progress);
+}
+
+.portfolio-simplified .compact-header .section-kicker,
+.portfolio-simplified .compact-header .section-title,
+.portfolio-simplified .compact-header .section-subtitle {
+  will-change: clip-path, transform;
+}
+
+.portfolio-simplified .capability-panel,
+.portfolio-simplified .simple-project-card,
+.portfolio-simplified .contact-simple {
+  --card-line-progress: 24%;
+  will-change: transform;
+}
+
+.portfolio-simplified .capability-panel::before,
+.portfolio-simplified .simple-project-card::before,
+.portfolio-simplified .contact-simple::before {
+  transform: none;
+  width: var(--card-line-progress);
+}
+
+.portfolio-simplified .capability-panel.animate-in::before,
+.portfolio-simplified .simple-project-card.animate-in::before,
+.portfolio-simplified .contact-simple.animate-in::before {
+  animation: none;
+}
+
+.portfolio-simplified .capability-panel {
+  padding-top: clamp(4.8rem, 9vw, 5.5rem);
+}
+
+.portfolio-simplified .capability-number {
+  background: transparent;
+  border: 0;
+  color: var(--primary-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1.25rem, 4.8vw, 2.15rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  min-height: 0;
+  opacity: 0.9;
+  padding: 0;
+  right: clamp(1.35rem, 4vw, 2rem);
+  top: clamp(1.2rem, 4vw, 1.75rem);
+}
+
+.portfolio-simplified .capability-panel:hover,
+.portfolio-simplified .capability-panel:focus-within {
+  border-color: rgba(255, 0, 64, 0.5);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.38),
+    0 0 32px rgba(255, 0, 64, 0.13);
+  transform: translate3d(0, -6px, 0);
+}
+
+body.portfolio-simplified.motion-enabled .timeline::before {
+  transform: scaleY(var(--timeline-progress, 0));
+  transform-origin: top;
+}
+
+.portfolio-simplified .timeline-item.timeline-active .timeline-marker {
+  box-shadow:
+    0 0 0 5px rgba(255, 0, 64, 0.12),
+    0 0 22px rgba(255, 0, 64, 0.28);
+}
+
+.portfolio-simplified .timeline-content {
+  will-change: transform;
+}
+
+.portfolio-simplified .case-study-card .project-card-link {
+  grid-template-rows: auto 1fr;
+  min-height: 100%;
+}
+
+.portfolio-simplified .case-study-card .project-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-simplified .case-study-card .project-tech {
+  margin-top: auto;
+}
+
+.portfolio-simplified .case-study-cta {
+  align-self: flex-start;
+}
+
+.portfolio-simplified .project-media img {
+  --project-image-y: 0px;
+  --project-image-scale: 1.04;
+  transform: translate3d(0, var(--project-image-y), 0) scale(var(--project-image-scale));
+  transform-origin: center;
+  will-change: transform;
+}
+
+.portfolio-simplified .simple-project-card:hover .project-media img,
+.portfolio-simplified .simple-project-card:focus-within .project-media img {
+  --project-image-scale: 1.08;
+}
+
+.portfolio-simplified .case-study-cta::after {
+  background: var(--primary-color);
+}
+
+.portfolio-simplified .contact-simple:hover::before,
+.portfolio-simplified .contact-simple:focus-within::before,
+.portfolio-simplified .simple-project-card:hover::before,
+.portfolio-simplified .simple-project-card:focus-within::before,
+.portfolio-simplified .capability-panel:hover::before,
+.portfolio-simplified .capability-panel:focus-within::before {
+  --card-line-progress: 34%;
+}
+
+body.portfolio-simplified.motion-reduced .compact-header::after,
+body.portfolio-simplified.motion-reduced .capability-panel::before,
+body.portfolio-simplified.motion-reduced .simple-project-card::before,
+body.portfolio-simplified.motion-reduced .contact-simple::before {
+  width: 24%;
+}
+
+@media (max-width: 768px) {
+  .portfolio-simplified .compact-header::after {
+    margin-top: 1rem;
+  }
+
+  .portfolio-simplified .capability-panel {
+    padding-top: 4.5rem;
+  }
+
+  .portfolio-simplified .capability-number {
+    font-size: 1.3rem;
+    right: 1.35rem;
+    top: 1.25rem;
   }
 }
