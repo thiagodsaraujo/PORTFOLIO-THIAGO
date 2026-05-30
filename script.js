@@ -1,3 +1,8 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const sections = ['home', 'tech-stack', 'resume', 'projects', 'contact'];
 
 const navbar = document.getElementById('navbar');
@@ -21,7 +26,205 @@ document.addEventListener('DOMContentLoaded', () => {
   setupParticles();
   setupScrollEffects();
   setupSectionReveals();
+  setupMotionSystem();
 });
+
+function shouldReduceMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function setupMotionSystem() {
+  if (shouldReduceMotion()) {
+    document.body.classList.add('motion-reduced');
+    return;
+  }
+
+  document.body.classList.add('motion-enabled');
+  setupHeroMotion();
+  setupSectionHeaderMotion();
+  setupCapabilityMotion();
+  setupTimelineMotion();
+  setupProjectMotion();
+  setupContactMotion();
+}
+
+function setupHeroMotion() {
+  const hero = document.querySelector('.hero');
+  if (!hero) {
+    return;
+  }
+
+  gsap.fromTo('.hero-code-line',
+    { y: -8 },
+    { y: 0, duration: 0.8, ease: 'power3.out' }
+  );
+
+  gsap.to('.hero-bg', {
+    backgroundPosition: '54% 50%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: hero,
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 0.7,
+    },
+  });
+}
+
+function setupSectionHeaderMotion() {
+  gsap.utils.toArray('.compact-header').forEach(header => {
+    const parts = [
+      header.querySelector('.section-kicker'),
+      header.querySelector('.section-title'),
+      header.querySelector('.section-subtitle')
+    ].filter(Boolean);
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: header,
+        start: 'top 84%',
+        once: true,
+      },
+    });
+
+    timeline
+      .from(parts, {
+        y: 18,
+        clipPath: 'inset(0 0 100% 0)',
+        duration: 0.66,
+        stagger: 0.08,
+        ease: 'power3.out',
+      })
+      .to(header, {
+        '--header-line-progress': '100%',
+        duration: 0.72,
+        ease: 'power3.out',
+      }, '-=0.24');
+  });
+}
+
+function setupCapabilityMotion() {
+  gsap.utils.toArray('.capability-panel').forEach((card, index) => {
+    gsap.fromTo(card,
+      { y: 18, scale: 0.985, '--card-line-progress': '0%' },
+      {
+        y: 0,
+        scale: 1,
+        '--card-line-progress': '24%',
+        duration: 0.75,
+        delay: index * 0.04,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 84%',
+          once: true,
+        },
+      }
+    );
+  });
+}
+
+function setupTimelineMotion() {
+  gsap.utils.toArray('.timeline').forEach(timeline => {
+    gsap.to(timeline, {
+      '--timeline-progress': 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: timeline,
+        start: 'top 82%',
+        end: 'bottom 72%',
+        scrub: 0.45,
+      },
+    });
+  });
+
+  gsap.utils.toArray('.timeline-item').forEach(item => {
+    const marker = item.querySelector('.timeline-marker');
+    const content = item.querySelector('.timeline-content');
+    const targets = [marker, content].filter(Boolean);
+
+    if (!targets.length) {
+      return;
+    }
+
+    gsap.fromTo(targets,
+      { y: 14, scale: 0.985 },
+      {
+        y: 0,
+        scale: 1,
+        duration: 0.55,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 86%',
+          once: true,
+          toggleClass: { targets: item, className: 'timeline-active' },
+        },
+      }
+    );
+  });
+}
+
+function setupProjectMotion() {
+  gsap.utils.toArray('.simple-project-card').forEach(card => {
+    const image = card.querySelector('.project-media img');
+
+    if (image) {
+      gsap.fromTo(image,
+        { '--project-image-y': '-12px' },
+        {
+          '--project-image-y': '12px',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.6,
+          },
+        }
+      );
+    }
+
+    gsap.fromTo(card,
+      { y: 22, scale: 0.985, '--card-line-progress': '0%' },
+      {
+        y: 0,
+        scale: 1,
+        '--card-line-progress': '24%',
+        duration: 0.75,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 86%',
+          once: true,
+        },
+      }
+    );
+  });
+}
+
+function setupContactMotion() {
+  const contact = document.querySelector('.contact-simple');
+  if (!contact) {
+    return;
+  }
+
+  gsap.fromTo(contact,
+    { y: 18, scale: 0.99, '--card-line-progress': '0%' },
+    {
+      y: 0,
+      scale: 1,
+      '--card-line-progress': '24%',
+      duration: 0.75,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: contact,
+        start: 'top 86%',
+        once: true,
+      },
+    }
+  );
+}
 
 function setupNavigation() {
   const allNavLinks = [...navLinks, ...mobileNavLinks];
@@ -169,7 +372,7 @@ function updateActiveNavLink(activeSection) {
 
 function setupSectionReveals() {
   const animatedElements = document.querySelectorAll(
-    '.capability-panel, .simple-project-card, .timeline-item, .certification-item, .contact-simple'
+    '.compact-header, .capability-panel, .resume-column-title, .timeline-item, .certification-item, .simple-project-card, .contact-simple'
   );
 
   const observer = new IntersectionObserver(entries => {
@@ -184,7 +387,10 @@ function setupSectionReveals() {
     rootMargin: '0px 0px -40px 0px'
   });
 
-  animatedElements.forEach(element => observer.observe(element));
+  animatedElements.forEach((element, index) => {
+    element.style.setProperty('--reveal-index', index % 6);
+    observer.observe(element);
+  });
 }
 
 function setupEmailCopy() {
