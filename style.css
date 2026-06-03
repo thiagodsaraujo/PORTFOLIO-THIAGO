@@ -5304,15 +5304,16 @@ section {
 
 .portfolio-simplified .typing-subtitle {
   color: var(--text-primary);
-  font-size: clamp(2.65rem, 7vw, 6.2rem);
+  font-size: clamp(2.65rem, 7vw, 5.8rem);
   font-weight: 800;
-  letter-spacing: -0.07em;
+  letter-spacing: -0.045em;
   line-height: 0.95;
   margin: 0 auto 24px;
   max-width: 920px;
   min-height: clamp(3.1rem, 7vw, 6.4rem);
   text-shadow: 0 0 42px rgba(255, 23, 77, 0.25);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .portfolio-simplified .typing-subtitle .cursor {
@@ -5663,8 +5664,8 @@ section {
   }
 
   .portfolio-simplified .typing-subtitle {
-    font-size: clamp(2.6rem, 11vw, 4rem);
-    min-height: 4.25rem;
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+    min-height: 3.75rem;
   }
 
   .portfolio-simplified .hero-note {
