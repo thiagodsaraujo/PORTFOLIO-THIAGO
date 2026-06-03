@@ -30,6 +30,12 @@ mustInclude('https://docs.google.com/document/d/1IVtspfgg2N0ScPjMIXoXsT14JO2tNTa
 mustInclude('mailto:thiagodsaraujo@gmail.com', 'email mailto link');
 mustInclude('thiagodsaraujo@gmail.com', 'visible email');
 mustInclude('class="copy-email-btn"', 'copy email button');
+mustInclude('<h1 class="hero-name">Thiago Araujo</h1>', 'short hero name');
+mustInclude('Backend systems, applied AI, and products that ship.', 'short hero note');
+mustNotInclude('<h1 class="hero-name">I\'m Thiago Araujo</h1>', 'old hero intro copy');
+mustNotInclude('Backend engineering + AI-assisted execution leadership with Java, AWS, Docker, SQL, Kafka, and LLM orchestration.', 'old long hero note');
+mustNotInclude('Backend, AI, and product execution from Brazil.', 'rejected Brazil hero note');
+mustNotInclude('<span id="typed-role">Problem Solver</span>', 'old initial typed role');
 
 assert.ok(
   position('id="tech-stack"') < position('id="resume"') &&
@@ -150,3 +156,17 @@ mustInclude('setupBioTypingAnimation', 'bio typing animation setup', bioScript);
 mustInclude('Backend systems', 'bio typing role backend systems', bioScript);
 mustInclude('Product execution', 'bio typing role product execution', bioScript);
 mustInclude('AI workflows', 'bio typing role AI workflows', bioScript);
+
+const script = readFileSync('script.js', 'utf8');
+for (const role of [
+  'Backend Engineer',
+  'AI Builder',
+  'Product Builder',
+  'Kitesurfer',
+  'CrossFitter'
+]) {
+  mustInclude(`'${role}'`, `${role} typing role`, script);
+}
+mustNotInclude("'Problem Solver'", 'old Problem Solver typing role', script);
+mustNotInclude("'AI-Assisted Tech Lead'", 'old AI-Assisted Tech Lead typing role', script);
+mustNotInclude("'LLM Workflow Architect'", 'old LLM Workflow Architect typing role', script);

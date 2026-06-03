@@ -11,11 +11,11 @@ const mobileNavLinks = document.querySelectorAll('.mobile-nav-item');
 const particlesContainer = document.getElementById('particles');
 const typedRole = document.getElementById('typed-role');
 const typingRoles = [
-  'Problem Solver',
   'Backend Engineer',
-  'AI-Assisted Tech Lead',
-  'LLM Workflow Architect',
-  'Product Builder'
+  'AI Builder',
+  'Product Builder',
+  'Kitesurfer',
+  'CrossFitter'
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
