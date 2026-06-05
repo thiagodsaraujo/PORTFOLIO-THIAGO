@@ -44,10 +44,16 @@
 
   window.dataLayer.push({
     event: config.eventName || 'bio_link_clicked',
+    element_id: link.element_id,
+    element_label: link.element_label,
+    element_type: link.element_type,
+    page_section: link.page_section,
     link_id: link.link_id,
     link_label: link.link_label,
     placement: link.placement,
     destination_type: link.destination_type,
+    destination_domain: link.destination_domain,
+    is_outbound: link.is_outbound,
     eventCallback: redirectOnce,
     eventTimeout: 900
   });
