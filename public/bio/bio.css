@@ -11,6 +11,11 @@
   --bio-green: #98d982;
   --bio-gradient: linear-gradient(135deg, #ff0040, #ffd700);
   --bio-shadow: 0 34px 120px rgba(0, 0, 0, 0.48);
+  --bio-stage-pad: clamp(10px, 2.4svh, 18px);
+  --bio-content-gap: clamp(12px, 1.8svh, 18px);
+  --bio-content-pad: clamp(16px, 3.2svh, 24px);
+  --bio-link-height: 50px;
+  --bio-primary-link-height: 56px;
 }
 
 * {
@@ -31,15 +36,17 @@ body.bio-page {
   margin: 0;
   min-height: 100svh;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .bio-stage {
   align-items: center;
   display: flex;
+  height: 100svh;
   isolation: isolate;
   justify-content: center;
   min-height: 100svh;
-  padding: clamp(20px, 5vw, 48px);
+  padding: var(--bio-stage-pad);
   position: relative;
 }
 
@@ -71,10 +78,11 @@ body.bio-page {
     var(--bio-panel);
   border: 1px solid var(--bio-border);
   box-shadow: var(--bio-shadow), 0 0 60px rgba(255, 0, 64, 0.10);
-  max-width: 500px;
+  max-height: calc(100svh - 16px);
+  max-width: 460px;
   overflow: hidden;
   position: relative;
-  width: min(100%, 500px);
+  width: min(100%, 460px);
 }
 
 .bio-console::before {
@@ -92,10 +100,10 @@ body.bio-page {
   background: rgba(255, 255, 255, 0.045);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: grid;
-  gap: 14px;
+  gap: 10px;
   grid-template-columns: auto 1fr;
-  min-height: 48px;
-  padding: 0 18px;
+  min-height: 40px;
+  padding: 0 16px;
 }
 
 .window-controls {
@@ -126,7 +134,7 @@ body.bio-page {
 .console-prompt {
   color: var(--bio-muted);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   margin: 0;
   min-width: 0;
   overflow-wrap: anywhere;
@@ -134,15 +142,15 @@ body.bio-page {
 
 .bio-content {
   display: grid;
-  gap: 24px;
-  padding: clamp(24px, 6vw, 34px);
+  gap: var(--bio-content-gap);
+  padding: var(--bio-content-pad);
 }
 
 .identity-row {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
   text-align: center;
 }
 
@@ -154,9 +162,9 @@ body.bio-page {
     0 0 0 1px rgba(255, 215, 0, 0.22),
     0 18px 55px rgba(0, 0, 0, 0.42);
   display: block;
-  height: 118px;
+  height: 96px;
   object-fit: cover;
-  width: 118px;
+  width: 96px;
 }
 
 .identity-copy {
@@ -168,10 +176,10 @@ body.bio-page {
   color: var(--bio-green);
   display: flex;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.76rem;
+  font-size: 0.7rem;
   gap: 8px;
   justify-content: center;
-  margin: 0 0 8px;
+  margin: 0 0 5px;
 }
 
 .status-line span {
@@ -187,7 +195,7 @@ body.bio-page {
 
 h1 {
   color: var(--bio-text);
-  font-size: clamp(2.1rem, 9vw, 3.2rem);
+  font-size: clamp(1.95rem, 7.4vw, 2.65rem);
   letter-spacing: 0;
   line-height: 0.95;
   margin: 0;
@@ -201,10 +209,10 @@ h1 {
   color: rgba(255, 255, 255, 0.76);
   display: grid;
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(0.72rem, 3.1vw, 0.84rem);
-  gap: 6px;
-  line-height: 1.6;
-  padding: 16px 18px;
+  font-size: clamp(0.66rem, 2.8vw, 0.78rem);
+  gap: 3px;
+  line-height: 1.42;
+  padding: 10px 14px;
 }
 
 .terminal-block p {
@@ -217,7 +225,7 @@ h1 {
 }
 
 .terminal-typing-line {
-  min-height: 1.6em;
+  min-height: 1.42em;
 }
 
 .terminal-block p:last-child::after {
@@ -252,12 +260,12 @@ h1 {
 
 .bio-links {
   display: grid;
-  gap: 12px;
+  gap: 8px;
 }
 
 .secondary-links {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .bio-link {
@@ -268,8 +276,8 @@ h1 {
   display: flex;
   font-weight: 700;
   justify-content: space-between;
-  min-height: 56px;
-  padding: 0 18px;
+  min-height: var(--bio-link-height);
+  padding: 0 16px;
   text-decoration: none;
   transition:
     background-color 180ms ease,
@@ -302,7 +310,7 @@ h1 {
   background: var(--bio-gradient);
   border-color: transparent;
   color: #080808;
-  min-height: 62px;
+  min-height: var(--bio-primary-link-height);
 }
 
 .primary-link:hover,
@@ -315,50 +323,33 @@ h1 {
 .credential-line {
   color: var(--bio-dim);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 0.64rem;
+  font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 1;
+  line-height: 1.28;
   margin: 0 auto;
   max-width: 100%;
-  overflow: hidden;
-  padding: 2px 0;
-  position: relative;
+  padding: 0;
   text-align: center;
   text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.credential-line::before,
-.credential-line::after {
-  content: '';
-  height: 100%;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  width: 20px;
-  z-index: 1;
-}
-
-.credential-line::before {
-  background: linear-gradient(90deg, rgba(13, 13, 13, 0.98), transparent);
-  left: 0;
-}
-
-.credential-line::after {
-  background: linear-gradient(90deg, transparent, rgba(13, 13, 13, 0.98));
-  right: 0;
 }
 
 .credential-track {
-  animation: credentialDrift 10s ease-in-out infinite alternate;
-  display: inline-block;
-  padding: 0 22px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 9px;
+  justify-content: center;
 }
 
-.credential-track span {
+.credential-row {
+  display: inline-flex;
+  gap: 0.34em;
+  white-space: nowrap;
+}
+
+.credential-row span {
   color: rgba(255, 215, 0, 0.58);
-  padding: 0 0.34em;
 }
 
 .bio-console {
@@ -457,20 +448,17 @@ h1 {
   }
 }
 
-@keyframes credentialDrift {
-  from {
-    transform: translateX(12px);
-  }
-
-  to {
-    transform: translateX(-12px);
-  }
-}
-
 @media (max-width: 460px) {
+  :root {
+    --bio-stage-pad: 8px;
+    --bio-content-gap: 10px;
+    --bio-content-pad: 14px;
+    --bio-link-height: 46px;
+    --bio-primary-link-height: 52px;
+  }
+
   .bio-stage {
     align-items: stretch;
-    padding: 14px;
   }
 
   .bio-console {
@@ -482,13 +470,12 @@ h1 {
   }
 
   .bio-avatar {
-    height: 104px;
-    width: 104px;
+    height: 78px;
+    width: 78px;
   }
 
   .bio-link {
-    min-height: 54px;
-    padding: 0 15px;
+    padding: 0 14px;
   }
 }
 
@@ -498,8 +485,74 @@ h1 {
   }
 
   .bio-avatar {
-    height: 96px;
-    width: 96px;
+    height: 72px;
+    width: 72px;
+  }
+}
+
+@media (max-height: 760px) {
+  :root {
+    --bio-stage-pad: 6px;
+    --bio-content-gap: 8px;
+    --bio-content-pad: 10px 12px;
+    --bio-link-height: 42px;
+    --bio-primary-link-height: 48px;
+  }
+
+  .console-topbar {
+    min-height: 34px;
+    padding: 0 12px;
+  }
+
+  .window-controls span {
+    height: 8px;
+    width: 8px;
+  }
+
+  .console-prompt {
+    font-size: 0.66rem;
+  }
+
+  .identity-row {
+    gap: 7px;
+  }
+
+  .bio-avatar {
+    height: 64px;
+    width: 64px;
+  }
+
+  .status-line {
+    font-size: 0.62rem;
+    margin-bottom: 3px;
+  }
+
+  .status-line span {
+    height: 6px;
+    width: 6px;
+  }
+
+  h1 {
+    font-size: clamp(1.72rem, 6.8vw, 2.08rem);
+  }
+
+  .terminal-block {
+    font-size: 0.61rem;
+    line-height: 1.32;
+    padding: 8px 10px;
+  }
+
+  .bio-link {
+    font-size: 0.86rem;
+    padding: 0 12px;
+  }
+
+  .bio-link span {
+    gap: 9px;
+  }
+
+  .credential-line {
+    font-size: 0.48rem;
   }
 }
 
