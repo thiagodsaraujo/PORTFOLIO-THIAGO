@@ -19,6 +19,7 @@ const typingRoles = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+  setupAnalyticsTracking();
   setupNavigation();
   setupTypingAnimation();
   setupEmailCopy();
@@ -28,6 +29,49 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSectionReveals();
   setupMotionSystem();
 });
+
+const analyticsFields = [
+  'elementId',
+  'elementLabel',
+  'elementType',
+  'pageSection',
+  'placement',
+  'destinationType',
+  'destinationDomain',
+  'linkId',
+  'projectId',
+  'projectName',
+  'isOutbound'
+];
+
+const toSnakeCase = value => value.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`);
+
+function setupAnalyticsTracking() {
+  window.dataLayer = window.dataLayer || [];
+
+  document.addEventListener('click', event => {
+    const target = event.target.closest('[data-track-event]');
+    if (!target) {
+      return;
+    }
+
+    const eventName = target.dataset.trackEvent;
+    if (!eventName) {
+      return;
+    }
+
+    const payload = { event: eventName };
+
+    analyticsFields.forEach(field => {
+      const value = target.dataset[field];
+      if (value !== undefined && value !== '') {
+        payload[toSnakeCase(field)] = value;
+      }
+    });
+
+    window.dataLayer.push(payload);
+  }, true);
+}
 
 function shouldReduceMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -36,6 +36,17 @@ mustInclude('https://docs.google.com/document/d/1IVtspfgg2N0ScPjMIXoXsT14JO2tNTa
 mustInclude('mailto:thiagodsaraujo@gmail.com', 'email mailto link');
 mustInclude('thiagodsaraujo@gmail.com', 'visible email');
 mustInclude('class="copy-email-btn"', 'copy email button');
+mustInclude('data-track-event="portfolio_cta_clicked"', 'portfolio CTA click tracking');
+mustInclude('data-track-event="portfolio_nav_clicked"', 'portfolio nav click tracking');
+mustInclude('data-track-event="portfolio_project_clicked"', 'portfolio project click tracking');
+mustInclude('data-track-event="portfolio_social_clicked"', 'portfolio social click tracking');
+mustInclude('data-track-event="portfolio_contact_clicked"', 'portfolio contact click tracking');
+mustInclude('data-track-event="portfolio_resource_clicked"', 'portfolio resource click tracking');
+mustInclude('data-element-id="hero_resume"', 'resume CTA tracking id');
+mustInclude('data-element-id="hero_contact"', 'contact CTA tracking id');
+mustInclude('data-element-id="contact_copy_email"', 'copy email tracking id');
+mustInclude('data-destination-domain="email"', 'email tracking avoids full address');
+mustInclude('data-is-outbound="true"', 'outbound tracking flag');
 mustInclude('<h1 class="hero-name">Thiago Araujo</h1>', 'short hero name');
 mustInclude('Backend systems, applied AI, and products that ship.', 'short hero note');
 mustNotInclude('<h1 class="hero-name">I\'m Thiago Araujo</h1>', 'old hero intro copy');
@@ -44,8 +55,8 @@ mustNotInclude('Backend, AI, and product execution from Brazil.', 'rejected Braz
 mustNotInclude('<span id="typed-role">Problem Solver</span>', 'old initial typed role');
 
 assert.ok(
-  position('id="tech-stack"') < position('id="resume"') &&
-    position('id="resume"') < position('id="projects"'),
+  position('<section id="tech-stack"') < position('<section id="resume"') &&
+    position('<section id="resume"') < position('<section id="projects"'),
   'sections should be ordered as capabilities, experience, projects'
 );
 
@@ -94,6 +105,8 @@ for (const file of [
   assert.ok(existsSync(file), `${file} should exist`);
 }
 
+assert.ok(!existsSync('public/script.js'), 'legacy public/script.js should not shadow the Vite module');
+
 const robots = readFileSync('public/robots.txt', 'utf8');
 mustInclude('Sitemap: https://ojuara.com/sitemap.xml', 'robots sitemap directive', robots);
 
@@ -111,6 +124,18 @@ mustInclude('https://ojuara.com/projects/ecommerce-platform.html', 'ecommerce si
 mustInclude('https://ojuara.com/projects/role-junino.html', 'role junino sitemap URL', sitemap);
 mustInclude('https://ojuara.com/projects/researchnova.html', 'research nova sitemap URL', sitemap);
 mustInclude('https://ojuara.com/projects/rag-chatbot.html', 'rag chatbot sitemap URL', sitemap);
+
+for (const projectPage of [
+  'public/projects/ecommerce-platform.html',
+  'public/projects/role-junino.html',
+  'public/projects/researchnova.html',
+  'public/projects/rag-chatbot.html'
+]) {
+  const projectHtml = readFileSync(projectPage, 'utf8');
+  mustInclude(gtmScriptId, `${projectPage} GTM container id`, projectHtml);
+  mustInclude(gtmScriptUrl, `${projectPage} GTM script`, projectHtml);
+  mustInclude(gtmNoscriptUrl, `${projectPage} GTM noscript iframe`, projectHtml);
+}
 
 const llms = readFileSync('public/llms.txt', 'utf8');
 mustInclude('Thiago Araujo', 'llms identity', llms);
@@ -158,8 +183,14 @@ const bioConfig = readFileSync('public/bio/bio-config.js', 'utf8');
 mustInclude('GTM-T6K3NTDN', 'GTM container id', bioConfig);
 mustInclude('bio_link_clicked', 'bio click event name', bioConfig);
 mustInclude('link_id', 'bio tracking link id property', bioConfig);
+mustInclude('element_id', 'bio tracking element id property', bioConfig);
+mustInclude('element_label', 'bio tracking element label property', bioConfig);
+mustInclude('element_type', 'bio tracking element type property', bioConfig);
+mustInclude('page_section', 'bio tracking page section property', bioConfig);
 mustInclude('placement', 'bio tracking placement property', bioConfig);
 mustInclude('destination_type', 'bio non-PII destination type property', bioConfig);
+mustInclude('destination_domain', 'bio non-PII destination domain property', bioConfig);
+mustInclude('is_outbound', 'bio outbound flag property', bioConfig);
 mustInclude("destination_url: 'https://rolejunino.com/'", 'Role Junino production URL', bioConfig);
 
 const bioScript = readFileSync('public/bio/bio.js', 'utf8');
@@ -172,7 +203,13 @@ mustInclude('AI workflows', 'bio typing role AI workflows', bioScript);
 const redirectScript = readFileSync('public/bio/redirect.js', 'utf8');
 mustInclude('window.dataLayer.push', 'bio redirect GTM event push', redirectScript);
 mustInclude('eventCallback: redirectOnce', 'bio redirect waits for GTM callback', redirectScript);
+mustInclude('element_id: link.element_id', 'bio redirect sends element id', redirectScript);
+mustInclude('element_label: link.element_label', 'bio redirect sends element label', redirectScript);
+mustInclude('element_type: link.element_type', 'bio redirect sends element type', redirectScript);
+mustInclude('page_section: link.page_section', 'bio redirect sends page section', redirectScript);
 mustInclude('destination_type: link.destination_type', 'bio redirect avoids destination URL in analytics payload', redirectScript);
+mustInclude('destination_domain: link.destination_domain', 'bio redirect sends destination domain only', redirectScript);
+mustInclude('is_outbound: link.is_outbound', 'bio redirect sends outbound flag', redirectScript);
 mustNotInclude('destination_url: link.destination_url', 'bio redirect avoids URL analytics payload', redirectScript);
 
 for (const route of ['portfolio', 'linkedin', 'github', 'email', 'role-junino']) {
@@ -190,6 +227,12 @@ mustInclude('height: 78px', 'bio compact mobile avatar', bioStyles);
 mustInclude('flex-wrap: wrap', 'bio credentials wrap instead of clipping', bioStyles);
 
 const script = readFileSync('script.js', 'utf8');
+mustInclude('function setupAnalyticsTracking()', 'portfolio analytics tracking helper', script);
+mustInclude("document.addEventListener('click'", 'portfolio analytics click listener', script);
+mustInclude('window.dataLayer.push(payload)', 'portfolio analytics dataLayer push', script);
+mustInclude('elementId', 'portfolio analytics element id field', script);
+mustInclude('destinationDomain', 'portfolio analytics destination domain field', script);
+mustInclude('isOutbound', 'portfolio analytics outbound field', script);
 for (const role of [
   'Backend Engineer',
   'AI Builder',
