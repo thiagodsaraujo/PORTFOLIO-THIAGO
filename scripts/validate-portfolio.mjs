@@ -2,6 +2,9 @@ import { existsSync, readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 
 const index = readFileSync('index.html', 'utf8');
+const gtmScriptId = 'GTM-T6K3NTDN';
+const gtmScriptUrl = `https://www.googletagmanager.com/gtm.js?id='+i+dl`;
+const gtmNoscriptUrl = `https://www.googletagmanager.com/ns.html?id=${gtmScriptId}`;
 
 const mustInclude = (value, label, source = index) => {
   assert.ok(source.includes(value), `${label} is missing`);
@@ -21,6 +24,9 @@ mustInclude('<meta name="description"', 'meta description');
 mustInclude('<link rel="canonical" href="https://ojuara.com/">', 'canonical URL');
 mustInclude('<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">', 'root SVG favicon');
 mustInclude('<meta property="og:title"', 'Open Graph title');
+mustInclude(gtmScriptId, 'home GTM container id');
+mustInclude(gtmScriptUrl, 'home GTM script');
+mustInclude(gtmNoscriptUrl, 'home GTM noscript iframe');
 mustInclude('<script type="application/ld+json">', 'JSON-LD schema');
 mustInclude('"@type": "ProfilePage"', 'ProfilePage schema');
 mustInclude('"@type": "Person"', 'Person schema');
@@ -117,6 +123,9 @@ mustInclude('https://ojuara.com/projects/researchnova.html', 'llms research nova
 
 const bio = readFileSync('public/bio/index.html', 'utf8');
 mustInclude('<link rel="canonical" href="https://ojuara.com/bio">', 'bio canonical URL', bio);
+mustInclude(gtmScriptId, 'bio GTM container id', bio);
+mustInclude(gtmScriptUrl, 'bio GTM script', bio);
+mustInclude(gtmNoscriptUrl, 'bio GTM noscript iframe', bio);
 mustInclude('thiago@ojuara:~/bio', 'bio console prompt', bio);
 mustInclude('Thiago Araujo', 'bio identity', bio);
 mustNotInclude('class="bio-subtitle"', 'removed static bio subtitle below name', bio);
@@ -146,17 +155,32 @@ mustNotInclude('<li>Java</li>', 'removed Java badge', bio);
 mustNotInclude('<li>Docker</li>', 'removed Docker badge', bio);
 
 const bioConfig = readFileSync('public/bio/bio-config.js', 'utf8');
-mustInclude('GA_MEASUREMENT_ID', 'GA4 placeholder', bioConfig);
+mustInclude('GTM-T6K3NTDN', 'GTM container id', bioConfig);
 mustInclude('bio_link_clicked', 'bio click event name', bioConfig);
 mustInclude('link_id', 'bio tracking link id property', bioConfig);
 mustInclude('placement', 'bio tracking placement property', bioConfig);
+mustInclude('destination_type', 'bio non-PII destination type property', bioConfig);
 mustInclude("destination_url: 'https://rolejunino.com/'", 'Role Junino production URL', bioConfig);
 
 const bioScript = readFileSync('public/bio/bio.js', 'utf8');
+mustInclude('window.dataLayer = window.dataLayer || []', 'bio GTM dataLayer initialization', bioScript);
 mustInclude('setupBioTypingAnimation', 'bio typing animation setup', bioScript);
 mustInclude('Backend systems', 'bio typing role backend systems', bioScript);
 mustInclude('Product execution', 'bio typing role product execution', bioScript);
 mustInclude('AI workflows', 'bio typing role AI workflows', bioScript);
+
+const redirectScript = readFileSync('public/bio/redirect.js', 'utf8');
+mustInclude('window.dataLayer.push', 'bio redirect GTM event push', redirectScript);
+mustInclude('eventCallback: redirectOnce', 'bio redirect waits for GTM callback', redirectScript);
+mustInclude('destination_type: link.destination_type', 'bio redirect avoids destination URL in analytics payload', redirectScript);
+mustNotInclude('destination_url: link.destination_url', 'bio redirect avoids URL analytics payload', redirectScript);
+
+for (const route of ['portfolio', 'linkedin', 'github', 'email', 'role-junino']) {
+  const routeHtml = readFileSync(`public/bio/go/${route}/index.html`, 'utf8');
+  mustInclude(gtmScriptId, `bio ${route} redirect GTM container id`, routeHtml);
+  mustInclude(gtmScriptUrl, `bio ${route} redirect GTM script`, routeHtml);
+  mustInclude(gtmNoscriptUrl, `bio ${route} redirect GTM noscript iframe`, routeHtml);
+}
 
 const bioStyles = readFileSync('public/bio/bio.css', 'utf8');
 mustInclude('--bio-content-gap', 'bio compact content gap variable', bioStyles);
