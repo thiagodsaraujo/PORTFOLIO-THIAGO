@@ -136,6 +136,7 @@ mustInclude('class="fas fa-fire"', 'bio Role Junino fire icon', bio);
 mustNotInclude('/attached_assets/role-junino-button-logo.png', 'rejected bio Role Junino button logo asset', bio);
 mustInclude('class="credential-line"', 'bio single credential line', bio);
 mustInclude('class="credential-track"', 'bio credential single-line track', bio);
+mustInclude('class="credential-row"', 'bio compact credential rows', bio);
 mustNotInclude('<ul class="tech-chips"', 'removed stacked credential badges', bio);
 mustInclude('Backend Developer', 'bio backend badge', bio);
 mustInclude('AI Agents', 'bio AI agents badge', bio);
@@ -156,6 +157,13 @@ mustInclude('setupBioTypingAnimation', 'bio typing animation setup', bioScript);
 mustInclude('Backend systems', 'bio typing role backend systems', bioScript);
 mustInclude('Product execution', 'bio typing role product execution', bioScript);
 mustInclude('AI workflows', 'bio typing role AI workflows', bioScript);
+
+const bioStyles = readFileSync('public/bio/bio.css', 'utf8');
+mustInclude('--bio-content-gap', 'bio compact content gap variable', bioStyles);
+mustInclude('max-height: calc(100svh - 16px)', 'bio viewport height guard', bioStyles);
+mustInclude('@media (max-height: 760px)', 'bio short viewport compact mode', bioStyles);
+mustInclude('height: 78px', 'bio compact mobile avatar', bioStyles);
+mustInclude('flex-wrap: wrap', 'bio credentials wrap instead of clipping', bioStyles);
 
 const script = readFileSync('script.js', 'utf8');
 for (const role of [
