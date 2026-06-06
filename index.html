@@ -10,6 +10,14 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-T6K3NTDN');</script>
   <!-- End Google Tag Manager -->
+  <!-- GA4 fallback for portfolio click events not yet mapped in GTM. Pageviews stay in GTM. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PKT29R7KJQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PKT29R7KJQ', { send_page_view: false });
+  </script>
   <title>Thiago Araujo</title>
   <meta name="description" content="Thiago Araujo is a backend engineer and AI-assisted tech lead focused on Java, distributed systems, LLM orchestration, and production product delivery.">
   <meta name="robots" content="index, follow">
