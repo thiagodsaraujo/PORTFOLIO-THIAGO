@@ -223,8 +223,8 @@ const bioStyles = readFileSync('public/bio/bio.css', 'utf8');
 mustInclude('--bio-content-gap', 'bio compact content gap variable', bioStyles);
 mustInclude('max-height: calc(100svh - 16px)', 'bio viewport height guard', bioStyles);
 mustInclude('@media (max-height: 760px)', 'bio short viewport compact mode', bioStyles);
-mustInclude('height: 78px', 'bio compact mobile avatar', bioStyles);
-mustInclude('flex-wrap: wrap', 'bio credentials wrap instead of clipping', bioStyles);
+mustInclude('height: 128px', 'bio enlarged compact mobile avatar', bioStyles);
+mustInclude('flex-wrap: nowrap', 'bio credentials stay on one line', bioStyles);
 
 const script = readFileSync('script.js', 'utf8');
 mustInclude('function setupAnalyticsTracking()', 'portfolio analytics tracking helper', script);
