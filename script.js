@@ -44,6 +44,13 @@ const analyticsFields = [
   'isOutbound'
 ];
 
+const directGaFallbackEvents = new Set([
+  'portfolio_project_clicked',
+  'portfolio_social_clicked',
+  'portfolio_contact_clicked',
+  'portfolio_resource_clicked'
+]);
+
 const toSnakeCase = value => value.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`);
 
 function setupAnalyticsTracking() {
@@ -70,7 +77,18 @@ function setupAnalyticsTracking() {
     });
 
     window.dataLayer.push(payload);
+
+    sendDirectGaFallback(eventName, payload);
   }, true);
+}
+
+function sendDirectGaFallback(eventName, payload) {
+  if (!directGaFallbackEvents.has(eventName) || typeof window.gtag !== 'function') {
+    return;
+  }
+
+  const { event: _event, ...eventParams } = payload;
+  window.gtag('event', eventName, eventParams);
 }
 
 function shouldReduceMotion() {
