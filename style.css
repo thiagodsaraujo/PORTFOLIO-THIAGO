@@ -6478,3 +6478,104 @@ body.portfolio-simplified.motion-reduced .contact-simple::before {
     top: 1.25rem;
   }
 }
+
+/* Mobile hero proportional fit: keep the same UI, only adjust scale/spacing. */
+@media (max-width: 768px) {
+  .portfolio-simplified .hero {
+    box-sizing: border-box;
+    min-height: 100dvh;
+    overflow: hidden;
+    padding-top: clamp(52px, 8dvh, 72px);
+    padding-bottom: calc(86px + env(safe-area-inset-bottom));
+  }
+
+  .portfolio-simplified .hero-code-line {
+    font-size: clamp(0.62rem, 2.1vw, 0.76rem);
+    top: max(14px, env(safe-area-inset-top));
+    width: calc(100% - 32px);
+  }
+
+  .portfolio-simplified .simplified-hero-content {
+    justify-content: center;
+    padding-inline: 22px;
+  }
+
+  .portfolio-simplified .hero-name {
+    font-size: clamp(1.2rem, 4.8vw, 1.55rem);
+    margin-bottom: clamp(10px, 1.8dvh, 16px);
+  }
+
+  .portfolio-simplified .typing-subtitle {
+    font-size: clamp(2.45rem, 11vw, 3.45rem);
+    line-height: 0.92;
+    margin-bottom: clamp(14px, 2.2dvh, 20px);
+    min-height: clamp(2.35rem, 10.2vw, 3.25rem);
+    white-space: nowrap;
+  }
+
+  .portfolio-simplified .hero-note {
+    font-size: clamp(0.9rem, 3.4vw, 1rem);
+    line-height: 1.48;
+    margin-bottom: clamp(14px, 2dvh, 20px);
+    max-width: 340px;
+  }
+
+  .portfolio-simplified .hero-location {
+    margin-bottom: clamp(18px, 2.5dvh, 24px);
+  }
+
+  .portfolio-simplified .hero-cta {
+    gap: 10px;
+  }
+
+  .portfolio-simplified .btn {
+    max-width: 286px;
+    min-height: 48px;
+    padding: 13px 22px;
+  }
+}
+
+@media (max-width: 380px), (max-height: 760px) {
+  .portfolio-simplified .hero {
+    padding-top: clamp(44px, 6.5dvh, 58px);
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .portfolio-simplified .hero-code-line {
+    font-size: clamp(0.58rem, 2vw, 0.68rem);
+    top: max(10px, env(safe-area-inset-top));
+    width: calc(100% - 24px);
+  }
+
+  .portfolio-simplified .hero-name {
+    font-size: clamp(1.08rem, 4.4vw, 1.35rem);
+    margin-bottom: 9px;
+  }
+
+  .portfolio-simplified .typing-subtitle {
+    font-size: clamp(2.15rem, 10.5vw, 3rem);
+    margin-bottom: 12px;
+    min-height: clamp(2rem, 9.8vw, 2.8rem);
+  }
+
+  .portfolio-simplified .hero-note {
+    font-size: clamp(0.84rem, 3.35vw, 0.93rem);
+    line-height: 1.42;
+    margin-bottom: 12px;
+    max-width: 318px;
+  }
+
+  .portfolio-simplified .hero-location {
+    margin-bottom: 14px;
+  }
+
+  .portfolio-simplified .hero-cta {
+    gap: 8px;
+  }
+
+  .portfolio-simplified .btn {
+    max-width: 272px;
+    min-height: 46px;
+    padding: 12px 20px;
+  }
+}

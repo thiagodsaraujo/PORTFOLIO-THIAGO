@@ -12,10 +12,11 @@
   --bio-gradient: linear-gradient(135deg, #ff0040, #ffd700);
   --bio-shadow: 0 34px 120px rgba(0, 0, 0, 0.48);
   --bio-stage-pad: clamp(10px, 2.4svh, 18px);
-  --bio-content-gap: clamp(12px, 1.8svh, 18px);
-  --bio-content-pad: clamp(16px, 3.2svh, 24px);
-  --bio-link-height: 50px;
-  --bio-primary-link-height: 56px;
+  --bio-content-gap: clamp(16px, 2.2svh, 22px);
+  --bio-content-pad: clamp(18px, 3.4svh, 26px);
+  --bio-link-gap: clamp(14px, 1.7svh, 18px);
+  --bio-link-height: 58px;
+  --bio-primary-link-height: 64px;
 }
 
 * {
@@ -78,6 +79,7 @@ body.bio-page {
     var(--bio-panel);
   border: 1px solid var(--bio-border);
   box-shadow: var(--bio-shadow), 0 0 60px rgba(255, 0, 64, 0.10);
+  height: calc(100svh - (var(--bio-stage-pad) * 2));
   max-height: calc(100svh - 16px);
   max-width: 460px;
   overflow: hidden;
@@ -142,7 +144,9 @@ body.bio-page {
 
 .bio-content {
   display: grid;
+  grid-template-rows: auto auto auto 1fr;
   gap: var(--bio-content-gap);
+  height: calc(100% - 40px);
   padding: var(--bio-content-pad);
 }
 
@@ -162,9 +166,9 @@ body.bio-page {
     0 0 0 1px rgba(255, 215, 0, 0.22),
     0 18px 55px rgba(0, 0, 0, 0.42);
   display: block;
-  height: 96px;
+  height: 120px;
   object-fit: cover;
-  width: 96px;
+  width: 120px;
 }
 
 .identity-copy {
@@ -198,7 +202,7 @@ h1 {
   font-size: clamp(1.95rem, 7.4vw, 2.65rem);
   letter-spacing: 0;
   line-height: 0.95;
-  margin: 0;
+  margin: 0 0 clamp(20px, 2.6svh, 30px);
 }
 
 .terminal-block {
@@ -212,6 +216,7 @@ h1 {
   font-size: clamp(0.66rem, 2.8vw, 0.78rem);
   gap: 3px;
   line-height: 1.42;
+  margin-top: clamp(16px, 2.4svh, 28px);
   padding: 10px 14px;
 }
 
@@ -260,12 +265,13 @@ h1 {
 
 .bio-links {
   display: grid;
-  gap: 8px;
+  gap: var(--bio-link-gap);
+  margin-top: clamp(12px, 1.7svh, 20px);
 }
 
 .secondary-links {
   display: grid;
-  gap: 8px;
+  gap: var(--bio-link-gap);
 }
 
 .bio-link {
@@ -277,7 +283,7 @@ h1 {
   font-weight: 700;
   justify-content: space-between;
   min-height: var(--bio-link-height);
-  padding: 0 16px;
+  padding: 0 18px;
   text-decoration: none;
   transition:
     background-color 180ms ease,
@@ -289,12 +295,14 @@ h1 {
 .bio-link span {
   align-items: center;
   display: inline-flex;
-  gap: 12px;
+  gap: 14px;
   min-width: 0;
 }
 
 .bio-link i {
   flex: 0 0 auto;
+  font-size: 1.08rem;
+  width: 1.25rem;
 }
 
 .bio-link:hover,
@@ -321,31 +329,42 @@ h1 {
 }
 
 .credential-line {
+  align-self: end;
   color: var(--bio-dim);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 0.58rem;
+  font-size: clamp(0.34rem, 1.08vw, 0.48rem);
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 1.28;
+  line-height: 1;
   margin: 0 auto;
   max-width: 100%;
+  overflow: hidden;
   padding: 0;
   text-align: center;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .credential-track {
   align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px 9px;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0.58em;
   justify-content: center;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .credential-row {
   display: inline-flex;
   gap: 0.34em;
   white-space: nowrap;
+}
+
+.credential-row + .credential-row::before {
+  color: rgba(255, 215, 0, 0.58);
+  content: '|';
+  margin-right: 0.24em;
 }
 
 .credential-row span {
@@ -451,10 +470,11 @@ h1 {
 @media (max-width: 460px) {
   :root {
     --bio-stage-pad: 8px;
-    --bio-content-gap: 10px;
-    --bio-content-pad: 14px;
-    --bio-link-height: 46px;
-    --bio-primary-link-height: 52px;
+    --bio-content-gap: clamp(14px, 2svh, 18px);
+    --bio-content-pad: clamp(16px, 2.8svh, 22px) 14px;
+    --bio-link-gap: clamp(12px, 1.45svh, 16px);
+    --bio-link-height: 56px;
+    --bio-primary-link-height: 62px;
   }
 
   .bio-stage {
@@ -470,12 +490,17 @@ h1 {
   }
 
   .bio-avatar {
-    height: 78px;
-    width: 78px;
+    height: 128px;
+    width: 128px;
   }
 
   .bio-link {
-    padding: 0 14px;
+    padding: 0 16px;
+  }
+
+  .bio-link i {
+    font-size: 1.12rem;
+    width: 1.32rem;
   }
 }
 
@@ -485,18 +510,19 @@ h1 {
   }
 
   .bio-avatar {
-    height: 72px;
-    width: 72px;
+    height: 112px;
+    width: 112px;
   }
 }
 
 @media (max-height: 760px) {
   :root {
     --bio-stage-pad: 6px;
-    --bio-content-gap: 8px;
+    --bio-content-gap: 9px;
     --bio-content-pad: 10px 12px;
-    --bio-link-height: 42px;
-    --bio-primary-link-height: 48px;
+    --bio-link-gap: 9px;
+    --bio-link-height: 48px;
+    --bio-primary-link-height: 54px;
   }
 
   .console-topbar {
@@ -518,8 +544,8 @@ h1 {
   }
 
   .bio-avatar {
-    height: 64px;
-    width: 64px;
+    height: 104px;
+    width: 104px;
   }
 
   .status-line {
@@ -539,7 +565,12 @@ h1 {
   .terminal-block {
     font-size: 0.61rem;
     line-height: 1.32;
+    margin-top: 12px;
     padding: 8px 10px;
+  }
+
+  .bio-links {
+    margin-top: 7px;
   }
 
   .bio-link {
@@ -551,8 +582,13 @@ h1 {
     gap: 9px;
   }
 
+  .bio-link i {
+    font-size: 1rem;
+    width: 1.18rem;
+  }
+
   .credential-line {
-    font-size: 0.48rem;
+    font-size: 0.34rem;
   }
 }
 
